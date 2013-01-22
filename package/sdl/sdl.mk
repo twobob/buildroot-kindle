@@ -47,11 +47,6 @@ ifeq ($(BR2_PACKAGE_ALSA_LIB),y)
 SDL_DEPENDENCIES += alsa-lib
 endif
 
-ifeq ($(BR2_PACKAGE_AALIB),y)
-SDL_CONF_OPT+=--enable-video-aalib
-SDL_DEPENDENCIES += aalib
-endif
-
 ifeq ($(BR2_PACKAGE_MESA3D),y)
 SDL_DEPENDENCIES += mesa3d
 endif

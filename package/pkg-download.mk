@@ -22,10 +22,19 @@ LOCALFILES:=$(call qstrip,$(BR2_LOCALFILES))
 # external-deps target.
 DL_MODE=DOWNLOAD
 
-DL_DIR=$(call qstrip,$(BR2_DL_DIR))
+# Override BR2_DL_DIR if shell variable defined
+ifneq ($(BUILDROOT_DL_DIR),)
+DL_DIR:=$(BUILDROOT_DL_DIR)
+else
+DL_DIR:=$(call qstrip,$(BR2_DL_DIR))
+endif
+
 ifeq ($(DL_DIR),)
 DL_DIR:=$(TOPDIR)/dl
 endif
+
+# ensure it exists and a absolute path
+DL_DIR:=$(shell mkdir -p $(DL_DIR) && cd $(DL_DIR) >/dev/null && pwd)
 
 #
 # URI scheme helper functions
@@ -64,10 +73,13 @@ domainseparator=$(if $(1),$(1),/)
 # "external dependencies" of a given build configuration.
 ################################################################################
 
+# Try a shallow clone - but that only works if the version is a ref (tag or
+# branch). Fall back on a full clone if it's a generic sha1.
 define DOWNLOAD_GIT
 	test -e $(DL_DIR)/$($(PKG)_SOURCE) || \
 	(pushd $(DL_DIR) > /dev/null && \
-	$(GIT) clone --bare $($(PKG)_SITE) $($(PKG)_BASE_NAME) && \
+	 ($(GIT) clone --depth 1 -b $($(PKG)_DL_VERSION) --bare $($(PKG)_SITE) $($(PKG)_BASE_NAME) || \
+	  $(GIT) clone --bare $($(PKG)_SITE) $($(PKG)_BASE_NAME)) && \
 	pushd $($(PKG)_BASE_NAME) > /dev/null && \
 	$(GIT) archive --format=tar --prefix=$($(PKG)_BASE_NAME)/ $($(PKG)_DL_VERSION) | \
 		gzip -c > $(DL_DIR)/$($(PKG)_SOURCE) && \

@@ -1,10 +1,12 @@
+// -*- mode:doc; -*-
+
 Infrastructure for CMake-based packages
----------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 [[cmake-package-tutorial]]
 
 +cmake-package+ tutorial
-~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 First, let's see how to write a +.mk+ file for a CMake-based package,
 with an example :
@@ -21,7 +23,7 @@ with an example :
 09: LIBFOO_INSTALL_STAGING = YES
 10: LIBFOO_INSTALL_TARGET = YES
 11: LIBFOO_CONF_OPT = -DBUILD_DEMOS=ON
-12: LIBFOO_DEPENDENCIES = libglib2 host-pkg-config
+12: LIBFOO_DEPENDENCIES = libglib2 host-pkgconf
 13:
 14: $(eval $(cmake-package))
 ------------------------
@@ -63,7 +65,7 @@ package to be built.
 [[cmake-package-reference]]
 
 +cmake-package+ reference
-~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The main macro of the CMake package infrastructure is
 +cmake-package+. It is similar to the +generic-package+ macro. The ability to

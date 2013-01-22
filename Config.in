@@ -14,7 +14,7 @@ config BR2_HOSTARCH
 	string
 	option env="HOSTARCH"
 
-source "target/Config.in.arch"
+source "arch/Config.in"
 
 menu "Build options"
 
@@ -146,18 +146,6 @@ config BR2_BACKUP_SITE
 	  Backup site to download from. If this option is set then buildroot
 	  will fall back to download package sources from here if the
 	  normal location fails.
-
-config BR2_SOURCEFORGE_MIRROR
-	string "Sourceforge mirror site"
-	default "kent"
-	help
-	  Sourceforge has a system of mirror sites.  Some sites may be
-	  closer to your location, and sometimes mirror sites go down
-	  and are no longer available.  This option allows you to select
-	  your preferred Sourceforge mirror site.
-
-	  The list of mirrors is available here:
-	  http://sourceforge.net/apps/trac/sourceforge/wiki/Mirrors
 
 config BR2_KERNEL_MIRROR
 	string "Kernel.org mirror"
@@ -405,6 +393,8 @@ config BR2_PREFER_STATIC_LIB
 
 config BR2_HAVE_DOCUMENTATION
 	bool "documentation on the target"
+	# We no longer want to support a toolchain on the target
+	depends on BR2_DEPRECATED
 	help
 	  Install the documentation, including manual pages and info
 	  pages, on the target.
@@ -413,6 +403,8 @@ config BR2_HAVE_DOCUMENTATION
 
 config BR2_HAVE_DEVFILES
 	bool "development files in target filesystem"
+	# We no longer want to support a toolchain on the target
+	depends on BR2_DEPRECATED
 	help
 	  Install headers and static libraries in the
 	  target filesystem
@@ -431,7 +423,7 @@ endmenu
 
 source "toolchain/Config.in"
 
-source "target/generic/Config.in"
+source "system/Config.in"
 
 source "package/Config.in"
 

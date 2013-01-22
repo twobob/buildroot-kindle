@@ -4,8 +4,8 @@
 #
 #############################################################
 
-IMAGEMAGICK_MAJOR = 6.7.6
-IMAGEMAGICK_VERSION = $(IMAGEMAGICK_MAJOR)-9
+IMAGEMAGICK_MAJOR = 6.7.8
+IMAGEMAGICK_VERSION = $(IMAGEMAGICK_MAJOR)-8
 IMAGEMAGICK_SOURCE = ImageMagick-$(IMAGEMAGICK_VERSION).tar.bz2
 # The official ImageMagick site only keeps the latest versions
 # available, which is annoying. Use an alternate site that keeps all
@@ -33,7 +33,7 @@ IMAGEMAGICK_CONF_OPT = --program-transform-name='s,,,' \
 		--without-fpx \
 		--without-x
 
-IMAGEMAGICK_DEPENDENCIES = host-pkg-config
+IMAGEMAGICK_DEPENDENCIES = host-pkgconf
 
 ifeq ($(BR2_PACKAGE_FONTCONFIG),y)
 IMAGEMAGICK_CONF_OPT += --with-fontconfig

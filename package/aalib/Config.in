@@ -1,6 +1,0 @@
-config BR2_PACKAGE_AALIB
-	bool "aalib"
-	help
-	  AAlib is an portable ascii art GFX library. If you wish to see some examples of AAlib technology, please browse AA-project homepage.
-	  
-	  http://aa-project.sourceforge.net/index.html

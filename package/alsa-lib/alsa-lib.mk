@@ -4,9 +4,11 @@
 #
 #############################################################
 
-ALSA_LIB_VERSION = 1.0.25
+ALSA_LIB_VERSION = 1.0.26
 ALSA_LIB_SOURCE = alsa-lib-$(ALSA_LIB_VERSION).tar.bz2
-ALSA_LIB_SITE = ftp://ftp.alsa-project.org/pub/lib
+ALSA_LIB_SITE = http://alsa.cybermirror.org/lib
+ALSA_LIB_LICENSE = LGPLv2.1+
+ALSA_LIB_LICENSE_FILES = COPYING
 ALSA_LIB_INSTALL_STAGING = YES
 ALSA_LIB_CFLAGS=$(TARGET_CFLAGS)
 ALSA_LIB_CONF_OPT = --with-alsa-devdir=$(call qstrip,$(BR2_PACKAGE_ALSA_LIB_DEVDIR)) \

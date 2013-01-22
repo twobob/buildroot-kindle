@@ -1,5 +1,7 @@
+// -*- mode:doc; -*-
+
 Infrastructure for packages with specific build systems
--------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 By 'packages with specific build systems' we mean all the packages
 whose build system is not one of the standard ones, such as
@@ -9,7 +11,7 @@ system is based on hand-written Makefiles or shell scripts.
 [[generic-package-tutorial]]
 
 +generic-package+ Tutorial
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 ------------------------------
 01: #############################################################
@@ -20,33 +22,35 @@ system is based on hand-written Makefiles or shell scripts.
 06: LIBFOO_VERSION = 1.0
 07: LIBFOO_SOURCE = libfoo-$(LIBFOO_VERSION).tar.gz
 08: LIBFOO_SITE = http://www.foosoftware.org/download
-09: LIBFOO_INSTALL_STAGING = YES
-10: LIBFOO_DEPENDENCIES = host-libaaa libbbb
-11:
-12: define LIBFOO_BUILD_CMDS
-13: 	$(MAKE) CC="$(TARGET_CC)" LD="$(TARGET_LD)" -C $(@D) all
-14: endef
-15:
-16: define LIBFOO_INSTALL_STAGING_CMDS
-17: 	$(INSTALL) -D -m 0755 $(@D)/libfoo.a $(STAGING_DIR)/usr/lib/libfoo.a
-18: 	$(INSTALL) -D -m 0644 $(@D)/foo.h $(STAGING_DIR)/usr/include/foo.h
-19: 	$(INSTALL) -D -m 0755 $(@D)/libfoo.so* $(STAGING_DIR)/usr/lib
-20: endef
-21:
-22: define LIBFOO_INSTALL_TARGET_CMDS
-23: 	$(INSTALL) -D -m 0755 $(@D)/libfoo.so* $(TARGET_DIR)/usr/lib
-24: 	$(INSTALL) -d -m 0755 $(TARGET_DIR)/etc/foo.d
-25: endef
-26:
-27: define LIBFOO_DEVICES
-28: 	/dev/foo  c  666  0  0  42  0  -  -  -
-29: endef
-30:
-31: define LIBFOO_PERMISSIONS
-32: 	/bin/foo  f  4755  0  0  -  -  -  -  -
-33: endef
-34:
-35: $(eval $(generic-package))
+09: LIBFOO_LICENSE = GPLv3+
+10: LIBFOO_LICENSE_FILES = COPYING
+11: LIBFOO_INSTALL_STAGING = YES
+12: LIBFOO_DEPENDENCIES = host-libaaa libbbb
+13:
+14: define LIBFOO_BUILD_CMDS
+15:	$(MAKE) CC="$(TARGET_CC)" LD="$(TARGET_LD)" -C $(@D) all
+16: endef
+17:
+18: define LIBFOO_INSTALL_STAGING_CMDS
+19:	$(INSTALL) -D -m 0755 $(@D)/libfoo.a $(STAGING_DIR)/usr/lib/libfoo.a
+20:	$(INSTALL) -D -m 0644 $(@D)/foo.h $(STAGING_DIR)/usr/include/foo.h
+21:	$(INSTALL) -D -m 0755 $(@D)/libfoo.so* $(STAGING_DIR)/usr/lib
+22: endef
+23:
+24: define LIBFOO_INSTALL_TARGET_CMDS
+25:	$(INSTALL) -D -m 0755 $(@D)/libfoo.so* $(TARGET_DIR)/usr/lib
+26:	$(INSTALL) -d -m 0755 $(TARGET_DIR)/etc/foo.d
+27: endef
+28:
+29: define LIBFOO_DEVICES
+30:	/dev/foo  c  666  0  0	42  0  -  -  -
+31: endef
+32:
+33: define LIBFOO_PERMISSIONS
+34:	/bin/foo  f  4755  0  0	 -  -  -  -  -
+35: endef
+36:
+37: $(eval $(generic-package))
 --------------------------------
 
 The Makefile begins on line 6 to 8 with metadata information: the
@@ -90,7 +94,7 @@ Makefile code necessary to make your package working.
 [[generic-package-reference]]
 
 +generic-package+ Reference
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 There are two variants of the generic target. The +generic-package+ macro is
 used for packages to be cross-compiled for the target.  The
@@ -167,9 +171,7 @@ information is (assuming the package name is +libfoo+) :
   slash for absolute paths:
   +scp://[user@]host:/absolutepath+. +
   If +HOST_LIBFOO_SITE+ is not specified, it defaults to
-  +LIBFOO_SITE+. If none are specified, then the location is assumed
-  to be
-  +http://$$(BR2_SOURCEFORGE_MIRROR).dl.sourceforge.net/sourceforge/packagename+. +
+  +LIBFOO_SITE+.
   Examples: +
     +LIBFOO_SITE=http://www.libfoosoftware.org/libfoo+ +
     +LIBFOO_SITE=http://svn.xiph.org/trunk/Tremor/+ +
@@ -245,7 +247,7 @@ information is (assuming the package name is +libfoo+) :
 * +LIBFOO_LICENSE+ defines the license (or licenses) under which the package
   is released.
   This name will appear in the manifest file produced by +make legal-info+.
-  If the license is one of those listed in xref:legal-info[],
+  If the license appears in xref:legal-info-list-licenses[the following list],
   use the same string to make the manifest file uniform.
   Otherwise, describe the license in a precise and concise way, avoiding
   ambiguous names such as +BSD+ which actually name a family of licenses.
@@ -349,7 +351,8 @@ of the package construction. The hooks are more useful for packages
 using the autotools infrastructure described below.  However, since
 they are provided by the generic infrastructure, they are documented
 here. The exception is +LIBFOO_POST_PATCH_HOOKS+.  Patching the
-package is not user definable, so +LIBFOO_POST_PATCH_HOOKS+ will be
+package and producing legal info are not user definable, so
++LIBFOO_POST_PATCH_HOOKS+ and +LIBFOO_POST_LEGAL_INFO_HOOKS+ will be
 userful for generic packages.
 
 The following hook points are available:
@@ -361,6 +364,7 @@ The following hook points are available:
 * +LIBFOO_POST_INSTALL_HOOKS+ (for host packages only)
 * +LIBFOO_POST_INSTALL_STAGING_HOOKS+ (for target packages only)
 * +LIBFOO_POST_INSTALL_TARGET_HOOKS+ (for target packages only)
+* +LIBFOO_POST_LEGAL_INFO_HOOKS+
 
 These variables are 'lists' of variable names containing actions to be
 performed at this hook point. This allows several hooks to be
