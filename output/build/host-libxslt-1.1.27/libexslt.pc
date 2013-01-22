@@ -1,0 +1,12 @@
+prefix=/home/simon/GIT/buildroot-k3-current/output/host/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+
+Name: libexslt
+Version: 0.8.16
+Description: EXSLT Extension library
+Requires: libxml-2.0
+Libs:  -lexslt -lxslt  -L/home/simon/GIT/buildroot-k3-current/output/host/usr/lib -lxml2 -lz -lm -lm 
+Cflags: 

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>X Generic Event Extension</title><meta name="generator" content="DocBook XSL Stylesheets V1.76.1" /></head><body><div class="book" title="X Generic Event Extension"><div class="titlepage"><div><div><h1 class="title"><a id="idm3206648"></a>X Generic Event Extension</h1></div><div><div class="author"><h3 class="author"><span class="firstname">Peter</span> <span class="surname">Hutterer</span></h3><div class="affiliation"><span class="orgname">peter.hutterer@who-t.net<br /></span></div></div></div></div><hr /></div><div class="toc"><p><strong>Table of Contents</strong></p><dl><dt><span class="chapter"><a href="#idp1548584">1. Introduction</a></span></dt><dt><span class="chapter"><a href="#idp1550112">2. Extension Initialization</a></span></dt><dt><span class="chapter"><a href="#idp1537976">3. Events</a></span></dt><dt><span class="chapter"><a href="#idp1539760">4. Notes</a></span></dt></dl></div><div class="chapter" title="Chapter 1. Introduction"><div class="titlepage"><div><div><h2 class="title"><a id="idp1548584"></a>Chapter 1. Introduction</h2></div></div></div><p>X was designed to provide 64 event opcodes for all extensions. These
+    events are limited to 32 bytes.</p><p>The Generic Event Extension provides a template event for extensions
+    to re-use a single event opcode. GE only provide headers and the most
+    basic functionality, leaving the extensions to interpret the events in
+    their specific context.</p><p>GenericEvents may be longer than 32 bytes. If so, the number of 4
+    byte units following the initial 32 bytes must be specified in the length
+    field of the event.</p></div><div class="chapter" title="Chapter 2. Extension Initialization"><div class="titlepage"><div><div><h2 class="title"><a id="idp1550112"></a>Chapter 2. Extension Initialization</h2></div></div></div><p>The name of this extension is "Generic Event Extension"</p><pre class="programlisting">GEQueryVersion
+    client-major-version: CARD16
+    client-minor-version: CARD16
+==&gt;
+    major-version:        CARD16
+    minor-version:        CARD16</pre><p>The client sends the highest supported version to the server and the
+    server sends the highest version it supports, but no higher than the
+    requested version. Major versions changes can introduce incompatibilities
+    in existing functionality, minor version changes introduce only backward
+    compatible changes. It is the clients responsibility to ensure that the
+    server supports a version which is compatible with its
+    expectations.</p><p>As of version 1.0, no other requests are provided by this extension.
+    </p></div><div class="chapter" title="Chapter 3. Events"><div class="titlepage"><div><div><h2 class="title"><a id="idp1537976"></a>Chapter 3. Events</h2></div></div></div><p>GE defines a single event, to be used by all extensions. The event's
+    structure is similar to a reply. This is a core protocol event, ID 35, and
+    is not itself an extension event.</p><pre class="programlisting">GenericEvent
+    type:           BYTE       always GenericEvent (35)
+    extension:      CARD8      extension offset
+    sequenceNumber: CARD16     low 16 bits of request seq. number
+    length:         CARD32     length
+    evtype:         CARD16     event type</pre><p>The field 'extension' is to be set to the major opcode of the
+    extension. The 'evtype' field is the actual opcode of the event. The
+    length field specifies the number of 4-byte blocks after the initial 32
+    bytes. If length is 0, the event is 32 bytes long.</p></div><div class="chapter" title="Chapter 4. Notes"><div class="titlepage"><div><div><h2 class="title"><a id="idp1539760"></a>Chapter 4. Notes</h2></div></div></div><p>Although the wire event is of arbitrary length, the actual size of
+    an XEvent is restricted to sizeof(XEvent) [96 bytes, see Xlib.h]. If an
+    extension converts a wire event to an XEvent &gt; 96 bytes, it will
+    overwrite the space allocated for the event. See struct _XSQEvent in
+    Xlibint.h for details.</p><p>Extensions need to malloc additional data and fill the XEvent
+    structure with pointers to the malloc'd data. The client then needs to
+    free the data, only the XEvent structure will be released by Xlib.</p><p>The server must not send GenericEvents longer than 32 bytes until it
+    has verified that the client is able to interpret these events. If a long
+    event is sent to a client unable to process GenericEvents, future
+    interpretation of replies and events by this client will fail.</p></div></div></body></html>

@@ -1,0 +1,3 @@
+flac.lo flac.o: flac.c ../config.h
+
+../config.h:

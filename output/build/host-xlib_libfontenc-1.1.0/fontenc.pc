@@ -1,0 +1,10 @@
+prefix=/home/simon/GIT/buildroot-k3-current/output/host/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: fontenc
+Description: The fontenc Library
+Version: 1.1.0
+Cflags: -I${includedir}
+Libs: -L${libdir} -lfontenc

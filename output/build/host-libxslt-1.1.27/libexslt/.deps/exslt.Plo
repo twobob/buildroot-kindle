@@ -1,0 +1,199 @@
+exslt.lo: exslt.c ../libexslt/libexslt.h ../config.h \
+ ../libxslt/xsltconfig.h \
+ /home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/xmlversion.h \
+ /home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/xmlexports.h \
+ ../libxslt/extensions.h \
+ /home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/xpath.h \
+ /home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/xmlerror.h \
+ /home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/parser.h \
+ /usr/lib/gcc/i686-linux-gnu/4.6/include/stdarg.h \
+ /home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/tree.h \
+ /usr/include/stdio.h /usr/include/features.h \
+ /usr/include/i386-linux-gnu/bits/predefs.h \
+ /usr/include/i386-linux-gnu/sys/cdefs.h \
+ /usr/include/i386-linux-gnu/bits/wordsize.h \
+ /usr/include/i386-linux-gnu/gnu/stubs.h \
+ /usr/include/i386-linux-gnu/gnu/stubs-32.h \
+ /usr/lib/gcc/i686-linux-gnu/4.6/include/stddef.h \
+ /usr/include/i386-linux-gnu/bits/types.h \
+ /usr/include/i386-linux-gnu/bits/typesizes.h /usr/include/libio.h \
+ /usr/include/_G_config.h /usr/include/wchar.h \
+ /usr/include/i386-linux-gnu/bits/stdio_lim.h \
+ /usr/include/i386-linux-gnu/bits/sys_errlist.h \
+ /usr/include/i386-linux-gnu/bits/stdio.h \
+ /usr/include/i386-linux-gnu/bits/stdio2.h \
+ /home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/xmlstring.h \
+ /home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/xmlregexp.h \
+ /home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/dict.h \
+ /home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/hash.h \
+ /home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/valid.h \
+ /home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/list.h \
+ /home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/xmlautomata.h \
+ /home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/entities.h \
+ /home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/encoding.h \
+ /usr/include/iconv.h \
+ /home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/xmlIO.h \
+ /home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/globals.h \
+ /home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/SAX.h \
+ /usr/include/stdlib.h /usr/include/i386-linux-gnu/bits/waitflags.h \
+ /usr/include/i386-linux-gnu/bits/waitstatus.h /usr/include/endian.h \
+ /usr/include/i386-linux-gnu/bits/endian.h \
+ /usr/include/i386-linux-gnu/bits/byteswap.h /usr/include/xlocale.h \
+ /usr/include/i386-linux-gnu/sys/types.h /usr/include/time.h \
+ /usr/include/i386-linux-gnu/sys/select.h \
+ /usr/include/i386-linux-gnu/bits/select.h \
+ /usr/include/i386-linux-gnu/bits/sigset.h \
+ /usr/include/i386-linux-gnu/bits/time.h \
+ /usr/include/i386-linux-gnu/bits/select2.h \
+ /usr/include/i386-linux-gnu/sys/sysmacros.h \
+ /usr/include/i386-linux-gnu/bits/pthreadtypes.h /usr/include/alloca.h \
+ /usr/include/i386-linux-gnu/bits/stdlib.h \
+ /home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/xlink.h \
+ /home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/SAX2.h \
+ /home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/xmlmemory.h \
+ /home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/threads.h \
+ ../libxslt/xsltexports.h ../libxslt/xsltInternals.h ../libxslt/xslt.h \
+ ../libxslt/xsltlocale.h ../libxslt/numbersInternals.h \
+ ../libexslt/exsltconfig.h exslt.h exsltexports.h
+
+../libexslt/libexslt.h:
+
+../config.h:
+
+../libxslt/xsltconfig.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/xmlversion.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/xmlexports.h:
+
+../libxslt/extensions.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/xpath.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/xmlerror.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/parser.h:
+
+/usr/lib/gcc/i686-linux-gnu/4.6/include/stdarg.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/tree.h:
+
+/usr/include/stdio.h:
+
+/usr/include/features.h:
+
+/usr/include/i386-linux-gnu/bits/predefs.h:
+
+/usr/include/i386-linux-gnu/sys/cdefs.h:
+
+/usr/include/i386-linux-gnu/bits/wordsize.h:
+
+/usr/include/i386-linux-gnu/gnu/stubs.h:
+
+/usr/include/i386-linux-gnu/gnu/stubs-32.h:
+
+/usr/lib/gcc/i686-linux-gnu/4.6/include/stddef.h:
+
+/usr/include/i386-linux-gnu/bits/types.h:
+
+/usr/include/i386-linux-gnu/bits/typesizes.h:
+
+/usr/include/libio.h:
+
+/usr/include/_G_config.h:
+
+/usr/include/wchar.h:
+
+/usr/include/i386-linux-gnu/bits/stdio_lim.h:
+
+/usr/include/i386-linux-gnu/bits/sys_errlist.h:
+
+/usr/include/i386-linux-gnu/bits/stdio.h:
+
+/usr/include/i386-linux-gnu/bits/stdio2.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/xmlstring.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/xmlregexp.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/dict.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/hash.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/valid.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/list.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/xmlautomata.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/entities.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/encoding.h:
+
+/usr/include/iconv.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/xmlIO.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/globals.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/SAX.h:
+
+/usr/include/stdlib.h:
+
+/usr/include/i386-linux-gnu/bits/waitflags.h:
+
+/usr/include/i386-linux-gnu/bits/waitstatus.h:
+
+/usr/include/endian.h:
+
+/usr/include/i386-linux-gnu/bits/endian.h:
+
+/usr/include/i386-linux-gnu/bits/byteswap.h:
+
+/usr/include/xlocale.h:
+
+/usr/include/i386-linux-gnu/sys/types.h:
+
+/usr/include/time.h:
+
+/usr/include/i386-linux-gnu/sys/select.h:
+
+/usr/include/i386-linux-gnu/bits/select.h:
+
+/usr/include/i386-linux-gnu/bits/sigset.h:
+
+/usr/include/i386-linux-gnu/bits/time.h:
+
+/usr/include/i386-linux-gnu/bits/select2.h:
+
+/usr/include/i386-linux-gnu/sys/sysmacros.h:
+
+/usr/include/i386-linux-gnu/bits/pthreadtypes.h:
+
+/usr/include/alloca.h:
+
+/usr/include/i386-linux-gnu/bits/stdlib.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/xlink.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/SAX2.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/xmlmemory.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/include/libxml2/libxml/threads.h:
+
+../libxslt/xsltexports.h:
+
+../libxslt/xsltInternals.h:
+
+../libxslt/xslt.h:
+
+../libxslt/xsltlocale.h:
+
+../libxslt/numbersInternals.h:
+
+../libexslt/exsltconfig.h:
+
+exslt.h:
+
+exsltexports.h:

@@ -1,0 +1,459 @@
+2006-03-02  Matthew Allum  <mallum@openedhand.com>
+
+	* layouts/Makefile.am:
+	* layouts/keyboard-us.xml:
+	Add US layout from Matt Reimer
+
+2006-02-28  Matthew Allum  <mallum@openedhand.com>
+
+	* src/config-parser.c: (config_load_file):
+	Use ~/.matchbox not ~/matchbox
+
+2006-02-28  Matthew Allum  <mallum@openedhand.com>
+
+	* configure.ac:
+	Make version 0.1. Make cairo usage explicit.
+
+	* layouts/Makefile.am:
+	* layouts/keyboard-numpad.xml:
+	New Layout.
+
+	* src/matchbox-keyboard-ui-xft-backend.c:
+	(mb_kbd_ui_xft_redraw_key):
+	* src/matchbox-keyboard-ui.c: (mb_kdb_ui_unit_key_size),
+	(mb_kbd_ui_allocate_ui_layout), (mb_kbd_ui_handle_configure),
+	(mb_kbd_ui_event_loop):
+	* src/matchbox-keyboard.c: (mb_kbd_new):
+	Fixups for layout on small screens and improvements for high
+	DPI layouts.
+
+
+2005-10-27  Matthew Allum  <mallum@openedhand.com>
+
+	* README:
+	Update with current info
+	* src/config-parser.c: (mb_kbd_config_load):
+	* src/matchbox-keyboard-ui.c: (mb_kdb_ui_unit_key_size),
+	(mb_kbd_ui_min_key_size), (mb_kbd_ui_allocate_ui_layout),
+	(mb_kbd_ui_resize), (mb_kbd_ui_realize):
+	* src/matchbox-keyboard.c: (mb_kbd_new):
+	Minor cleanups. Improve cmd line option parsing and add
+	a usage() func. 
+
+2005-10-26  Matthew Allum  <mallum@openedhand.com>
+
+	* examples/Makefile.am:
+	* examples/matchbox-keyboard-embbed.c:
+	Rename matchbox-keyboard-embbed.c
+
+2005-10-26  Matthew Allum  <mallum@openedhand.com>
+
+	* AUTHORS:
+	Populate. 	
+	* Makefile.am:
+	* configure.ac:
+	* src/Makefile.am:
+	Fix cairo build issues, 
+
+	* src/matchbox-keyboard-xembed.c:
+	Add XEMBED support for embedding keyboard in other apps.
+	
+	* examples/Makefile.am:
+	* examples/matchbox-keyboard-embbed.c:
+	Add example embedding app
+
+	* src/config-parser.c: (config_str_to_keysym),
+	(config_str_to_modtype), (config_xml_start_cb):
+	* src/matchbox-keyboard-key.c: (mb_kbd_key_get_extended),
+	(mb_kbd_key_set_row), (mb_kdb_key_has_state),
+	(mb_kbd_key_set_glyph_face), (mb_kbd_key_get_glyph_face),
+	(mb_kbd_key_set_image_face), (mb_kbd_key_set_char_action),
+	(mb_kbd_key_press):
+	* src/matchbox-keyboard-layout.c:
+	* src/matchbox-keyboard-row.c:
+	* src/matchbox-keyboard-ui-cairo-backend.c:
+	(mb_kbd_ui_cairo_text_extents), (mb_kbd_ui_cairo_load_font),
+	(mb_kbd_ui_cairo_redraw_key), (mb_kbd_ui_cairo_pre_redraw),
+	(mb_kbd_ui_cairo_resources_create), (mb_kbd_ui_cairo_resize),
+	(mb_kbd_ui_cairo_init):
+	* src/matchbox-keyboard-ui-cairo-backend.h:
+	* src/matchbox-keyboard-ui-xft-backend.c:
+	(mb_kbd_ui_xft_text_extents), (mb_kbd_ui_xft_redraw_key),
+	(mb_kbd_ui_xft_resources_create), (mb_kbd_ui_xft_resize),
+	(mb_kbd_ui_xft_init):
+	* src/matchbox-keyboard-ui-xft-backend.h:
+	* src/matchbox-keyboard-ui.c: (get_current_window_manager_name),
+	(get_desktop_area), (get_xevent_timed),
+	(mb_kbd_ui_send_keysym_press), (mb_kbd_ui_send_release),
+	(mb_kdb_ui_unit_key_size), (mb_kbd_ui_min_key_size),
+	(mb_kbd_ui_redraw_row), (mb_kbd_ui_swap_buffers),
+	(mb_kbd_ui_redraw), (mb_kbd_ui_resources_create),
+	(mb_kbd_ui_resize), (mb_kbd_ui_event_loop), (mb_kbd_ui_realize),
+	(mb_kbd_ui_init):
+	* src/matchbox-keyboard.c: (mb_kbd_new):
+	* src/matchbox-keyboard.h:
+	* src/util.c: (util_utf8_char_cnt), (util_file_readable):
+	Fix GCC 4 Warnings.
+	Add License to all files.
+	Improve buggy cairo backend and add gradient keys 
+
+2005-10-21  Matthew Allum  <mallum@openedhand.com>
+
+	* configure.ac:
+	* src/Makefile.am:
+	* src/matchbox-keyboard-ui-cairo-backend.c:
+	* src/matchbox-keyboard-ui-cairo-backend.h:
+	* src/matchbox-keyboard-ui-xft-backend.c:
+	* src/matchbox-keyboard-ui-xft-backend.h:
+	* src/matchbox-keyboard-ui.c: (mb_kbd_ui_resources_create):
+	* src/matchbox-keyboard.h:
+	Break out rendering backend and add optional initial cairo
+	based rendering backend ( based on patch from Tuukka Pasanen )
+
+	* layouts/Makefile.am:
+	* layouts/keyboard-fi.xml:
+	Add finish layout via  Tuukka Pasanen
+
+2005-10-10  Matthew Allum  <mallum@openedhand.com>
+
+	* src/matchbox-keyboard-ui.c: (mb_kbd_ui_event_loop):
+	Handle 'stuck' key case ( hopefully ) when release X event is 
+	missed.	
+	* src/matchbox-keyboard.c: (mb_kbd_new):
+	Qucik hacks to look better on small displays.
+
+2005-10-10  mallum,,,  <mallum@openedhand.com>
+
+	reviewed by: <delete if not using a buddy>
+
+	* src/matchbox-keyboard-ui.c: (mb_kbd_ui_event_loop):
+	* src/matchbox-keyboard.c: (mb_kbd_new):
+
+2005-10-04  mallum  <mallum@openedhand.com>
+
+	* src/matchbox-keyboard.c: (mb_kbd_new):
+	Make initial point size smaller to kbd fitting on large DPI's.
+
+2005-09-15  mallum,,,  <mallum@openedhand.com>
+
+	* layouts/keyboard.xml:
+	Minor fixes via Michal Ludvig
+
+2005-09-15  mallum,,,  <mallum@openedhand.com>
+
+	reviewed by: <delete if not using a buddy>
+
+	* layouts/keyboard.xml:
+
+2005-09-15  mallum,,,  <mallum@openedhand.com>
+
+	reviewed by: <delete if not using a buddy>
+
+	* layouts/keyboard.xml:
+
+2005-09-01  mallum,,,  <mallum@openedhand.com>
+
+	* layouts/Makefile.am:
+	* layouts/keyboard-ru.xml:
+	Add Russian layout from Stanislav Bogatyrev
+
+2005-06-20  mallum,,,  <mallum@openedhand.com>
+
+	* layouts/Makefile.am:
+	* layouts/keyboard-dvorak.xml:
+	Add dvorak from Leon Matthews.
+
+2005-05-17  mallum,,,  <mallum@openedhand.com>
+
+	* src/matchbox-keyboard-ui.c: (mb_kbd_ui_resources_create):
+	Add SKIP_PAGER hint.
+
+2005-05-10  mallum,,,  <mallum@openedhand.com>
+
+	* src/matchbox-keyboard-ui.c: (mb_kbd_ui_resources_create):
+	Attempt to better support metacity.
+
+2005-05-02  mallum,,,  <mallum@openedhand.com>
+
+	* src/matchbox-keyboard-ui.c: (want_extended),
+	(mb_kbd_ui_resources_create), (mb_kbd_ui_resize),
+	(mb_kbd_ui_handle_configure), (mb_kbd_ui_event_loop),
+	(mb_kbd_ui_load_font), (mb_kbd_ui_init), (mb_kbd_ui_display_width),
+	(mb_kbd_ui_display_height), (mb_kbd_ui_realize):
+	* src/matchbox-keyboard.c:
+	* src/matchbox-keyboard.h:
+	Clean up warnings
+	Implement key repeat
+
+2005-04-27  mallum,,,  <mallum@openedhand.com>
+
+	* src/matchbox-keyboard-ui.c: (mb_kbd_ui_resize),
+	(mb_kbd_ui_events_iteration):
+	Handle MappingNotify events
+	* src/matchbox-keyboard.c: (mb_kbd_new):
+	Make keys slightly bigger for small ( 240x320 ) displays.
+
+2005-04-27  mallum,,,  <mallum@openedhand.com>
+
+	* layouts/keyboard.xml:
+	Swicth shift state for ; key
+
+2005-04-27  mallum,,,  <mallum@openedhand.com>
+
+
+	* layouts/keyboard.xml:
+	New layout with extended keys.
+
+	* src/config-parser.c: (config_handle_key_tag):
+	* src/matchbox-keyboard-key.c: (mb_kbd_key_get_extra_width_pad):
+	* src/matchbox-keyboard-row.c: (mb_kbd_row_height),
+	(mb_kbd_row_width), (mb_kbd_row_base_width):
+	* src/matchbox-keyboard-ui.c: (get_desktop_area),
+	(mb_kbd_ui_send_keysym_press), (mb_kbd_ui_send_release),
+	(mb_kdb_ui_unit_key_size), (mb_kbd_ui_min_key_size),
+	(mb_kbd_ui_allocate_ui_layout), (mb_kbd_ui_redraw_key),
+	(mb_kbd_ui_redraw_row), (mb_kbd_ui_resources_create),
+	(mb_kbd_ui_resize), (mb_kbd_ui_handle_configure),
+	(mb_kbd_ui_events_iteration), (mb_kbd_ui_load_font),
+	(mb_kbd_ui_init), (mb_kbd_ui_display_width),
+	(mb_kbd_ui_display_height), (mb_kbd_ui_realize):
+	* src/matchbox-keyboard.c: (mb_kbd_locate_key),
+	(mb_kbd_get_held_key):
+	* src/matchbox-keyboard.h:
+	Make keyboard 'adapt' with extended keys to screen rotation
+	and screen orientation.
+
+2005-04-26  mallum,,,  <mallum@openedhand.com>
+
+	* configure.ac:
+	* data/Makefile.am:
+	* data/keyboard-extended.xml:
+	* data/keyboard.xml:
+	Rename data -> layouts
+	* Makefile.am:
+	* matchbox-keyboard.desktop:
+        * matchbox-keyboard.png
+	Add a icon and .desktop file
+
+2005-04-26  mallum,,,  <mallum@openedhand.com>
+
+	* src/matchbox-keyboard-ui.c: (mb_kbd_ui_resources_create):
+	Fix taskbar skip hint
+
+2005-04-26  mallum,,,  <mallum@openedhand.com>
+
+	* src/matchbox-keyboard-ui.c: (get_current_window_manager_name),
+	(mb_kbd_ui_redraw), (mb_kbd_ui_show), (mb_kbd_ui_resources_create),
+	(mb_kbd_ui_resize):
+	Try to avoid ugly flash ( caused by repaint/resize ) on startup.
+	Also probably speeds up startup a little.
+
+2005-04-26  mallum,,,  <mallum@openedhand.com>
+
+	* src/matchbox-keyboard-ui.c:
+	* src/matchbox-keyboard.h:
+	* src/util-list.c: (util_list_append):
+	* src/util.c:
+	Clean up some compiler warnings.
+
+2005-04-26  mallum,,,  <mallum@openedhand.com>
+
+	* README:
+	Small update on Todo.
+	* configure.ac:
+	Fix a minor snafu
+
+2005-04-26  mallum,,,  <mallum@openedhand.com>
+
+	* src/matchbox-keyboard-ui.c: (mb_kbd_ui_resources_create):
+        Make key faces darker to increase visibility on Ipaq.
+	* src/matchbox-keyboard.c: (mb_kbd_new):
+	Make small font smaller to fit Ipaq display
+
+2005-04-24  mallum,,,  <mallum@openedhand.com>
+
+	* README:
+        Write one.
+	* configure.ac:
+	* data/keyboard.xml:
+	* src/config-parser.c: (config_load_file):
+	* src/matchbox-keyboard-ui.c: (mb_kbd_ui_redraw),
+	(mb_kbd_ui_resources_create), (mb_kbd_ui_resize):
+	* src/matchbox-keyboard.h:
+	Various minor tweaks. 
+
+2005-04-21  mallum,,,  <mallum@openedhand.com>
+
+	* configure.ac:
+	Remove unneeded libmb dep check
+
+2005-04-21  mallum,,,  <mallum@openedhand.com>
+
+
+	* Makefile.am:
+	* configure.ac:
+	* data/Makefile.am:
+	* data/keyboard-extended.xml:
+	* data/keyboard.xml:
+	* src/Makefile.am:
+	* src/config.xml:
+	Sort out keyboard configs so they actually get installed.
+	* src/config-parser.c: (config_handle_key_tag),
+	(config_xml_start_cb), (mb_kbd_config_load):
+	and then loaded
+	* src/matchbox-keyboard-row.c: (mb_kbd_row_base_width):
+	* src/matchbox-keyboard-ui.c: (mb_kbd_ui_allocate_ui_layout),
+	(mb_kbd_ui_resources_create), (mb_kbd_ui_resize),
+	(mb_kbd_ui_events_iteration), (mb_kbd_ui_load_font),
+	(mb_kbd_ui_init):
+	* src/matchbox-keyboard.c: (mb_kbd_new):
+	* src/matchbox-keyboard.h:
+	Fix layout resizing code. Make defaults dependant on display size.
+	* src/util.c: (util_utf8_char_cnt):
+	remove random printf
+
+2005-04-20  mallum,,,  <mallum@openedhand.com>
+
+	* src/config.xml:
+	Improve layout some more with experimentation
+	* src/matchbox-keyboard-key.c:
+	* src/matchbox-keyboard-ui.c: (mb_kbd_ui_allocate_ui_layout):
+	Fix some layout bugs - making 'fill' work.
+
+2005-04-19  mallum,,,  <mallum@openedhand.com>
+
+	* src/matchbox-keyboard-key.c: (mb_kbd_key_press),
+	(mb_kbd_key_release):
+	* src/matchbox-keyboard-ui.c: (alloc_color),
+	(mb_kbd_ui_redraw_key), (mb_kbd_ui_redraw_row),
+	(mb_kbd_ui_swap_buffers), (mb_kbd_ui_redraw), (mb_kbd_ui_show),
+	(mb_kbd_ui_resources_create):
+	* src/matchbox-keyboard.c: (mb_kbd_add_state):
+	* src/matchbox-keyboard.h:
+	Fix caps handling and modifier toggling. 
+	Add a chunk of WM handling and 'co-operation'.
+
+2005-04-18  mallum,,,  <mallum@openedhand.com>
+
+	* src/config-parser.c: (config_str_to_modtype),
+	(config_handle_key_subtag):
+	* src/config.xml:
+	* src/matchbox-keyboard-key.c: (mb_kbd_key_is_blank),
+	(mb_kbd_key_height), (mb_kbd_key_get_modifer_action),
+	(mb_kbd_key_get_face_type), (mb_kbd_key_get_action_type),
+	(mb_kbd_key_press):
+	* src/matchbox-keyboard-row.c: (mb_kbd_row_width):
+	* src/matchbox-keyboard-ui.c: (alloc_color),
+	(mb_kbd_ui_send_press), (mb_kbd_ui_send_keysym_press),
+	(mb_kbd_ui_redraw_key), (mb_kbd_ui_redraw_row), (mb_kbd_ui_redraw),
+	(mb_kbd_ui_show), (mb_kbd_ui_resources_create), (mb_kbd_ui_resize),
+	(mb_kbd_ui_events_iteration), (mb_kbd_ui_load_font),
+	(mb_kbd_ui_init):
+	* src/matchbox-keyboard.c: (mb_kbd_new), (mb_kbd_add_state),
+	(mb_kbd_locate_key), (mb_kbd_add_layout),
+	(mb_kbd_get_selected_layout):
+	* src/matchbox-keyboard.h:
+	* src/util-list.c:
+	Implement more state handling.
+	Handle window resizes.
+
+2005-04-18  mallum,,,  <mallum@openedhand.com>
+
+	* src/config-parser.c: (config_handle_key_subtag):
+	* src/config.xml:
+	* src/matchbox-keyboard-key.c: (mb_kbd_key_set_keysym_action),
+	(mb_kbd_key_get_keysym_action), (mb_kbd_key_press):
+	* src/matchbox-keyboard-ui.c: (mb_kbd_ui_redraw_key):
+	* src/matchbox-keyboard.c: (mb_kbd_keys_margin):
+	* src/matchbox-keyboard.h:
+	Initial code for handling 'modifiers'
+
+2005-04-17  mallum,,,  <mallum@openedhand.com>
+
+	* src/matchbox-keyboard-ui.c: (text_extents),
+	(mb_kbd_ui_allocate_ui_layout), (mb_kbd_ui_redraw_key),
+	(mb_kbd_ui_redraw_row), (mb_kbd_ui_swap_buffers),
+	(mb_kbd_ui_redraw), (mb_kbd_ui_show), (mb_kbd_ui_resources_create),
+	(mb_kbd_ui_events_iteration), (mb_kbd_ui_init):
+	Make keys look a little nicer
+
+2005-04-17  mallum,,,  <mallum@openedhand.com>
+
+	* src/config-parser.c: (config_handle_row_tag),
+	(config_handle_key_tag), (config_xml_start_cb):
+	* src/config.xml:
+	* src/matchbox-keyboard-key.c: (mb_kbd_key_new),
+	(mb_kbd_key_set_geometry), (mb_kbd_key_abs_x), (mb_kbd_key_abs_y),
+	(mb_kbd_key_x), (mb_kbd_key_y), (mb_kbd_key_width),
+	(mb_kbd_key_height), (mb_kbd_key_set_row), (mb_kdb_key_has_state),
+	(mb_kbd_key_set_glyph_face), (mb_kbd_key_get_glyph_face),
+	(mb_kbd_key_set_image_face), (mb_kbd_key_set_char_action),
+	(mb_kbd_key_get_char_action), (mb_kbd_key_set_keysym_action),
+	(mb_kbd_key_get_keysym_action), (mb_kbd_key_set_modifer_action),
+	(mb_kbd_key_get_face_type), (mb_kbd_key_get_action_type),
+	(mb_kbd_key_press):
+	* src/matchbox-keyboard-ui.c: (mb_kbd_ui_send_press),
+	(mb_kdb_ui_unit_key_size), (mb_kbd_ui_min_key_size),
+	(mb_kbd_ui_allocate_ui_layout), (mb_kbd_ui_redraw_key):
+	* src/matchbox-keyboard.c: (mb_kbd_locate_key):
+	* src/matchbox-keyboard.h:
+	Layout engine improvements
+
+2005-04-13  mallum,,,  <mallum@openedhand.com>
+
+	reviewed by: <delete if not using a buddy>
+
+	* src/matchbox-keyboard-key.c: (mb_kbd_key_press):
+	* src/matchbox-keyboard-ui.c: (text_extents),
+	(mb_kbd_ui_send_press), (mb_kbd_ui_events_iteration):
+	* src/matchbox-keyboard.c: (mb_kbd_locate_key):
+	* src/matchbox-keyboard.h:
+	Fix locate_key(). Handle press/release cycle better 
+
+2005-04-13  mallum,,,  <mallum@openedhand.com>
+
+	* src/config.xml:
+	* src/matchbox-keyboard-key.c: (mb_kbd_key_new),
+	(mb_kbd_key_height), (mb_kbd_key_set_row), (mb_kdb_key_has_state),
+	(mb_kbd_key_set_glyph_face), (mb_kbd_key_get_glyph_face),
+	(mb_kbd_key_set_image_face), (mb_kbd_key_set_char_action),
+	(mb_kbd_key_get_char_action), (mb_kbd_key_set_keysym_action),
+	(mb_kbd_key_set_modifer_action), (mb_kbd_key_get_face_type),
+	(mb_kbd_key_get_action_type):
+	* src/matchbox-keyboard-row.c: (mb_kbd_row_new):
+	* src/matchbox-keyboard-ui.c: (mb_kbd_ui_send_press),
+	(mb_kdb_ui_unit_key_size), (mb_kbd_ui_allocate_ui_layout),
+	(mb_kbd_ui_redraw_key), (mb_kbd_ui_redraw_row),
+	(mb_kbd_ui_swap_buffers), (mb_kbd_ui_redraw), (mb_kbd_ui_show),
+	(mb_kbd_ui_resources_create), (mb_kbd_ui_events_iteration),
+	(mb_kbd_ui_init):
+	* src/matchbox-keyboard.c: (mb_kbd_new), (mb_kbd_col_spacing),
+	(mb_kbd_keys_border), (mb_kbd_keys_pad), (mb_kbd_keys_margin),
+	(mb_kbd_locate_key), (mb_kbd_add_layout),
+	(mb_kbd_get_selected_layout):
+	* src/matchbox-keyboard.h:
+	* src/util-list.c: (util_list_alloc_item):
+	* src/util.c: (util_fatal_error):
+	Initial UI drawing code
+
+2005-04-10  mallum,,,  <mallum@openedhand.com>
+
+	* configure.ac:
+	Bring in Xft
+	* src/config-parser.c: (config_handle_key_subtag),
+	(config_handle_layout_tag), (config_handle_row_tag),
+	(config_handle_key_tag), (config_xml_start_cb):
+	* src/config.xml:
+	* src/matchbox-keyboard-key.c: (mb_kbd_key_set_glyph_face),
+	(mb_kbd_key_get_glyph_face), (mb_kbd_key_set_image_face),
+	(mb_kbd_key_set_modifer_action), (mb_kbd_key_get_face_type),
+	(mb_kbd_key_get_action_type):
+	* src/matchbox-keyboard-layout.c: (mb_kbd_layout_append_row):
+	* src/matchbox-keyboard-row.c:
+	* src/matchbox-keyboard-ui.c: (mb_kdb_ui_unit_key_size),
+	(mb_kbd_ui_allocate_ui_layout), (mb_kbd_ui_init):
+	* src/matchbox-keyboard.c: (mb_kbd_new), (mb_kbd_add_layout):
+	* src/matchbox-keyboard.h:
+	* src/util-list.c:
+	* src/util.c: (util_fatal_error):
+	Various fixes and improvements. Too many to list

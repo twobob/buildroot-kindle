@@ -1,0 +1,181 @@
+relaxng.lo relaxng.o: relaxng.c libxml.h config.h \
+  include/libxml/xmlversion.h include/libxml/xmlexports.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/stdio.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/features.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/bits/predefs.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/sys/cdefs.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/bits/wordsize.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/gnu/stubs.h \
+  /opt/arm-2007q3/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.1/include/stddef.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/bits/types.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/bits/typesizes.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/libio.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/_G_config.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/wchar.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/bits/wchar.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/gconv.h \
+  /opt/arm-2007q3/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.1/include/stdarg.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/bits/stdio_lim.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/bits/sys_errlist.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/bits/stdio.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/string.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/bits/string.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/bits/string2.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/stdlib.h \
+  include/libxml/xmlmemory.h include/libxml/threads.h \
+  include/libxml/globals.h include/libxml/parser.h include/libxml/tree.h \
+  include/libxml/xmlstring.h include/libxml/xmlregexp.h \
+  include/libxml/dict.h include/libxml/hash.h include/libxml/valid.h \
+  include/libxml/xmlerror.h include/libxml/list.h \
+  include/libxml/xmlautomata.h include/libxml/entities.h \
+  include/libxml/encoding.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/iconv.h \
+  include/libxml/xmlIO.h include/libxml/SAX.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/sys/types.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/time.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/endian.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/bits/endian.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/sys/select.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/bits/select.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/bits/sigset.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/bits/time.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/sys/sysmacros.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/bits/pthreadtypes.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/alloca.h \
+  include/libxml/xlink.h include/libxml/SAX2.h \
+  include/libxml/parserInternals.h include/libxml/HTMLparser.h \
+  include/libxml/chvalid.h include/libxml/uri.h include/libxml/relaxng.h \
+  include/libxml/xmlschemastypes.h include/libxml/schemasInternals.h \
+  include/libxml/xmlschemas.h elfgcchack.h
+
+libxml.h:
+
+config.h:
+
+include/libxml/xmlversion.h:
+
+include/libxml/xmlexports.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/stdio.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/features.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/bits/predefs.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/sys/cdefs.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/bits/wordsize.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/gnu/stubs.h:
+
+/opt/arm-2007q3/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.1/include/stddef.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/bits/types.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/bits/typesizes.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/libio.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/_G_config.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/wchar.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/bits/wchar.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/gconv.h:
+
+/opt/arm-2007q3/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.1/include/stdarg.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/bits/stdio_lim.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/bits/sys_errlist.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/bits/stdio.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/string.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/bits/string.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/bits/string2.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/stdlib.h:
+
+include/libxml/xmlmemory.h:
+
+include/libxml/threads.h:
+
+include/libxml/globals.h:
+
+include/libxml/parser.h:
+
+include/libxml/tree.h:
+
+include/libxml/xmlstring.h:
+
+include/libxml/xmlregexp.h:
+
+include/libxml/dict.h:
+
+include/libxml/hash.h:
+
+include/libxml/valid.h:
+
+include/libxml/xmlerror.h:
+
+include/libxml/list.h:
+
+include/libxml/xmlautomata.h:
+
+include/libxml/entities.h:
+
+include/libxml/encoding.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/iconv.h:
+
+include/libxml/xmlIO.h:
+
+include/libxml/SAX.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/sys/types.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/time.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/endian.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/bits/endian.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/sys/select.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/bits/select.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/bits/sigset.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/bits/time.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/sys/sysmacros.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/bits/pthreadtypes.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/alloca.h:
+
+include/libxml/xlink.h:
+
+include/libxml/SAX2.h:
+
+include/libxml/parserInternals.h:
+
+include/libxml/HTMLparser.h:
+
+include/libxml/chvalid.h:
+
+include/libxml/uri.h:
+
+include/libxml/relaxng.h:
+
+include/libxml/xmlschemastypes.h:
+
+include/libxml/schemasInternals.h:
+
+include/libxml/xmlschemas.h:
+
+elfgcchack.h:

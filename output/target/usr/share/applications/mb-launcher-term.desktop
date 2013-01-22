@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Term Launcher
+Comment=Panel based Terminal launcher
+# the '-o -1' makes monolaunch dock to the left
+Exec=mb-applet-launcher -o -1 -l mbterm.png mb-applet-xterm-wrapper.sh
+Type=PanelApp
+Icon=mbterm.png
+Categories=Panel;Utility;MB

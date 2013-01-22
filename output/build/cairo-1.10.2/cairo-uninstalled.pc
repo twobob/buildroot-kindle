@@ -1,0 +1,8 @@
+Name: cairo
+Description: Multi-platform 2D graphics library
+Version: 1.10.2
+
+Requires.private:    pixman-1 >= 0.18.4 fontconfig >= 2.2.95 freetype2 >= 9.7.3  
+Libs: ${pc_top_builddir}/${pcfiledir}/src/libcairo.la
+Libs.private:       
+Cflags: -I${pc_top_builddir}/${pcfiledir}/./src

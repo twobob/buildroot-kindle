@@ -1,0 +1,6 @@
+  *		rs		combiningkeys		=	pc+extras/rs(combiningkeys)
+  *		ru		chu		=	pc+extras/ru(chu)
+  *		ir		ave		=	pc+extras/ir(ave)
+  *		us		alt-intl-unicode		=	pc+extras/us(alt-intl-unicode)
+  *		us		crd		=	pc+extras/us(crd)
+  *		us		intl-unicode		=	pc+extras/us(intl-unicode)

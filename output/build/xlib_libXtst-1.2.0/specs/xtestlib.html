@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>XTEST Extension Library</title><meta name="generator" content="DocBook XSL Stylesheets V1.76.1" /></head><body><div class="book" title="XTEST Extension Library"><div class="titlepage"><div><div><h1 class="title"><a id="xtestlib"></a>XTEST Extension Library</h1></div><div><h2 class="subtitle">X Consortium Standard</h2></div><div><div class="authorgroup"><div class="author"><h3 class="author"><span class="firstname">Kieron</span> <span class="surname">Drake</span></h3></div></div></div><div><p class="releaseinfo">X Version 11, Release 6.4</p></div><div><p class="releaseinfo">Version 2.2</p></div><div><p class="copyright">Copyright © 1992 UniSoft Group Ltd.</p></div><div><p class="copyright">Copyright © 1992 X Consortium</p></div><div><p class="copyright">Copyright © 1994 X Consortium</p></div><div><div class="legalnotice" title="Legal Notice"><a id="idp142712"></a><p>
+Permission to use, copy, modify, and distribute this documentation for
+any purpose and without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.  UniSoft
+makes no representations about the suitability for any purpose of the
+information in this document.  This documentation is provided
+“as is” without express or implied warranty.
+</p><p>
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files
+(the “Software”), to deal in the Software without restriction,
+including without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit
+persons to whom the Software is furnished to do so, subject to the following
+conditions:
+</p><p>
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+</p><p>
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN
+NO EVENT SHALL THE X CONSORTIUM BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+</p><p>
+Except as contained in this notice, the name of the X Consortium shall not
+be used in advertising or otherwise to promote the sale, use or other dealings
+in this Software without prior written authorization from the X Consortium.
+</p><p>X Window System is a trademark of The Open Group.</p><p>
+Except as contained in this notice, the name of the X Consortium shall not be
+used in advertising or otherwise to promote the sale, use or other dealings
+in this Software without prior written authorization from the X Consortium.
+</p></div></div></div><hr /></div><div class="toc"><p><strong>Table of Contents</strong></p><dl><dt><span class="chapter"><a href="#overview">1. Overview</a></span></dt><dt><span class="chapter"><a href="#description">2. Description</a></span></dt><dt><span class="chapter"><a href="#c_language_binding">3. C Language Binding</a></span></dt><dt><span class="chapter"><a href="#references">4. References</a></span></dt></dl></div><div class="chapter" title="Chapter 1. Overview"><div class="titlepage"><div><div><h2 class="title"><a id="overview"></a>Chapter 1. Overview</h2></div></div></div><p>
+This extension is a minimal set of client and server extensions
+required to completely test the X11 server with no user intervention.
+</p><p>
+This extension is not intended to support general journaling and
+playback of user actions.  This is a difficult area [XTrap, 89] as it attempts
+to synchronize synthetic user interactions with their effects; it is at the
+higher level of dialogue recording/playback rather than at the strictly lexical
+level.  We are interested only in the latter, simpler, case.  A more detailed
+discussion and justification of the extension functionality is given in
+[Drake, 91].
+</p><p>
+We are aiming only to provide a minimum set of facilities that
+solve immediate testing and validation problems.  The testing extension
+itself needs testing, where possible, and so should be as simple as possible.
+</p><p>We have also tried to:</p><div class="itemizedlist"><ul class="itemizedlist" type="bullet"><li class="listitem" style="list-style-type: disc"><p>
+Confine the extension to an appropriate high level
+within the server to minimize portability problems.  In practice this
+means that the extension should be at the DIX level or use the
+DIX/DDX interface, or both.  This has effects, in particular, on the
+level at which "input synthesis" can occur.
+    </p></li><li class="listitem" style="list-style-type: disc"><p>
+Minimize the changes required in the rest of the server.
+    </p></li><li class="listitem" style="list-style-type: disc"><p>
+Minimize performance penalties on normal server operation.
+    </p></li></ul></div></div><div class="chapter" title="Chapter 2. Description"><div class="titlepage"><div><div><h2 class="title"><a id="description"></a>Chapter 2. Description</h2></div></div></div><p>The functions provided by this extension fall into two groups:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Client Operations</p><p>
+These routines manipulate otherwise hidden client-side behavior.
+The actual implementation will depend on the details of the actual language
+binding and what degree of request buffering, GContext caching, and so on, is
+provided.  In the C binding, defined in section 7, routines are provided
+to access the internals of two opaque data structures -
+<span class="symbol">GC</span>s
+and
+<code class="function">Visual</code>s - and to discard any requests pending within the
+output buffer of a connection.  The exact details can be expected to differ for
+other language bindings.
+      </p></li><li class="listitem"><p>Server Requests</p><p>
+The first of these requests is similar to that provided in most
+extensions: it allows a client to specify a major and minor version
+number to the server and for the server to respond with major and minor
+versions of its own.  The remaining two requests allow the following:
+      </p></li><li class="listitem"><div class="itemizedlist"><ul class="itemizedlist" type="circle"><li class="listitem"><p>
+Access to an otherwise "write-only" server resource: the
+cursor associated with a given window
+          </p></li><li class="listitem"><p>
+Perhaps most importantly, limited synthesis of input
+device events, almost as if a cooperative user had moved the pointing device
+or pressed a key or button.
+          </p></li></ul></div></li></ul></div></div><div class="chapter" title="Chapter 3. C Language Binding"><div class="titlepage"><div><div><h2 class="title"><a id="c_language_binding"></a>Chapter 3. C Language Binding</h2></div></div></div><p>
+The C functions either provide direct access to the protocol and add no
+additional semantics to those defined in section 5 or they correspond
+directly to the abstract descriptions of client operations in section 4.
+</p><p>
+All XTEST extension functions and procedures, and all manifest constants
+and macros, will start with the string "XTest".  All operations are
+classified as server/client (Server) or client-only (Client).
+All routines that have return type Status will return nonzero for
+"success" and zero for "failure."  Even if the XTEST extension is
+supported, the server may withdraw such facilities arbitrarily; in which case
+they will subsequently return zero.
+</p><p>
+The include file for this extension is
+&lt;<span class="symbol">X11/extensions/XTest.h</span>&gt;.
+</p><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">Bool<strong>fsfunc XTestQueryExtension</strong>(</code></td><td><var class="pdparam"> *display</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> *event_base</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> *error_base</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> *major_version</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> *minor_version</var><code>)</code>;</td><td> </td></tr></table><div class="paramdef-list"><code>Display<var class="pdparam"> *display</var></code>;<br /><code>int<var class="pdparam"> *event_base</var></code>;<br /><code>int<var class="pdparam"> *error_base</var></code>;<br /><code>int<var class="pdparam"> *major_version</var></code>;<br /><code>int<var class="pdparam"> *minor_version</var></code>;</div><div class="funcprototype-spacer"> </div></div><p>
+<code class="function">XTestQueryExtension</code>
+returns
+<code class="function">True</code>
+if the specified display supports the XTEST extension, else
+<code class="function">False</code>
+If the extension is supported, *event_base would be set to the event number
+for the first event for this extension and *error_base would be set to the
+error number for the first error for this extension.  As no errors or
+events are defined for this version of the extension, the values returned
+here are not defined (nor useful).  If the extension is supported,
+*major_version and *minor_version are set to the major and minor version
+numbers of the extension supported by the display.  Otherwise, none of
+the arguments are set.
+</p><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">Bool<strong>fsfunc XTestCompareCursorWithWindow</strong>(</code></td><td><var class="pdparam"> *display</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> *window</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> cursor</var><code>)</code>;</td><td> </td></tr></table><div class="paramdef-list"><code>Display<var class="pdparam"> *display</var></code>;<br /><code>Window<var class="pdparam"> *window</var></code>;<br /><code>Cursor<var class="pdparam"> cursor</var></code>;</div><div class="funcprototype-spacer"> </div></div><p>If the extension is supported,
+<code class="function">XTestCompareCursorWithWindow</code>
+performs a comparison of the cursor whose ID is specified by cursor (which
+may be
+<code class="function">None</code>
+with the cursor of the window specified by window returning
+<code class="function">True</code>
+if they are the same and
+<code class="function">False</code>
+otherwise.  If the extension is not supported, then the request is ignored and
+zero is returned.
+</p><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">Bool<strong>fsfuncXTestCompareCurrentCursorWithWindow</strong>(</code></td><td><var class="pdparam"> *display</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> window</var><code>)</code>;</td><td> </td></tr></table><div class="paramdef-list"><code>Display<var class="pdparam"> *display</var></code>;<br /><code>Window<var class="pdparam"> window</var></code>;</div><div class="funcprototype-spacer"> </div></div><p>If the extension is supported,
+<code class="function">XTestCompareCurrentCursorWithWindow</code>
+performs a comparison of the current cursor with the cursor of the specified
+window returning
+<code class="function">True</code>
+if they are the same and
+<code class="function">False</code>
+otherwise.  If the extension is not supported, then the request is ignored and
+zero is returned.
+</p><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef"><strong>fsfuncXTestFakeKeyEvent</strong>(</code></td><td><var class="pdparam"> *display</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> keycode</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> is_press</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> delay</var><code>)</code>;</td><td> </td></tr></table><div class="paramdef-list"><code>Display<var class="pdparam"> *display</var></code>;<br /><code>unsigned int<var class="pdparam"> keycode</var></code>;<br /><code>Bool<var class="pdparam"> is_press</var></code>;<br /><code>unsigned long<var class="pdparam"> delay</var></code>;</div><div class="funcprototype-spacer"> </div></div><p>If the extension is supported,
+<code class="function">XTestFakeKeyEvent</code>
+requests the server to simulate either a
+<code class="function">KeyPress</code>
+(if is_press is
+<code class="function">True</code>
+or a
+<code class="function">KeyRelease</code>
+(if is_press is
+<code class="function">False</code>
+of the key with the specified keycode; otherwise, the request is ignored.
+</p><p>
+If the extension is supported, the simulated event will not be processed
+until delay milliseconds after the request is received (if delay is
+<code class="function">CurrentTime</code>
+then this is interpreted as no delay at all).  No other requests from
+this client will be processed until this delay, if any, has expired
+and subsequent processing of the simulated event has been completed.
+</p><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef"><strong>fsfuncXTestFakeButtonEvent</strong>(</code></td><td><var class="pdparam"> *display</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> button</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> is_press</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> delay</var><code>)</code>;</td><td> </td></tr></table><div class="paramdef-list"><code>Display<var class="pdparam"> *display</var></code>;<br /><code>unsigned int<var class="pdparam"> button</var></code>;<br /><code>Bool<var class="pdparam"> is_press</var></code>;<br /><code>unsigned long<var class="pdparam"> delay</var></code>;</div><div class="funcprototype-spacer"> </div></div><p>If the extension is supported,
+<code class="function">XTestFakeButtonEvent</code>
+requests the server to simulate either a
+<code class="function">ButtonPress</code>
+(if is_press is
+<code class="function">True</code>
+or a
+<code class="function">ButtonRelease</code>
+(if is_press is
+<code class="function">False</code>
+of the logical button numbered by the specified button; otherwise, the
+request is ignored.
+</p><p>If the extension is supported,
+the simulated event will not be processed until delay milliseconds
+after the request is received (if delay is
+<code class="function">CurrentTime</code>
+then this is interpreted as no delay at all).  No other requests from
+this client will be processed until this delay, if any, has expired
+and subsequent processing of the simulated event has been completed.
+</p><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef"><strong>fsfuncXTestFakeMotionEvent</strong>(</code></td><td><var class="pdparam"> *display</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> screen_number</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> x</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> y</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> delay</var><code>)</code>;</td><td> </td></tr></table><div class="paramdef-list"><code>Display<var class="pdparam"> *display</var></code>;<br /><code>int<var class="pdparam"> screen_number</var></code>;<br /><code>int<var class="pdparam"> x</var></code>;<br /><code>int<var class="pdparam"> y</var></code>;<br /><code>unsigned long<var class="pdparam"> delay</var></code>;</div><div class="funcprototype-spacer"> </div></div><p>If the extension is supported,
+<code class="function">XTestFakeMotionEvent</code>
+requests the server to simulate a movement of the pointer to the specified
+position (x, y) on the root window of screen_number; otherwise, the request
+is ignored.  If screen_number is -1, the current screen (that the pointer
+is on) is used.
+</p><p>
+If the extension is supported, the simulated event will not be processed
+until delay milliseconds after the request is received (if delay is
+<code class="function">CurrentTime</code>
+then this is interpreted as no delay at all).  No other requests from
+this client will be processed until this delay, if any, has expired
+and subsequent processing of the simulated event has been completed.
+</p><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef"><strong>fsfuncXTestFakeRelativeMotionEvent</strong>(</code></td><td><var class="pdparam"> *display</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> screen_number</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> x</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> y</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> delay</var><code>)</code>;</td><td> </td></tr></table><div class="paramdef-list"><code>Display<var class="pdparam"> *display</var></code>;<br /><code>int<var class="pdparam"> screen_number</var></code>;<br /><code>int<var class="pdparam"> x</var></code>;<br /><code>int<var class="pdparam"> y</var></code>;<br /><code>unsigned long<var class="pdparam"> delay</var></code>;</div><div class="funcprototype-spacer"> </div></div><p>
+If the extension is supported,
+<code class="function">XTestFakeRelativeMotionEvent</code>
+requests the server to simulate a movement of the pointer by the specified
+offsets (x, y) relative to the current pointer position on screen_number;
+otherwise, the request is ignored.  If screen_number is -1, the
+current screen (that the pointer is on) is used.
+</p><p>
+If the extension is supported, the simulated event will not be processed
+until delay milliseconds after the request is received (if delay is
+<code class="function">CurrentTime</code>
+then this is interpreted as no delay at all).  No other requests from
+this client will be processed until this delay, if any, has expired
+and subsequent processing of the simulated event has been completed.
+</p><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef"><strong>fsfuncXTestGrabControl</strong>(</code></td><td><var class="pdparam"> *display</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> impervious</var><code>)</code>;</td><td> </td></tr></table><div class="paramdef-list"><code>Display<var class="pdparam"> *display</var></code>;<br /><code>Bool<var class="pdparam"> impervious</var></code>;</div><div class="funcprototype-spacer"> </div></div><p>If impervious is
+<code class="function">True</code>
+then the executing client becomes impervious to server grabs.  If impervious is
+<code class="function">False</code>
+then the executing client returns to the normal state of being susceptible
+to server grabs.
+</p><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">Bool<strong>fsfunc XTestSetGContextOfGC</strong>(</code></td><td><var class="pdparam"> gc</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> gid</var><code>)</code>;</td><td> </td></tr></table><div class="paramdef-list"><code>GC<var class="pdparam"> gc</var></code>;<br /><code>GContext<var class="pdparam"> gid</var></code>;</div><div class="funcprototype-spacer"> </div></div><p>
+<code class="function">XTestSetGContextOfGC</code>
+sets the GContext within the opaque datatype referenced by gc to
+be that specified by gid.
+</p><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef"><strong>fsfuncXTestSetVisualIDOfVisual</strong>(</code></td><td><var class="pdparam"> *visual</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> visualid</var><code>)</code>;</td><td> </td></tr></table><div class="paramdef-list"><code>Visual<var class="pdparam"> *visual</var></code>;<br /><code>VisualID<var class="pdparam"> visualid</var></code>;</div><div class="funcprototype-spacer"> </div></div><p>
+<code class="function">XTestSetVisualIDOfVisual</code>
+sets the VisualID within the opaque datatype referenced by visual to
+be that specified by visualid.
+</p><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">Bool<strong>fsfunc XTestDiscard</strong>(</code></td><td><var class="pdparam"> *display</var><code>)</code>;</td><td> </td></tr></table><div class="paramdef-list"><code>Display<var class="pdparam"> *display</var></code>;</div><div class="funcprototype-spacer"> </div></div><p>
+<code class="function">XTestDiscard</code>
+discards any requests within the output buffer for the specified display.
+It returns
+<code class="function">True</code>
+if any requests were discarded; otherwise, it returns
+<code class="function">False</code>
+</p></div><div class="chapter" title="Chapter 4. References"><div class="titlepage"><div><div><h2 class="title"><a id="references"></a>Chapter 4. References</h2></div></div></div><p>
+Annicchiarico, D., et al., <span class="emphasis"><em>XTrap: The XTrap
+Architecture</em></span>.
+Digital Equipment Corporation, July 1991.
+</p><p>
+Drake, K. J., <span class="emphasis"><em>Some Proposals for a Minimum X11
+Testing Extension</em></span>.
+UniSoft Ltd., June 1991.
+</p></div></div></body></html>

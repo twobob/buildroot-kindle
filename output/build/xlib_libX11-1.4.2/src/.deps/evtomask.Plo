@@ -1,0 +1,6 @@
+evtomask.lo evtomask.o: evtomask.c config.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/X11/X.h
+
+config.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/X11/X.h:

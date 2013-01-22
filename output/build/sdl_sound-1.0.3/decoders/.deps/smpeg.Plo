@@ -1,0 +1,3 @@
+smpeg.lo smpeg.o: smpeg.c ../config.h
+
+../config.h:

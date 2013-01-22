@@ -1,0 +1,4 @@
+libdbus_1_la-dbus-auth-script.lo .libs/libdbus_1_la-dbus-auth-script.o:  \
+ dbus-auth-script.c ../config.h
+
+../config.h:

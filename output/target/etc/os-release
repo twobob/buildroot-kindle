@@ -1,0 +1,5 @@
+NAME=Buildroot
+VERSION=2012.11-rc1-dirty
+ID=buildroot
+VERSION_ID=2012.11-rc1
+PRETTY_NAME="Buildroot 2012.11-rc1"

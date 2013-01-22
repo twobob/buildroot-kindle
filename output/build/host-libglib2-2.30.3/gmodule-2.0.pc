@@ -1,0 +1,14 @@
+prefix=/home/simon/GIT/buildroot-k3-current/output/host/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+gmodule_supported=true
+
+Name: GModule
+Description: Dynamic module loader for GLib
+Requires: glib-2.0
+Version: 2.30.3
+Libs: -L${libdir} -Wl,--export-dynamic -lgmodule-2.0 -pthread  -lrt
+Libs.private: -ldl
+Cflags: -pthread

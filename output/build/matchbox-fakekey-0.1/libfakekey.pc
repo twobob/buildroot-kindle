@@ -1,0 +1,10 @@
+prefix=/usr
+exec_prefix=/usr
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libfakekey
+Description: X Virtual Keyboard Library
+Version: 0.1
+Libs: -L${libdir} -lX11 -L/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/lib -lXtst   -lfakekey
+Cflags: -I${includedir} 

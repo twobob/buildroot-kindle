@@ -1,0 +1,17 @@
+abs_top_builddir=/home/simon/GIT/buildroot-k3-current/output/build/dbus-1.4.24
+abs_top_srcdir=/home/simon/GIT/buildroot-k3-current/output/build/dbus-1.4.24
+prefix=
+exec_prefix=
+system_bus_default_address=unix:path=/var/run/dbus/system_bus_socket
+sysconfdir=/etc
+session_bus_services_dir=/usr/share/dbus-1/services
+system_bus_services_dir=/usr/share/dbus-1/system-services
+interfaces_dir=/usr/share/dbus-1/interfaces
+daemondir=/usr/bin
+
+Name: dbus
+Description: Free desktop message bus (uninstalled copy)
+Version: 1.4.24
+Libs: ${abs_top_builddir}/dbus/libdbus-1.la
+Libs.private: -lpthread -lrt 
+Cflags: -I${abs_top_srcdir}

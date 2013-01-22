@@ -1,0 +1,512 @@
+2006-02-07  Matthew Allum  <mallum@openedhand.com>
+
+	* applets/mb-applet-system-monitor.c: (system_memory), (main):
+	* configure.ac:
+	Detect kernel version at run rather than build time.
+
+2006-01-27  Matthew Allum  <mallum@openedhand.com>
+
+	* src/msg.c: (_get_server_time), (msg_win_create),
+	(msg_handle_events), (msg_calc_win_size):
+	* src/panel.c: (panel_main):
+	* src/session.c: (session_preexisting_clear_current):
+	* src/session.h:
+	Apply patch from Phil Blundell remove uneeded polling.
+	( See bug #68 )
+
+
+2006-01-24  Matthew Allum  <mallum@openedhand.com>
+
+	* src/msg.c: (msg_win_create), (msg_handle_events):
+	* src/msg.h:
+	* src/panel.c: (panel_handle_client_message):
+	* src/panel.h:
+	Apply patch from Phil Blundell to implement cancelation
+	of systray popup messages. 
+
+2006-01-24  Matthew Allum  <mallum@openedhand.com>
+
+	* applets/mb-applet-wireless.c: (find_iwface):
+	Workaround for issues with Z hostap driver that
+	presents multiple wireless interfaces. The first
+	of which does not give stat info.
+
+2006-01-20  Matthew Allum  <mallum@openedhand.com>
+
+	* applets/mb-applet-system-monitor.c: (system_cpu):
+	* configure.ac:
+	mb-applet-system-monitor fixes for 2.6 kernels. 
+	see bug #51, based on patch by Patrick Steiner.
+
+2005-09-26  mallum,,,  <mallum@openedhand.com>
+
+	* applets/mb-applet-menu-launcher.c: (build_menu):
+	Fix potential segv on parsing corrupt .directory files.
+
+2005-09-15  mallum  <mallum@openedhand.com>
+
+	* applets/Makefile.am:
+	* applets/mb-applet-battery.c: (read_apm):
+	* configure.ac:
+	Incorporate ACPI support for battery applet via Michal Ludvig.
+
+2005-05-23  mallum,,,  <mallum@openedhand.com>
+
+	* src/panel.c: (panel_main), (panel_init):
+	Select for panel win events much earlier so we dont
+	miss initial configure notifys. Much improved panel
+	in titlebar.
+
+2005-04-11  mallum,,,  <mallum@openedhand.com>
+
+	* configure.ac:
+	Bump up version to 0.9.2
+
+2005-04-06  mallum,,,  <mallum@openedhand.com>
+
+	* applets/mb-applet-battery.c: (button_callback):
+	Show Hours + Min rather than just mins
+	* applets/mb-applet-clock.c: (paint_callback):
+	Provent potential overflow
+	* applets/mb-applet-menu-launcher.c: (build_menu):
+	Use MAXPATHLEN
+	* po/cs.po:
+	* po/de.po:
+	* po/en_GB.po:
+	* po/es_ES.po:
+	* po/fi_FI.po:
+	* po/fr_FR.po:
+	* po/zh_TW.po:
+	Update for battery time output
+	* src/panel.c: (panel_set_bg):
+	* src/panel_menu.c: (panel_menu_init):
+	Overflow fixes. 
+
+	Via patches from Philippe De Swert 
+	and Andreas Gunnarsson. 
+
+2005-04-05  mallum,,,  <mallum@openedhand.com>
+
+	* applets/mb-applet-wireless.c: (update_wireless),
+	(paint_callback), (load_icons), (resize_callback),
+	(button_callback), (theme_callback), (timeout_callback),
+	(find_iwface), (main):
+	Fix up to iwlib using wireless applet. Brunt of work via
+	Chris Lord.
+
+2005-03-17  mallum,,,  <mallum@openedhand.com>
+
+	* applets/Makefile.am:
+	* applets/mb-applet-wireless.c:
+	* configure.ac:
+	Initial work on porting to use iwlib. 
+	Currently *unworking*
+
+2005-02-22  mallum,,,  <mallum@openedhand.com>
+
+	* src/panel.c: (panel_main):
+	Exit if tray selection is 'stolen'
+
+2005-02-22  mallum,,,  <mallum@openedhand.com>
+
+	* src/panel.c: (panel_usage):
+	make usage display version.
+
+2005-02-22  mallum,,,  <mallum@openedhand.com>
+
+	* applets/mb-applet-clock.c: (file_exists), (main):
+	Fix bug where clock hangs and also fix so it only wakes
+	at beginning of every minute - thus saving some power.
+
+2005-02-21  mallum,,,  <mallum@openedhand.com>
+
+	* applets/mb-applet-battery.c: (paint_callback), (button_callback):
+	Apply patches for battery applet from Rob Taylor
+
+2005-01-21 0.9.1 Released
+
+2005-01-21  mallum,,,  <mallum@openedhand.com>
+
+	* applets/icons/miniapm*.png
+	Improve large miniapm panel icons a little.
+
+2005-01-21  mallum,,,  <mallum@openedhand.com>
+
+	* applets/dotdesktop/Makefile.am:
+	Only install .desktop files for installed applets
+	* applets/mb-applet-battery.c: (paint_callback), (button_callback):
+	Make less strcit ( via anon oe patch )
+	* po/en_GB.po:
+	Remove test text
+	* src/panel_app.c: (panel_app_handle_configure_request):
+	Position/size end applet properly 
+	( Hopefully fixes half clock sometimes showing )
+	* src/panel.c: (panel_handle_dock_request):
+	* src/panel.h:
+	* src/session.c: (session_preexisting_start_next),
+	(session_preexisting_win_matches_wanted):
+	Defer launching any non session applets while restarting a session.
+
+2005-01-11  mallum,,,  <mallum@openedhand.com>
+
+	* configure.ac:
+	Check for more recent libmatchbox. Bump up version
+	* src/panel.c: (panel_set_bg):
+	Use new pixbuf_x_pixel call to set background color
+	( Color matches for 16bpp )
+	* src/panel.h:
+	Set better font default for panel messages
+
+2005-01-04  mallum,,,  <mallum@openedhand.com>
+
+	* configure.ac:
+	Bump up version to 0.9
+
+2004-12-23  mallum,,,  <mallum@openedhand.com>
+
+	* src/panel_app.c: (panel_app_handle_configure_request):
+	Tweak positioning for non sqaure applets
+
+2004-12-20  mallum,,,  <mallum@openedhand.com>
+
+	* src/panel.c: (panel_set_bg), (panel_init):
+	* src/panel_menu.c: (panel_menu_update_remove_items):
+	Fixes for new pixbuf 16bpp internals.
+	ALso add support for MB_SYNC env var.
+
+2004-12-17  mallum,,,  <mallum@openedhand.com>
+
+	* configure.ac:
+	* po/Makefile.am:
+	Tweaks to nls auto* gubbins. via patch from Matt Dainty
+
+2004-12-13  mallum,,,  <mallum@openedhand.com>
+
+	* src/panel.c: (panel_usage), (panel_reorder_apps), (panel_init):
+	* src/panel.h:
+	* src/panel_app.c: (panel_app_add_end), (panel_app_new),
+	(panel_app_handle_configure_request), (panel_app_move_to),
+	(panel_apps_nudge), (panel_apps_rescale):
+	Add new --margins, --padding switches.
+
+2004-12-01  mallum <mallum@handhelds.org>
+
+	* configure.ac:
+	Bump up check for libmatchbox version 1.5
+
+2004-12-01  Ross Burton  <ross@burtonini.com>
+
+	* applets/mb-applet-launcher.c:
+	* applets/mb-applet-menu-launcher.c:
+	* applets/mb-applet-clock.c:
+	* src/panel_menu.c:
+	Use mb_dotdesktop_get_exec().  Also move config.h includes so that
+	AC_GNU_SOURCE works, and fix a bad fprintf.
+
+2004-12-01  Ross Burton  <ross@openedhand.com>
+
+	* configure.ac:
+	Add AC_GNU_SOURCE.
+
+2004-11-30  mallum  <mallum@handhelds.org>
+
+	* applets/mb-applet-system-monitor.c: (paint_callback):
+	Fix so initial paint does not take ages to happen.
+
+2004-11-02  mallum  <mallum@handhelds.org>
+
+	* src/panel.c: (panel_init):
+	Specifically set no focus hint. ( needed for new wm focus code )
+
+2004-11-02  Ross Burton  <ross@openedhand.com>
+
+	* src/panel.c:
+	Set DISPLAY if it was set on the command line.
+
+	* src/panel_menu.c:
+	Only attempt to read .desktop files
+
+2004-08-30 matchbox-panel-0.8.3 released released tag: RELEASE_0_8_3
+
+2004-08-30  mallum,,,  <mallum@handhelds.org>
+
+	* applets/mb-applet-launcher.c: (main):
+	Add support for honoring X-MB-NoWindow .desktop key
+	* configure.ac:
+	Bump up version
+	* src/panel.c: (main):
+	* src/panel.h:
+	* src/panel_menu.c: (panel_menu_init):
+	Fix silly atom orientation problem
+
+2004-08-08  mallum,,,  <mallum@handhelds.org>
+
+	* src/panel.c: (panel_xsettings_notify_cb),
+	(panel_set_theme_from_root_prop):
+	Add support for PanelMsgFont in theme.desktop
+
+2004-07-27  mallum,,,  <mallum@handhelds.org>
+
+	* applets/mb-applet-system-monitor.c: (paint_callback):
+	Change mem,cpu bar order to match bubble message 
+
+2004-07-23 matchbox-panel-0.8.2 released released tag: RELEASE_0_8_2
+
+2004-07-23  mallum,,,  <mallum@handhelds.org>
+
+	* configure.ac:
+	Bump up version
+
+2004-07-23  mallum,,,  <mallum@handhelds.org>
+
+	* src/session.c: (session_destroy),
+	(session_preexisting_handle_timeouts):
+	Fix default apps not appearing. 
+
+2004-06-28  Matthew Allum,,,  <mallum@handhelds.org>
+
+	* po/zh_TW.po:
+	prevous zh_TW was corrupt
+
+2004-06-28  Matthew Allum,,,  <mallum@handhelds.org>
+
+	* configure.ac:
+	* po/Makefile.am:
+	* po/zh_TW.po:
+	Added zh_TW translation from Jim Huang
+
+2004-04-27  Matthew Allum,,,  <mallum@handhelds.org>
+
+	* src/panel.c: (panel_set_bg), (panel_init), (main):
+	* src/session.c: (session_init), (session_save):
+	Error message cleanup
+
+2004-04-27  Matthew Allum,,,  <mallum@handhelds.org>
+
+	* applets/mb-applet-menu-launcher.c: (sn_exec), (fork_exec),
+	(build_menu), (load_icon):
+	Improved/cleaned error messages
+	* applets/mb-applet-system-monitor.c: (system_cpu),
+	(system_memory):
+	Exit rather than segv if /proc files cant be opened.
+
+2004-04-22  Matthew Allum,,,  <mallum@openedhand.com>
+
+	* src/panel.c: (panel_init):
+	* src/panel.h:
+	Add support for env var "MB_PANEL_NO_DESKTOP_HIDE" to
+        not hide an embedded panel on desktop. 
+	This is mainly just for testing.
+
+2004-04-10  Matthew Allum  <mallum@openedhand.com>
+
+	* configure.ac:
+	* applets/Makefile.am:
+	Only build mb-applet-wireless if linux/wireless.h exists
+
+	* applets/mb-applet-menu-launcher.c: (button_callback),
+	(xevent_callback):
+	Tidy up DNOTIFY code.
+
+2004-03-22 matchbox-panel-0.8.1 released released tag: RELEASE_0_8_1
+
+2004-03-17  Matthew Allum,,,  <mallum@handhelds.org>
+
+	* README:
+	Add some content
+	* configure.ac:
+	bump up version.
+
+2004-02-26  Matthew Allum,,,  <mallum@openedhand.com>
+
+	* Makefile.am:
+	Added snapshot target
+
+2004-02-25  Matthew Allum,,,  <mallum@openedhand.com>
+
+	* applets/mb-applet-battery.c: (main):
+	Decrease time between battery state checks ( 10 -> 2 secs )
+
+2004-02-25  Matthew Allum,,,  <mallum@openedhand.com>
+
+	* src/panel.c: (panel_set_bg), (panel_main):
+	Avoid panel in titlebar crash with no set background
+
+2004-02-24  Matthew Allum,,,  <mallum@openedhand.com>
+
+	* src/panel.h:
+	remove uneeded xpm.h include
+
+2004-02-13  Matthew Allum,,,  <mallum@openedhand.com>
+
+	* applets/mb-applet-wireless.c: (resize_callback),
+	(theme_callback):
+	* src/panel.c: (panel_set_theme_from_root_prop):
+	Fix crash when wireless at maximum strength.
+	Caused by level enum referencing from 1 not 0.
+
+2004-02-10 matchbox-panel-0.8 released released
+
+2004-02-10  Matthew Allum,,,  <mallum@openedhand.com>
+
+	* applets/mb-applet-battery.c: (main):
+	Change miniapm printf's to mb-applet-battery
+	* po/Makefile.am:
+	Fix .mo's getting installed in correct location
+
+2004-02-09  Matthew Allum,,,  <mallum@openedhand.com>
+
+	* applets/icons/minisys.png:
+	* applets/icons/minisys.xpm:
+	Large mb-applet-system-monitor icon improved
+
+2004-02-07  Matthew Allum,,,  <mallum@handhelds.org>
+
+	* applets/Makefile.am:
+	* applets/mb-applet-menu-launcher.c:
+	* configure.ac:
+	DNOTIFY Build fixes
+
+2004-02-07  Matthew Allum,,,  <mallum@handhelds.org>
+
+	* applets/Makefile.am:
+	* configure.ac:
+	Fix startup Notification building
+
+2004-02-07  Matthew Allum,,,  <mallum@handhelds.org>
+
+	* applets/mb-applet-menu-launcher.c: (build_menu):
+	Dont read same /applications dir twice
+	* src/panel_menu.c: (panel_menu_init):
+	Launch mb-applet-launcher not monoluanch
+
+2004-02-05  Matthew Allum,,,  <mallum@openedhand.com>
+
+	* applets/Makefile.am:
+	Fix to mb-applet-battery Makefile.am login
+
+2004-02-05  Matthew Allum,,,  <mallum@openedhand.com>
+
+	* configure.ac:
+	Added dnotify switch
+
+2004-02-05  Matthew Allum,,,  <mallum@openedhand.com>
+
+	* Makefile.am:
+	Add po to output dirs
+	* applets/small-icons/mbterm.png:
+	* applets/small-icons/mbterm.xpm:
+	* applets/small-icons/minitime.png:
+	* applets/small-icons/minitime.xpm:
+	Added missing icons
+	* configure.ac:
+	Various tweaks
+	* src/panel.h:
+	Made panel include config.h
+
+2004-02-04  Matthew Allum, mallum@handhelds.org
+
+	* applets/mb-applet-launcher.c: (main):
+	Remove extra share from img created absolute paths
+
+2004-02-04  Matthew Allum, mallum@handhelds.org
+
+	* applets/dotdesktop/mb-launcher-term.desktop:
+	* applets/mb-applet-launcher.c: (main):
+	Fixed mb-launcher-term not to require absolute paths 
+        for images 	
+
+2004-02-04  Matthew Allum, mallum@handhelds.org
+
+	* applets/mb-applet-menu-launcher.c: (build_menu):
+	Only add the action seperator if there are action items 
+
+2004-02-04  Matthew Allum, mallum@handhelds.org
+
+	* applets/Makefile.am:
+	* applets/dotdesktop/Makefile.am:
+	* applets/dotdesktop/mb-launcher-term.desktop:
+	* applets/dotdesktop/mb-show-desktop.desktop:
+	* applets/icons/Makefile.am:
+	* applets/icons/battery.xpm:
+	* applets/icons/broken-0.png:
+	* applets/icons/broken-0.xpm:
+	* applets/icons/mbmenu.png:
+	* applets/icons/mbmenu.xpm:
+	* applets/icons/mbterm.png:
+	* applets/icons/mbterm.xpm:
+	* applets/icons/miniapm-power.png:
+	* applets/icons/miniapm-power.xpm:
+	* applets/icons/miniapm.png:
+	* applets/icons/miniapm.xpm:
+	* applets/icons/minisys.png:
+	* applets/icons/minisys.xpm:
+	* applets/icons/minitime.png:
+	* applets/icons/minitime.xpm:
+	* applets/icons/minitimestrip.xpm:
+	* applets/icons/miniwave-icon.png:
+	* applets/icons/miniwave.xpm:
+	* applets/icons/no-link-0.png:
+	* applets/icons/no-link-0.xpm:
+	* applets/icons/oval_filled.xpm:
+	* applets/icons/signal-1-40.png:
+	* applets/icons/signal-1-40.xpm:
+	* applets/icons/signal-41-60.png:
+	* applets/icons/signal-41-60.xpm:
+	* applets/icons/signal-61-80.png:
+	* applets/icons/signal-61-80.xpm:
+	* applets/icons/signal-81-100.png:
+	* applets/icons/signal-81-100.xpm:
+	* applets/icons/term.png:
+	* applets/mb-applet-launcher.c:
+	* applets/mb-applet-xterm-wrapper.sh:
+	* applets/small-icons/Makefile.am:
+	* applets/small-icons/broken-0.png:
+	* applets/small-icons/broken-0.xpm:
+	* applets/small-icons/mbdesktop.png:
+	* applets/small-icons/mbdesktop.xpm:
+	* applets/small-icons/no-link-0.png:
+	* applets/small-icons/no-link-0.xpm:
+	* applets/small-icons/signal-1-40.png:
+	* applets/small-icons/signal-1-40.xpm:
+	* applets/small-icons/signal-41-60.png:
+	* applets/small-icons/signal-41-60.xpm:
+	* applets/small-icons/signal-61-80.png:
+	* applets/small-icons/signal-61-80.xpm:
+	* applets/small-icons/signal-81-100.png:
+	* applets/small-icons/signal-81-100.xpm:
+
+	BIG icon cleanup 
+
+2004-02-04  Matthew Allum, mallum@handhelds.org
+
+	* applets/mb-applet-battery.c:
+	* applets/mb-applet-menu-launcher.c:
+	* applets/mb-applet-system-monitor.c:
+	#ifdef cleanups
+
+2004-02-04  Matthew Allum, mallum@handhelds.org
+
+	* applets/Makefile.am:
+	Made mb-applet-battery build conditional on apm deps
+
+	* configure.ac:
+	Fixed --enable-small-icons option
+	Added Summary
+
+2004-02-03  Matthew Allum, mallum@handhelds.org
+
+	* applets/mb-applet-menu-launcher.c: (build_menu):
+	Fix to multiple app path checking. index was getting
+	overidden. 
+
+2004-02-03  Matthew Allum, mallum@handhelds.org
+
+	* applets/mb-applet-menu-launcher.c: (build_menu):
+	Made menu, like desktop attempt to parse multiple
+	application dir rather than just prefix based one.	
+
+2004-02-03  Matthew Allum, mallum@handhelds.org
+
+	* src/panel_menu.c:
+	Changed USE_PNG check to MB_HAVE_PNG

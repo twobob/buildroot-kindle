@@ -1,0 +1,11 @@
+asnprintf.o: asnprintf.c config.h vasnprintf.h \
+ /usr/lib/gcc/i686-linux-gnu/4.6/include/stdarg.h \
+ /usr/lib/gcc/i686-linux-gnu/4.6/include/stddef.h
+
+config.h:
+
+vasnprintf.h:
+
+/usr/lib/gcc/i686-linux-gnu/4.6/include/stdarg.h:
+
+/usr/lib/gcc/i686-linux-gnu/4.6/include/stddef.h:

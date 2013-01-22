@@ -1,0 +1,9 @@
+prefix=/usr
+exec_prefix=/usr
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+ 
+Name: FontsProto
+Description: Fonts extension headers
+Version: 2.1.1
+Cflags: -I${includedir}

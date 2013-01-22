@@ -1,0 +1,3 @@
+dbus_daemon-test.o dbus_daemon-test.o: test.c ../config.h
+
+../config.h:

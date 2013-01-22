@@ -1,0 +1,2 @@
+xlib_libXt-0001-util-don-t-link-makestrs-with-target-cflags.patch
+buildroot-libtool-v2.2.patch

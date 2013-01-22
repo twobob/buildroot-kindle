@@ -1,0 +1,1 @@
+cmd_archival/lib.a := rm -f archival/lib.a; /home/simon/GIT/buildroot-k3-current/output/host/usr/bin/arm-none-linux-gnueabi-ar  rcs archival/lib.a archival/ar.o archival/bbunzip.o archival/cpio.o archival/gzip.o archival/tar.o archival/unzip.o

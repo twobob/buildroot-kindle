@@ -1,0 +1,140 @@
+# translation of matchbox.po to Czech
+# Copyright (C) 2003 Free Software Foundation, Inc.
+# Libor Klepac <elkropac@students.zcu.cz>, 2003.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: matchbox 0.6.4\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-02-02 10:37+0000\n"
+"PO-Revision-Date: 2003-10-11 23:36+0100\n"
+"Last-Translator: Libor Klepac <elkropac@students.zcu.cz>\n"
+"Language-Team: Czech <translation-team-cs@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../src/panel_menu.c:68
+msgid "Remove"
+msgstr "Odebrat"
+
+#: ../src/panel_menu.c:172
+msgid "Add"
+msgstr "Přidat"
+
+#: ../src/panel_menu.c:259
+msgid "Hide"
+msgstr "Schovat"
+
+#: ../applets/mb-applet-system-monitor.c:253
+#, c-format
+msgid "CPU: %i %%, MEMORY: %i %%\n"
+msgstr "CPU: %i %%, PAMĚŤ: %i %%\n"
+
+#: ../applets/mb-applet-system-monitor.c:324
+msgid "CPU/Mem Monitor"
+msgstr "Sledování využití CPU/Paměti"
+
+#: ../applets/mb-applet-wireless.c:438
+#, fuzzy, c-format
+msgid ""
+"%s:\n"
+" Link %.1f\n"
+" Level %.1f\n"
+" Noise %.1f\n"
+msgstr "%s: Link %.1f, Level %.1f, Noise %.1f\n"
+
+#: ../applets/mb-applet-wireless.c:443
+#, c-format
+msgid "No wireless cards detected\n"
+msgstr "Nebyla nalezena karta pro bezdrátové sítě\n"
+
+#: ../applets/mb-applet-wireless.c:483
+msgid "Wireless Monitor"
+msgstr "Sledování bezdrátových síti"
+
+#: ../applets/mb-applet-clock.c:146
+#, c-format
+msgid "%.2d:%.2d"
+msgstr "%.2d:%.2d"
+
+#: ../applets/mb-applet-clock.c:234
+msgid "%a %b %e %k:%M:%S %Y"
+msgstr "%a %b %e %k:%M:%S %Y"
+
+#: ../applets/mb-applet-clock.c:333
+msgid "Clock"
+msgstr "Hodiny"
+
+#: ../applets/mb-applet-clock.c:360
+msgid "Set Time"
+msgstr ""
+
+#: ../applets/mb-applet-battery.c:283
+#, c-format
+msgid ""
+"Battery power very low !\n"
+"\n"
+"Time Left: %.2i minutes"
+msgstr ""
+"Napětí baterie velmi nízké!\n"
+"\n"
+"Zbývá: %.2i minut"
+
+#: ../applets/mb-applet-battery.c:380
+#, c-format
+msgid ""
+"AC Connected\n"
+"Charging: %.2i %%\n"
+msgstr ""
+"Připojeno k síti\n"
+"Nabito: %.2i %%\n"
+
+#: ../applets/mb-applet-battery.c:383
+#, c-format
+msgid ""
+"AC Connected\n"
+"Fully charged.\n"
+msgstr ""
+"Připojeno k síti\n"
+"Plně nabito\n"
+
+#: ../applets/mb-applet-battery.c:390
+#, c-format
+msgid ""
+"Battery Power\n"
+"Juice %.2i %%\n"
+"Time left: %.2i h. %.2i min.\n"
+msgstr ""
+"Napájeno z baterie\n"
+"Napětí %.2i %%\n"
+"Zbývá: %.2i h. %.2i minut\n"
+
+#: ../applets/mb-applet-battery.c:392
+#, c-format
+msgid ""
+"Battery Power\n"
+" Device read error.\n"
+msgstr ""
+"Napájeno z baterie\n"
+" Chyba při čtení ze zařízení.\n"
+
+#: ../applets/mb-applet-battery.c:442
+msgid "Battery Monitor"
+msgstr "Sledování napájení"
+
+#: ../applets/mb-applet-battery.c:466
+msgid "More info"
+msgstr ""
+
+#~ msgid "Cant open mixer device"
+#~ msgstr "Nemohu otevřít směšovač"
+
+#~ msgid "Cant open mixer device for reading"
+#~ msgstr "Nemohu otevřít směšovač pro čtení"
+
+#~ msgid "Cant open mixer device for writing"
+#~ msgstr "Nemohu otevřít směšovač pro zápis"
+
+#~ msgid "Volume Control"
+#~ msgstr "Nastavení hlasitosti"

@@ -1,0 +1,9 @@
+fontencc.lo fontencc.o: fontencc.c ../../config.h \
+  /home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/X11/fonts/fontenc.h \
+  ../../include/X11/fonts/fontencc.h
+
+../../config.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/X11/fonts/fontenc.h:
+
+../../include/X11/fonts/fontencc.h:

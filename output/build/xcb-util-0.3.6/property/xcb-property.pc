@@ -1,0 +1,11 @@
+prefix=/usr
+exec_prefix=/usr
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: XCB Property library
+Description: XCB property convenience library
+Version: 0.3.6
+Requires: xcb xcb-event
+Libs: -L${libdir} -lxcb-property 
+Cflags: -I${includedir}

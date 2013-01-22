@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=App Launcher
+Comment=Panel based Application Launcher
+Exec=mb-applet-menu-launcher
+Type=PanelApp
+Icon=mbmenu.png
+Categories=Panel;Utility;MB

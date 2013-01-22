@@ -1,0 +1,6 @@
+Release 1.9
+===========
+
+* Disable various non critical stderr warnings.
+  ( set MB_WARNINGS env var for old behaviour )
+* Correctly set _NET_PID in mbtray

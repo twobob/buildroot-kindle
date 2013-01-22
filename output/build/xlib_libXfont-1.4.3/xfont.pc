@@ -1,0 +1,13 @@
+prefix=/usr
+exec_prefix=/usr
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: Xfont
+Description: X font Library
+Version: 1.4.3
+Requires: xproto fontsproto
+Requires.private: fontenc freetype2
+Cflags: -I${includedir}
+Libs: -L${libdir} -lXfont
+Libs.private: -lz -lm

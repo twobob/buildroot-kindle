@@ -1,0 +1,5 @@
+libdbus_internal_la-dbus-marshal-recursive-util.lo \
+  .libs/libdbus_internal_la-dbus-marshal-recursive-util.o:  \
+ dbus-marshal-recursive-util.c ../config.h
+
+../config.h:

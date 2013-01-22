@@ -1,0 +1,4 @@
+blackbox-0.70.1-configure.patch
+blackbox-0.70.1-gcc43.patch
+blackbox-0.70.1-gcc46-textpropertytostring.patch
+buildroot-libtool-v1.5.patch

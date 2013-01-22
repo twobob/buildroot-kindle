@@ -1,0 +1,2 @@
+openssl-do-not-build-docs.patch
+openssl-dont-force-large-file.patch

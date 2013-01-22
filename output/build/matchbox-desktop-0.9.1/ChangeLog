@@ -1,0 +1,214 @@
+2005-01-24  mallum,,,  <mallum@openedhand.com>
+
+	* configure.ac:
+	bump up version to 0.9.1
+
+2005-01-11  mallum,,,  <mallum@openedhand.com>
+
+	* src/mbdesktop.h:
+	Make sure 'fixed' font dont get used by default.
+
+2005-01-04  mallum,,,  <mallum@openedhand.com>
+
+	* configure.ac:
+	Bump up version to 0.9
+
+2004-12-20  mallum <mallum@openedhand.com>
+
+	* modules/tasks.c: (tasks_populate):
+	* src/mbdesktop.c: (mbdesktop_set_icon):
+	* src/mbdesktop_view.c: (mbdesktop_view_init_bg):
+	* src/mbdesktop_win_plugin.c: (mbdesktop_win_plugin_reparent):
+	Fixups to work with new 16bpp pixbuf code
+
+2004-12-16  mallum <mallum@openedhand.com>
+
+	* configure.ac:
+	* src/Makefile.am:
+	Add AC_LIBTOOL_DLOPEN to configure.ac ( patch via  Matt Dainty )
+	SHould help non linux builds.
+
+2004-11-30  Ross Burton  <ross@burtonini.com>
+
+	* configure.ac:
+	Bump libmb version check to 1.5.
+
+2004-11-30  Ross Burton  <ross@burtonini.com>
+
+	* modules/dotdesktop.c:
+	Use mb_dotdesktop_get_exec().
+
+	* configure.ac:
+	Add AC_GNU_SOURCE.
+
+2004-11-01  Ross Burton  <ross@burtonini.com>
+
+	* src/mbdesktop.c (mbdesktop_init):
+	Call setenv() to set DISPLAY is we were passed -display.
+
+2004-08-30  mallum,,,  <mallum@handhelds.org>
+
+	* data/mb-show-desktop.desktop:
+	Add new X-MB-NoWindow key
+
+2004-08-09  mallum,,,  <mallum@handhelds.org>
+
+	reviewed by: <delete if not using a buddy>
+
+	* configure.ac:
+	Check for libmatchbox 1.3
+	* modules/dotdesktop.c: (dotdesktop_init):
+	* src/mbdesktop.c: (mbdesktop_switch_bg_theme), (get_module_list):
+	* src/mbdesktop.h:
+	* src/mbdesktop_item.c: (mbdesktop_item_cache),
+	(mbdesktop_item_from_cache):
+	Use new mb_util_get_homedir() for non reliance on set HOME env var.
+
+2004-07-22  mallum  <mallum@handhelds.org>
+
+	* configure.ac:
+	* data/Makefile.am:
+	* data/mbdesktop_modules.in:
+	* modules/Makefile.am:
+	* src/Makefile.am:
+
+	Make modules not install in prefix/share but prefix/lib.
+	Put modules config in sysconfdir
+	Bump up version.
+
+	* src/mbdesktop.c: (mbdesktop_main), (get_module_list), (main):
+	* src/mbdesktop_item.c: (mbdesktop_item_new_with_params):
+	* src/mbdesktop_view.c: (mbdesktop_view_paint_list),
+	(mbdesktop_view_paint_items):
+	Comment out window pluggin stuff for safe release
+	Attempt to load images with no prefix ( by adding .png )
+
+2004-04-08  Matthew Allum,,,  <mallum@openedhand.com>
+
+	* modules/dotdesktop.c: (get_folder_from_name),
+	(add_a_dotdesktop_item), (dotdesktop_init):
+	Added simple mechansim for per user overide of .desktop 
+        item -> vfolder mapping.
+
+2004-04-06  Matthew Allum,,,  <mallum@openedhand.com>
+
+	* Makefile.am:
+	Add snapshot target
+
+2004-02-25  Matthew Allum,,,  <mallum@openedhand.com>
+
+	* src/mbdesktop.c: (sig_hup_reload_handler), (mbdesktop_init):
+	Applied sashz patch for HUP reload support.
+
+2004-02-16  Matthew Allum,,,  <mallum@openedhand.com>
+
+	* src/mbdesktop.c: (handle_key_event),
+	(mbdesktop_current_folder_view), (modules_init), (main):
+	* src/mbdesktop_view.c: (mbdesktop_view_paint),
+	(mbdesktop_view_paint_list), (mbdesktop_view_paint_items):
+	* src/mbdesktop_win_plugin.c: (mbdesktop_win_plugin_reparent),
+	(mbdesktop_win_plugin_config_event):
+	More window plugin work - roughly working now.
+	Allow desktop still to run if no modules are loaded
+
+2004-02-14  Matthew Allum,,,  <mallum@openedhand.com>
+
+	* configure.ac:
+	Add AC_CONFIG_AUX_DIR(.)
+
+	* src/Makefile.am:
+	* src/mbdesktop.c: (mbdesktop_init), (mbdesktop_main), (main):
+	* src/mbdesktop.h:
+	* src/mbdesktop_view.c: (mbdesktop_view_paint_list),
+	(mbdesktop_view_paint_items):
+	* src/mbdesktop_win_plugin.c: (mbdesktop_win_plugin_init),
+	(mbdesktop_win_plugin_load), (mbdesktop_win_plugin_reparent),
+	(mbdesktop_win_plugin_configure_request),
+	(mbdesktop_win_plugin_config_event):
+	* src/mbdesktop_win_plugin.h:
+	Add initial support for window plugins
+
+2004-02-12  Matthew Allum,,,  <mallum@handhelds.org>
+
+	* modules/dotdesktop.c: (dotdesktop_init):
+	* modules/tasks.c: (tasks_populate):
+	* src/mbdesktop.c: (mbdesktop_init), (modules_init):
+	Change 'mbdesktop' warning references to 'matchbox-desktop'
+
+2004-02-10 Matchbox-desktop-0.8 released - RELEASE_0_8 tag
+
+2004-02-07  Matthew Allum,,,  <mallum@handhelds.org>
+
+	* configure.ac:
+	fix startup notification options
+
+2004-02-07  Matthew Allum,,,  <mallum@handhelds.org>
+
+	* modules/dotdesktop.c:
+	Made sure config.h gets included
+
+2004-02-07  Matthew Allum,,,  <mallum@handhelds.org>
+
+	* modules/dotdesktop.c: (dotdesktop_init):
+	dont read app entries twice
+
+2004-02-06  Matthew Allum,,,  <mallum@handhelds.org>
+
+	* src/mbdesktop.c: (mbdesktop_progress_dialog_init),
+	(mbdesktop_progress_dialog_set_percentage),
+	(mbdesktop_progress_dialog_open):
+	more dialog tweaks - size and bar color
+
+2004-02-06  Matthew Allum,,,  <mallum@handhelds.org>
+
+	* src/mbdesktop.c: (mbdesktop_progress_dialog_init),
+	(mbdesktop_progress_dialog_set_percentage):
+	Improved progess dialog sizeing relative to desktop size
+
+2004-02-06  Matthew Allum,,,  <mallum@openedhand.com>
+
+	* src/item_tasks.c:
+	* src/item_tasks.h:
+	Removed obsoleted files
+	* src/mbdesktop.c: (mbdesktop_set_scroll_buttons), (modules_init):
+	* src/mbdesktop_item.c: (mbdesktop_item_set_icon_from_theme),
+	(mbdesktop_item_set_image):
+	Hardened matchbox against module failure and missing images when
+	matchbox-common has not been installed. 
+
+2004-02-06  Matthew Allum,,,  <mallum@openedhand.com>
+
+	* configure.ac:
+	* matchbox-desktop.pc.in:
+	* src/Makefile.am:
+	Fix matchbox-desktop.pc up
+
+2004-02-06  Matthew Allum,,,  <mallum@openedhand.com>
+
+	* data/Makefile.am:
+	Fix typo to fix make dist
+
+2004-02-05  Matthew Allum,,,  <mallum@openedhand.com>
+
+	* configure.ac:
+	Tweaks, added missing options
+	
+	* modules/Makefile.am:
+	* modules/dotdesktop.c:
+	* src/Makefile.am:
+	* src/mbdesktop.h:
+	Sort lib-startup-notification deps
+
+2004-02-04  Matthew Allum, mallum@handhelds.org
+
+	* data/Makefile.am:
+	* data/mb-show-desktop.desktop:
+	* data/mbdesktop.png:
+	moved desktop application data here from panel
+
+
+2004-02-03  Matthew Allum, mallum@handhelds.org
+
+	* modules/Makefile.am:
+	* modules/dotdesktop.c: (add_a_dotdesktop_item), (dotdesktop_init):
+	Warnings cleanup.

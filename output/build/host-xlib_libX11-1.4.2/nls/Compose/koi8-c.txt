@@ -1,0 +1,219 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Xlib Compose Keys for koi8-c
+
+Applications using Xlib input handling should recognize these compose key
+sequences in locales using the koi8-c compose table.
+
+koi8-c Compose Sequence Sequence Definition
+
+Table 1. Compose Key Sequences for koi8-c
+
+┌────────────────────────────────────┬───────────────────────────┐
+│            Key Sequence            │          Action           │
+├────────────────────────────────────┴───────────────────────────┤
+│<Multi_key> Means <Compose> Special Character                   │
+├────────────────────────────────────┬───────────────────────────┤
+│Multi_key plus plus                 │"#" numbersign             │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key apostrophe space          │"'" apostrophe             │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key space apostrophe          │"'" apostrophe             │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key A T                       │"@" at                     │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key parenleft parenleft       │"[" bracketleft            │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key slash slash               │"\\" backslash             │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key slash less                │"\\" backslash             │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key less slash                │"\\" backslash             │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key parenright parenright     │"]" bracketright           │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key asciicircum space         │"^" asciicircum            │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key space asciicircum         │"^" asciicircum            │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key greater space             │"^" asciicircum            │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key space greater             │"^" asciicircum            │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key grave space               │"`" grave                  │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key space grave               │"`" grave                  │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key parenleft minus           │"{" braceleft              │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key minus parenleft           │"{" braceleft              │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key slash asciicircum         │"|" bar                    │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key asciicircum slash         │"|" bar                    │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key V L                       │"|" bar                    │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key L V                       │"|" bar                    │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key v l                       │"|" bar                    │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key l v                       │"|" bar                    │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key parenright minus          │"}" braceright             │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key minus parenright          │"}" braceright             │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key asciitilde space          │"~" asciitilde             │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key space asciitilde          │"~" asciitilde             │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key minus space               │"~" asciitilde             │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key space minus               │"~" asciitilde             │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key space space               │" " nobreakspace           │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_ghe minus        │" " Cyrillic_ghe_bar       │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_GHE minus        │" " Cyrillic_GHE_bar       │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_zhe comma        │" " Cyrillic_zhe_descender │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_ZHE comma        │" " Cyrillic_ZHE_descender │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_ka comma         │" " Cyrillic_ka_descender  │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_KA comma         │" " Cyrillic_KA_descender  │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_ka slash         │" " Cyrillic_ka_vertstroke │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_KA slash         │" " Cyrillic_KA_vertstroke │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_ka bar           │" " Cyrillic_ka_vertstroke │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_KA bar           │" " Cyrillic_KA_vertstroke │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_en comma         │" " Cyrillic_en_descender  │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_EN comma         │" " Cyrillic_EN_descender  │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_u apostrophe     │" " Cyrillic_u_straight    │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_U apostrophe     │" " Cyrillic_U_straight    │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_u bar            │" " Cyrillic_u_straight    │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_U bar            │" " Cyrillic_U_straight    │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_u comma          │" " Cyrillic_u_straight_bar│
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_U comma          │" " Cyrillic_U_straight_bat│
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_u slash          │" " Cyrillic_u_straight_bar│
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_U slash          │" " Cyrillic_U_straight_bat│
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_ha comma         │" " Cyrillic_ha_descender  │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_HA comma         │" " Cyrillic_HA_descender  │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_che comma        │" " Cyrillic_che_descender │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_CHE comma        │" " Cyrillic_CHE_descender │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_che slash        │" " Cyrillic_che_vertstroke│
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_CHE slash        │" " Cyrillic_CHE_vertstroke│
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_che bar          │" " Cyrillic_che_vertstroke│
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_CHE bar          │" " Cyrillic_CHE_vertstroke│
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_ha apostrophe    │" " Cyrillic_shha          │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_HA apostrophe    │" " Cyrillic_SHHA          │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key h apostrophe              │" " Cyrillic_shha          │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key H apostrophe              │" " Cyrillic_SHHA          │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key h h                       │" " Cyrillic_shha          │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key H H                       │" " Cyrillic_SHHA          │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_ie Cyrillic_ie   │" " Cyrillic_schwa         │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_IE Cyrillic_IE   │" " Cyrillic_SCHWA         │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key e e                       │" " Cyrillic_schwa         │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key E E                       │" " Cyrillic_SCHWA         │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_i minus          │" " Cyrillic_i_macron      │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_I minus          │" " Cyrillic_I_macron      │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_o minus          │" " Cyrillic_o_bar         │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_O minus          │" " Cyrillic_O_bar         │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_u minus          │" " Cyrillic_u_macron      │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_U minus          │" " Cyrillic_U_macron      │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_de Cyrillic_je   │"¡" Serbian_dje            │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_DE Cyrillic_JE   │"±" Serbian_DJE            │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_ghe Cyrillic_je  │"¢" Macedonia_gje          │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_GHE Cyrillic_JE  │"²" Macedonia_GJE          │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_shorti Cyrillic_o│"£" Cyrillic_io            │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_SHORTI Cyrillic_O│"³" Cyrillic_IO            │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_je Cyrillic_o    │"£" Cyrillic_io            │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_JE Cyrillic_O    │"³" Cyrillic_IO            │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_ie colon         │"£" Cyrillic_io            │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_IE colon         │"³" Cyrillic_IO            │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_el Cyrillic_je   │"©" Cyrillic_lje           │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_EL Cyrillic_JE   │"¹" Cyrillic_LJE           │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_en Cyrillic_je   │"ª" Cyrillic_nje           │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_EN Cyrillic_JE   │"º" Cyrillic_NJE           │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_shorti Cyrillic_u│"À" Cyrillic_yu            │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_SHORTI Cyrillic_U│"à" Cyrillic_YU            │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_je Cyrillic_u    │"À" Cyrillic_yu            │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_JE Cyrillic_U    │"à" Cyrillic_YU            │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_te Cyrillic_es   │"Ã" Cyrillic_tse           │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_TE Cyrillic_ES   │"ã" Cyrillic_TSE           │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_shorti Cyrillic_a│"Ñ" Cyrillic_ya            │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_SHORTI Cyrillic_A│"ñ" Cyrillic_YA            │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_je Cyrillic_a    │"Ñ" Cyrillic_ya            │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_JE Cyrillic_A    │"ñ" Cyrillic_YA            │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_sha comma        │"Ý" Cyrillic_shcha         │
+├────────────────────────────────────┼───────────────────────────┤
+│Multi_key Cyrillic_SHA comma        │"ý" Cyrillic_SHCHA         │
+├────────────────────────────────────┴───────────────────────────┤
+│End of Sequence Definition                                      │
+└────────────────────────────────────────────────────────────────┘
+

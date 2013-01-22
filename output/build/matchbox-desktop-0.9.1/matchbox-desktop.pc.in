@@ -1,0 +1,10 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
+
+Name: matchbox-desktop
+Description: Matchbox Desktop module dependencies.
+Version: @VERSION@
+Libs: -L${libdir} @LIBMB_LIBS@
+Cflags: -I${includedir}/matchbox-desktop @LIBMB_CFLAGS@

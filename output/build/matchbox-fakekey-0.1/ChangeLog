@@ -1,0 +1,53 @@
+2005-05-27  mallum,,,  <mallum@openedhand.com>
+
+	* Makefile.am:
+	Add snapshot target
+
+2005-05-02  mallum,,,  <mallum@openedhand.com>
+
+	* fakekey/fakekey.h:
+	* src/libfakekey.c: (fakekey_press_keysym):
+	char* -> const char*
+
+2005-04-28  mallum,,,  <mallum@openedhand.com>
+
+	* src/libfakekey.c: (fakekey_send_keyevent),
+	(fakekey_press_keysym):
+	Call XSync without True ;)
+        A different try at remapping keysyms so they
+        work right away
+
+2005-04-26  mallum,,,  <mallum@openedhand.com>
+
+	* configure.ac:
+	Remove another minor snafu.
+	* src/libfakekey.c:
+	Make debug configurable from configure
+
+2005-04-21  mallum,,,  <mallum@openedhand.com>
+
+	* configure.ac:
+	Fix configure.ac boo boo
+
+2005-04-21  mallum,,,  <mallum@openedhand.com>
+
+	* src/libfakekey.c: (fakekey_init), (fakekey_press):
+	Remove some random printf's
+
+2005-04-17  mallum,,,  <mallum@openedhand.com>
+
+	* fakekey/fakekey.h:
+	* src/libfakekey.c: (fakekey_send_keyevent),
+	(fakekey_press_keysym):
+	Add new keysym func, rejig code a little to support it
+
+2005-04-13  mallum,,,  <mallum@openedhand.com>
+
+	* src/libfakekey.c: (fakekey_press):
+	bug fix
+
+2005-04-06  mallum,,,  <mallum@openedhand.com>
+
+	* libfakekey.pc.in:
+	Add our actual libname
+

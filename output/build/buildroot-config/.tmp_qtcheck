@@ -1,0 +1,3 @@
+KC_QT_CFLAGS=$(shell pkg-config QtCore QtGui Qt3Support --cflags)
+KC_QT_LIBS=$(shell pkg-config QtCore QtGui Qt3Support --libs)
+KC_QT_MOC=$(shell pkg-config QtCore --variable=prefix)/bin/moc

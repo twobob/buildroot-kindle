@@ -1,0 +1,141 @@
+# German translation for matchbox.
+# Copyright (C) 2003 Matthew Allum
+# This file is distributed under the same license as the matchbox package.
+# Colin Marquardt <colin@marquardt-home.de>, 2003.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: matchbox\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-02-02 10:37+0000\n"
+"PO-Revision-Date: 2003-10-09 22:18+0200\n"
+"Last-Translator: Colin Marquardt <colin@marquardt-home.de>\n"
+"Language-Team: German <de@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../src/panel_menu.c:68
+msgid "Remove"
+msgstr "Entfernen"
+
+#: ../src/panel_menu.c:172
+msgid "Add"
+msgstr "Hinzufügen"
+
+#: ../src/panel_menu.c:259
+msgid "Hide"
+msgstr "Verstecken"
+
+#: ../applets/mb-applet-system-monitor.c:253
+#, c-format
+msgid "CPU: %i %%, MEMORY: %i %%\n"
+msgstr "CPU: %i %%, Speicher: %i %%\n"
+
+#: ../applets/mb-applet-system-monitor.c:324
+msgid "CPU/Mem Monitor"
+msgstr "CPU-/Speicher-Monitor"
+
+#: ../applets/mb-applet-wireless.c:438
+#, fuzzy, c-format
+msgid ""
+"%s:\n"
+" Link %.1f\n"
+" Level %.1f\n"
+" Noise %.1f\n"
+msgstr "%s: Link %.1f, Level %.1f, Stör %.1f\n"
+
+#: ../applets/mb-applet-wireless.c:443
+#, c-format
+msgid "No wireless cards detected\n"
+msgstr "Keine Wireless-Karten erkannt\n"
+
+#: ../applets/mb-applet-wireless.c:483
+msgid "Wireless Monitor"
+msgstr "Wireless-Monitor"
+
+#: ../applets/mb-applet-clock.c:146
+#, c-format
+msgid "%.2d:%.2d"
+msgstr "%.2d:%.2d"
+
+#: ../applets/mb-applet-clock.c:234
+msgid "%a %b %e %k:%M:%S %Y"
+msgstr "%a, %e. %b %Y, %k:%M:%S"
+
+#: ../applets/mb-applet-clock.c:333
+msgid "Clock"
+msgstr "Uhr"
+
+#: ../applets/mb-applet-clock.c:360
+msgid "Set Time"
+msgstr ""
+
+#: ../applets/mb-applet-battery.c:283
+#, c-format
+msgid ""
+"Battery power very low !\n"
+"\n"
+"Time Left: %.2i minutes"
+msgstr ""
+"Batteriestand sehr niedrig!\n"
+"\n"
+"Verbleibend: %.2i min"
+
+#: ../applets/mb-applet-battery.c:380
+#, c-format
+msgid ""
+"AC Connected\n"
+"Charging: %.2i %%\n"
+msgstr ""
+"Am Netzteil\n"
+"Ladend: %.2i %%\n"
+
+#: ../applets/mb-applet-battery.c:383
+#, c-format
+msgid ""
+"AC Connected\n"
+"Fully charged.\n"
+msgstr ""
+"Am Netzteil\n"
+"Voll geladen\n"
+
+#: ../applets/mb-applet-battery.c:390
+#, c-format
+msgid ""
+"Battery Power\n"
+"Juice %.2i %%\n"
+"Time left: %.2i h. %.2i min.\n"
+msgstr ""
+"Batteriestand\n"
+"Füllung %.2i %%\n"
+"Verbleibend: %2i u.%.2i min\n"
+
+#: ../applets/mb-applet-battery.c:392
+#, c-format
+msgid ""
+"Battery Power\n"
+" Device read error.\n"
+msgstr ""
+"Batteriestand\n"
+"Fehler beim Auslesen.\n"
+
+#: ../applets/mb-applet-battery.c:442
+msgid "Battery Monitor"
+msgstr "Batteriemonitor"
+
+#: ../applets/mb-applet-battery.c:466
+msgid "More info"
+msgstr ""
+
+#~ msgid "Cant open mixer device"
+#~ msgstr "Kann Mixer-Gerät nicht öffnen"
+
+#~ msgid "Cant open mixer device for reading"
+#~ msgstr "Kann Mixer-Gerät nicht zum Lesen öffnen"
+
+#~ msgid "Cant open mixer device for writing"
+#~ msgstr "Kann Mixer-Gerät nicht zum Schreiben öffnen"
+
+#~ msgid "Volume Control"
+#~ msgstr "Lautstärke"

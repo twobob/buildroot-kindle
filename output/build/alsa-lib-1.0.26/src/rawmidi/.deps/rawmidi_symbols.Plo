@@ -1,0 +1,1 @@
+rawmidi_symbols.lo .libs/rawmidi_symbols.o: rawmidi_symbols.c

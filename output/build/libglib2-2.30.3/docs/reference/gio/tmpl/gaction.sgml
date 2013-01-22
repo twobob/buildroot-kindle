@@ -1,0 +1,125 @@
+<!-- ##### SECTION Title ##### -->
+GAction
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT GAction ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG GAction:enabled ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG GAction:name ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG GAction:parameter-type ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG GAction:state ##### -->
+<para>
+
+</para>
+
+<!-- ##### ARG GAction:state-type ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION g_action_get_name ##### -->
+<para>
+
+</para>
+
+@action: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_action_get_parameter_type ##### -->
+<para>
+
+</para>
+
+@action: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_action_get_state_type ##### -->
+<para>
+
+</para>
+
+@action: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_action_get_state_hint ##### -->
+<para>
+
+</para>
+
+@action: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_action_get_enabled ##### -->
+<para>
+
+</para>
+
+@action: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_action_get_state ##### -->
+<para>
+
+</para>
+
+@action: 
+@Returns: 
+
+
+<!-- ##### FUNCTION g_action_change_state ##### -->
+<para>
+
+</para>
+
+@action: 
+@value: 
+
+
+<!-- ##### FUNCTION g_action_activate ##### -->
+<para>
+
+</para>
+
+@action: 
+@parameter: 
+
+

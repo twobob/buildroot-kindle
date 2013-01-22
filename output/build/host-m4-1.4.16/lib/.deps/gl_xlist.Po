@@ -1,0 +1,15 @@
+gl_xlist.o: gl_xlist.c config.h gl_xlist.h gl_list.h \
+ /usr/lib/gcc/i686-linux-gnu/4.6/include/stdbool.h \
+ /usr/lib/gcc/i686-linux-gnu/4.6/include/stddef.h xalloc.h
+
+config.h:
+
+gl_xlist.h:
+
+gl_list.h:
+
+/usr/lib/gcc/i686-linux-gnu/4.6/include/stdbool.h:
+
+/usr/lib/gcc/i686-linux-gnu/4.6/include/stddef.h:
+
+xalloc.h:

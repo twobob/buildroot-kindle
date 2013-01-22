@@ -1,0 +1,1 @@
+control_symbols.lo .libs/control_symbols.o: control_symbols.c

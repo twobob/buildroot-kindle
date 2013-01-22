@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Wireless Monitor
+Comment=Panel based wireless monitor
+Exec=mb-applet-wireless
+Type=PanelApp
+Icon=signal-81-100.png
+Categories=Panel;Utility;MB

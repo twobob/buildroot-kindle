@@ -1,0 +1,3 @@
+armasm_memcpy.lo armasm_memcpy.o: armasm_memcpy.S ../../config.h
+
+../../config.h:

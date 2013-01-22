@@ -1,0 +1,12 @@
+prefix=/usr
+exec_prefix=/usr
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libmb
+Description: Utility Library used by Matchbox utilities.
+Version: 1.9
+
+Requires: x11 xext  
+Libs: -L${libdir} -lmb  -lX11 -lXext -L/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/lib -lXft   -lpng -lz
+Cflags: -I${includedir}  -I/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include/freetype2 -I/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/include  

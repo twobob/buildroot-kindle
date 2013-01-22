@@ -1,0 +1,256 @@
+commit 6a157d88460116ff97544701cb730716c050725c
+Author: Denis Oliver Kropp <dok@cyto.(none)>
+Date:   Tue Jul 15 04:07:48 2008 +0200
+
+    some spooky test files
+
+commit 5aee262960edb5a14e76f3c747922998e98631a3
+Author: Denis Oliver Kropp <dok@cyto.(none)>
+Date:   Tue Jul 15 04:03:11 2008 +0200
+
+    0.4.0
+
+commit ef02ce26f595f9e5b8d4459258016fdbed6a8291
+Author: Denis Oliver Kropp <dok@cyto.(none)>
+Date:   Tue Jul 15 04:03:00 2008 +0200
+
+    ignore
+
+commit 15cc9aa48eb03a485c7dbe9ac04a3fbce15da0d8
+Author: Denis Oliver Kropp <dok@cyto.(none)>
+Date:   Tue Jul 15 04:02:02 2008 +0200
+
+    Spooky - the friendly ghost doing input for you
+
+commit 3a195e96f760a833fd3c3b70f79db043741c61ca
+Author: Denis Oliver Kropp <dok@cyto.(none)>
+Date:   Tue Jul 15 03:57:49 2008 +0200
+
+    added license
+
+commit 47f861f473ac38e1c395c75a34ac4a01cb8f5846
+Author: Denis Oliver Kropp <dok@directfb.org>
+Date:   Sat Aug 26 09:54:22 2006 +0000
+
+    Updated script.
+
+commit 354de03f91d03711ac8b3ab0b7b0dd90e95185b1
+Author: Denis Oliver Kropp <dok@directfb.org>
+Date:   Thu Dec 15 09:46:24 2005 +0000
+
+    Added
+    - divine_send_motion_absolute( x, y )
+    - divine_send_button_press( button )
+    - divine_send_button_release( button )
+
+commit 0a0de5b1d4ae36565d6b172e6b4db4c56247d596
+Author: Denis Oliver Kropp <dok@directfb.org>
+Date:   Sat Dec 10 16:08:55 2005 +0000
+
+    Added divine_send_event() to send any kind of event.
+
+commit 8313f6a7b9a3b05eda70d93d9e5178520208ae6d
+Author: Andreas Kotes <count@directfb.org>
+Date:   Mon Nov 22 15:06:48 2004 +0000
+
+    fix after API changes - s/InputDevice/CoreInputDevice/
+
+commit 4a797bd01b10dbc8653a1a112a106a034c0eeece
+Author: Denis Oliver Kropp <dok@directfb.org>
+Date:   Tue May 18 21:29:05 2004 +0000
+
+    Removed AC_C_CONST.
+
+commit cd576e5ac26bafe53700416ab921e26ea3be853e
+Author: Denis Oliver Kropp <dok@directfb.org>
+Date:   Thu May 6 08:07:24 2004 +0000
+
+    Fix build.
+
+commit 62601392bfb0750f83eec9bb9e893f632ccf6b08
+Author: Denis Oliver Kropp <dok@directfb.org>
+Date:   Tue Mar 30 19:00:56 2004 +0000
+
+    Follow changes.
+
+commit c4b12b9bc4ce454ce6118fa17ee986257b8ed45d
+Author: Denis Oliver Kropp <dok@directfb.org>
+Date:   Thu Nov 27 04:12:11 2003 +0000
+
+    Added "^[OH" for DIKS_HOME.
+
+commit d9838338275ce923594a14307f8529b99e147b62
+Author: Sven Neumann <neo@directfb.org>
+Date:   Fri Aug 22 11:36:27 2003 +0000
+
+    Define major and minor version number in config.h.
+    Include config.h from all .c files and use the version number for the
+    driver.
+
+commit 312dfb2d7f3484091d5eb7806221fd7f4d976b95
+Author: Sven Neumann <neo@directfb.org>
+Date:   Thu Aug 21 17:11:22 2003 +0000
+
+    Added support for END.
+
+commit 85eb6f0f07f6dcf2e59e3c7f305f2e15c3ef28a7
+Author: Sven Neumann <neo@directfb.org>
+Date:   Thu Aug 21 16:02:08 2003 +0000
+
+    fixed a stupid bug in the keypad hack
+
+commit f13d9ca2cbd56c3364597002c1a527bb3a61d29a
+Author: Sven Neumann <neo@directfb.org>
+Date:   Thu Aug 21 15:16:08 2003 +0000
+
+    rewritten in a more obvious fashion
+
+commit ed887dc8438e7ce02df357338a348a8ec6124a44
+Author: Sven Neumann <neo@directfb.org>
+Date:   Thu Aug 21 12:21:44 2003 +0000
+
+    quick hack: emulate numbers as coming from keypad
+
+commit 23ba1580f203e93795122ad6f20fb7d076682404
+Author: Sven Neumann <neo@directfb.org>
+Date:   Thu Aug 21 12:00:57 2003 +0000
+
+    Bumped version number to 0.3.0.
+
+commit 1805795fb922509ce1d1bc5dfa8b3978249bd927
+Author: Sven Neumann <neo@directfb.org>
+Date:   Thu Aug 21 11:58:23 2003 +0000
+
+    Added divine_send_identifier() that allows to dispatch key events by
+    specifying key identifiers instead of key symbols.
+
+commit 7d708c340b7f371c074513d753d55d5a0536cb38
+Author: Denis Oliver Kropp <dok@directfb.org>
+Date:   Fri Jul 4 17:38:52 2003 +0000
+
+    Remove installation prefix hack.
+
+commit 955d34c93af52a04f58959cf8fc20607101c7064
+Author: Denis Oliver Kropp <dok@directfb.org>
+Date:   Fri Jun 27 12:36:55 2003 +0000
+
+    Fixed -Werror-implicit-function-declaration[s] <- removed this character
+
+commit 316e9362dde83b9af1da2636afb75071b2a3ec80
+Author: Denis Oliver Kropp <dok@directfb.org>
+Date:   Fri Apr 18 18:33:48 2003 +0000
+
+    Added "-Werror-implicit-function-declarations".
+
+commit b86616edc0a7a4cd9a65ac652dd926a3d03823e3
+Author: Denis Oliver Kropp <dok@directfb.org>
+Date:   Thu Apr 17 11:45:57 2003 +0000
+
+    Cleanup, autoconf 2.52.
+
+commit a37fe5411c0ca7145016e4a849847e44f76f23c5
+Author: Denis Oliver Kropp <dok@directfb.org>
+Date:   Wed Apr 16 19:54:26 2003 +0000
+
+    Reverted CFLAGS change.
+
+commit 9fef15bf1c355e3f64989122ae1d6c4528689be7
+Author: Denis Oliver Kropp <dok@directfb.org>
+Date:   Wed Apr 16 18:38:06 2003 +0000
+
+    Use AC_PROG_CC.
+
+commit 77e57be71ba6cdfa2d72d852d7bc93a4a902e3de
+Author: Denis Oliver Kropp <dok@directfb.org>
+Date:   Wed Apr 16 15:32:22 2003 +0000
+
+    Be able to configure even if CFLAGS is exported containing "-Werror".
+    
+    Fixed warnings.
+
+commit 1584f6c98d4f499dc224629f5c4ca56a39672e84
+Author: Denis Oliver Kropp <dok@directfb.org>
+Date:   Wed Jan 29 18:31:12 2003 +0000
+
+    divine_send_ansi() changed to divine_send_vt102() with broken function
+    keys of minicom. Thanks to Carsten Wentzlow <knuckles@directfb.org>.
+
+commit 6fd044159004974ca245ad15190673a3a694aea5
+Author: Denis Oliver Kropp <dok@directfb.org>
+Date:   Wed Jan 29 14:29:31 2003 +0000
+
+    Beautified code.
+
+commit 5c280b3af4da225664e4d22b6292814adfc24228
+Author: Denis Oliver Kropp <dok@directfb.org>
+Date:   Wed Jan 29 14:20:21 2003 +0000
+
+    Added workaround which avoids 100% CPU usage if poll() doesn't work.
+
+commit 4f6e7082a4e7dd88a1e477a68a7a70435461ae9e
+Author: Denis Oliver Kropp <dok@directfb.org>
+Date:   Wed Jan 29 14:12:30 2003 +0000
+
+    Adapt to input driver API change.
+
+commit dd93130c26a57507c329ee63c9788e1db79e7b7e
+Author: Sven Neumann <neo@directfb.org>
+Date:   Mon Jan 27 14:52:53 2003 +0000
+
+    Bumped version number to 0.2.0.
+
+commit bb99406cb978cd0d93ffa905a6eeb73fc63504d6
+Author: Sven Neumann <neo@directfb.org>
+Date:   Mon Jan 27 14:41:26 2003 +0000
+
+    Added divine_send_ansi() by Carsten Wentzlow.
+
+commit a9f8a0aa3f495670f0d3b0054c0a5dd59bb9d554
+Author: Sven Neumann <neo@directfb.org>
+Date:   Sun Oct 27 11:28:41 2002 +0000
+
+    Call libtoolize since newer versions of automake don't do this for us.
+
+commit e2196bce6856e9deb6c4e031d7e5f60e805fb503
+Author: Denis Oliver Kropp <dok@directfb.org>
+Date:   Wed Oct 23 16:11:22 2002 +0000
+
+    Updated cvsignore files for automake 1.6.
+
+commit fc8f267919fa51222d3cd713c1a5160f173edf20
+Author: Denis Oliver Kropp <dok@directfb.org>
+Date:   Thu Aug 22 19:16:57 2002 +0000
+
+    Made event thread robust against EINTR.
+    
+    Use new core thread functions.
+
+commit ae763d559454c61c5e412863f3ccd261bff5d0f1
+Author: Sven Neumann <neo@directfb.org>
+Date:   Mon Aug 19 11:35:06 2002 +0000
+
+    Removed bashism (function keyword).
+
+commit 6f3bcbb9b21ac82ea8a40713e5286869a14e94e9
+Author: Sven Neumann <neo@directfb.org>
+Date:   Thu Jul 25 08:19:46 2002 +0000
+
+    Check for pkg-config >= 0.9.
+
+commit 345e991eb3b03fd34b2cf61644dd56536724a37c
+Author: Denis Oliver Kropp <dok@directfb.org>
+Date:   Sat Jun 22 23:07:40 2002 +0000
+
+    #include <string.h>
+
+commit 2dbcfe1ccbc12a8e7942a4753e1ed4a2503958e3
+Author: Denis Oliver Kropp <dok@directfb.org>
+Date:   Sun Jun 16 17:17:03 2002 +0000
+
+    Use strlen.
+
+commit 7cad68b2c43f5dd288e1bb25face49807dce1911
+Author: Denis Oliver Kropp <dok@directfb.org>
+Date:   Wed Jun 12 05:13:34 2002 +0000
+
+    DiVine - DirectFB Virtual Input extension ;)

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+ "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<article id="compose-index">
+<simplesect>
+<title>Xlib Compose Key Charts</title>
+<simplelist type='horiz' columns='3'>
+<member><ulink url="am_ET.UTF-8.html">am_ET.UTF-8</ulink></member>
+<member><ulink url="armscii-8.html">armscii-8</ulink></member>
+<member><ulink url="C.html">C</ulink></member>
+<member><ulink url="el_GR.UTF-8.html">el_GR.UTF-8</ulink></member>
+<member><ulink url="en_US.UTF-8.html">en_US.UTF-8</ulink></member>
+<member><ulink url="fi_FI.UTF-8.html">fi_FI.UTF-8</ulink></member>
+<member><ulink url="georgian-academy.html">georgian-academy</ulink></member>
+<member><ulink url="georgian-ps.html">georgian-ps</ulink></member>
+<member><ulink url="ibm-cp1133.html">ibm-cp1133</ulink></member>
+<member><ulink url="iscii-dev.html">iscii-dev</ulink></member>
+<member><ulink url="isiri-3342.html">isiri-3342</ulink></member>
+<member><ulink url="iso8859-1.html">iso8859-1</ulink></member>
+<member><ulink url="iso8859-10.html">iso8859-10</ulink></member>
+<member><ulink url="iso8859-11.html">iso8859-11</ulink></member>
+<member><ulink url="iso8859-13.html">iso8859-13</ulink></member>
+<member><ulink url="iso8859-14.html">iso8859-14</ulink></member>
+<member><ulink url="iso8859-15.html">iso8859-15</ulink></member>
+<member><ulink url="iso8859-2.html">iso8859-2</ulink></member>
+<member><ulink url="iso8859-3.html">iso8859-3</ulink></member>
+<member><ulink url="iso8859-4.html">iso8859-4</ulink></member>
+<member><ulink url="iso8859-5.html">iso8859-5</ulink></member>
+<member><ulink url="iso8859-6.html">iso8859-6</ulink></member>
+<member><ulink url="iso8859-7.html">iso8859-7</ulink></member>
+<member><ulink url="iso8859-8.html">iso8859-8</ulink></member>
+<member><ulink url="iso8859-9.html">iso8859-9</ulink></member>
+<member><ulink url="iso8859-9e.html">iso8859-9e</ulink></member>
+<member><ulink url="ja.html">ja</ulink></member>
+<member><ulink url="ja.JIS.html">ja.JIS</ulink></member>
+<member><ulink url="ja_JP.UTF-8.html">ja_JP.UTF-8</ulink></member>
+<member><ulink url="ja.S90.html">ja.S90</ulink></member>
+<member><ulink url="ja.SJIS.html">ja.SJIS</ulink></member>
+<member><ulink url="ja.U90.html">ja.U90</ulink></member>
+<member><ulink url="ko.html">ko</ulink></member>
+<member><ulink url="koi8-c.html">koi8-c</ulink></member>
+<member><ulink url="koi8-r.html">koi8-r</ulink></member>
+<member><ulink url="koi8-u.html">koi8-u</ulink></member>
+<member><ulink url="ko_KR.UTF-8.html">ko_KR.UTF-8</ulink></member>
+<member><ulink url="microsoft-cp1251.html">microsoft-cp1251</ulink></member>
+<member><ulink url="microsoft-cp1255.html">microsoft-cp1255</ulink></member>
+<member><ulink url="microsoft-cp1256.html">microsoft-cp1256</ulink></member>
+<member><ulink url="mulelao-1.html">mulelao-1</ulink></member>
+<member><ulink url="nokhchi-1.html">nokhchi-1</ulink></member>
+<member><ulink url="pt_BR.UTF-8.html">pt_BR.UTF-8</ulink></member>
+<member><ulink url="ru_RU.UTF-8.html">ru_RU.UTF-8</ulink></member>
+<member><ulink url="tatar-cyr.html">tatar-cyr</ulink></member>
+<member><ulink url="th_TH.html">th_TH</ulink></member>
+<member><ulink url="th_TH.UTF-8.html">th_TH.UTF-8</ulink></member>
+<member><ulink url="tscii-0.html">tscii-0</ulink></member>
+<member><ulink url="vi_VN.tcvn.html">vi_VN.tcvn</ulink></member>
+<member><ulink url="vi_VN.viscii.html">vi_VN.viscii</ulink></member>
+<member><ulink url="zh_CN.html">zh_CN</ulink></member>
+<member><ulink url="zh_CN.gb18030.html">zh_CN.gb18030</ulink></member>
+<member><ulink url="zh_CN.gbk.html">zh_CN.gbk</ulink></member>
+<member><ulink url="zh_CN.UTF-8.html">zh_CN.UTF-8</ulink></member>
+<member><ulink url="zh_HK.big5.html">zh_HK.big5</ulink></member>
+<member><ulink url="zh_HK.big5hkscs.html">zh_HK.big5hkscs</ulink></member>
+<member><ulink url="zh_HK.UTF-8.html">zh_HK.UTF-8</ulink></member>
+<member><ulink url="zh_TW.html">zh_TW</ulink></member>
+<member><ulink url="zh_TW.big5.html">zh_TW.big5</ulink></member>
+<member><ulink url="zh_TW.UTF-8.html">zh_TW.UTF-8</ulink></member>
+</simplelist>
+</simplesect>
+</article>
+

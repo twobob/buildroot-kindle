@@ -1,0 +1,848 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>X Record Extension Library</title><meta name="generator" content="DocBook XSL Stylesheets V1.76.1" /></head><body><div class="book" title="X Record Extension Library"><div class="titlepage"><div><div><h1 class="title"><a id="recordlib"></a>X Record Extension Library</h1></div><div><h2 class="subtitle">X Consortium Standard</h2></div><div><div class="authorgroup"><div class="author"><h3 class="author"><span class="firstname">Martha</span> <span class="surname">Zimet</span></h3></div></div></div><div><p class="releaseinfo">X Version 11, Release 6.7</p></div><div><p class="releaseinfo">Version 1.13</p></div><div><p class="copyright">Copyright © 1994 Network Computing Devices, Inc.</p></div><div><p class="copyright">Copyright © 1995 X Consortium</p></div><div><div class="legalnotice" title="Legal Notice"><a id="idp670720"></a><p>
+Permission to use, copy, modify, distribute, and sell this
+documentation for any purpose is hereby granted without fee,
+provided that the above copyright notice and this permission
+notice appear in all copies.  Network Computing Devices, Inc.
+makes no representations about the suitability for any purpose
+of the information in this document.  This documentation is
+provided "as is" without express or implied warranty.
+</p><p>
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files
+(the "Software"), to deal in the Software without
+restriction, including without limitation the rights to use, copy,
+modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished
+to do so, subject to the following conditions:
+</p><p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE X CONSORTIUM BE LIABLE FOR ANY CLAIM, DAMAGES OR
+OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
+</p><p>
+Except as contained in this notice, the name of the X Consortium shall
+not be used in advertising or otherwise to promote the sale, use or other
+dealings in this Software without prior written authorization from the
+X Consortium.
+</p><p>X Window System is a trademark of The Open Group.</p></div></div></div><hr /></div><div class="toc"><p><strong>Table of Contents</strong></p><dl><dt><span class="chapter"><a href="#record_extension_overview">1. Record Extension Overview</a></span></dt><dd><dl><dt><span class="sect1"><a href="#synchronous_playback">Synchronous Playback</a></span></dt><dt><span class="sect1"><a href="#design_approach">Design Approach</a></span></dt><dt><span class="sect1"><a href="#record_clients">Record Clients</a></span></dt></dl></dd><dt><span class="chapter"><a href="#common_arguments">2. Common Arguments</a></span></dt><dd><dl><dt><span class="sect1"><a href="#datum_flags">Datum Flags</a></span></dt><dt><span class="sect1"><a href="#selecting_clients">Selecting Clients</a></span></dt><dt><span class="sect1"><a href="#protocol_ranges">Protocol Ranges</a></span></dt></dl></dd><dt><span class="chapter"><a href="#library_extension_requests">3. Library Extension Requests</a></span></dt><dd><dl><dt><span class="sect1"><a href="#query_extension_version">Query Extension Version</a></span></dt><dt><span class="sect1"><a href="#create_and_modify_context">Create and Modify Context</a></span></dt><dd><dl><dt><span class="sect2"><a href="#additions">Additions</a></span></dt><dt><span class="sect2"><a href="#deletions">Deletions</a></span></dt></dl></dd><dt><span class="sect1"><a href="#query_context_state">Query Context State</a></span></dt><dt><span class="sect1"><a href="#data_transfer">Data Transfer</a></span></dt><dd><dl><dt><span class="sect2"><a href="#enable_context">Enable Context</a></span></dt><dt><span class="sect2"><a href="#enable_context_asynchronously">Enable Context Asynchronously</a></span></dt><dt><span class="sect2"><a href="#disable_context">Disable Context</a></span></dt></dl></dd><dt><span class="sect1"><a href="#id_base_mask">ID Base Mask</a></span></dt><dt><span class="sect1"><a href="#free_context">Free Context</a></span></dt></dl></dd></dl></div><div class="chapter" title="Chapter 1. Record Extension Overview"><div class="titlepage"><div><div><h2 class="title"><a id="record_extension_overview"></a>Chapter 1. Record Extension Overview</h2></div></div></div><div class="toc"><p><strong>Table of Contents</strong></p><dl><dt><span class="sect1"><a href="#synchronous_playback">Synchronous Playback</a></span></dt><dt><span class="sect1"><a href="#design_approach">Design Approach</a></span></dt><dt><span class="sect1"><a href="#record_clients">Record Clients</a></span></dt></dl></div><p>
+The purpose of this extension is to support the recording and reporting of
+all core X protocol and arbitrary X extension protocol. This first section
+gives an overview of the Record extension. The following sections describe
+how to use the Record extension library.
+</p><div class="sect1" title="Synchronous Playback"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="synchronous_playback"></a>Synchronous Playback</h2></div></div></div><p>
+Environment information is generally provided to an X-based playback
+mechanism, which might use the XTest extension to synthesize input
+events. This synchronization information defines the X state prior to
+event synthesis (for example, location of the cursor, window locations
+and sizes, installed colormap, window manager running, and so on) and
+the consequences that occur after the playback mechanism synthesizes
+the event. If the user moves the mouse into the icon window and presses
+and releases a mouse button, the device events
+<code class="function">MotionNotify</code>, <code class="function">ButtonPress</code>,
+and <code class="function">ButtonRelease</code> are generated by the X server.
+Because X follows an
+event-driven model, there are consequences that follow from the user
+actions, or device events, that are in the form of X protocol. As a result
+of the previous user actions, the client could generate requests such as
+<code class="function">ImageText8</code> and <code class="function">PolyLine</code> to the
+X server, or the X server could send non-device events such as
+<code class="function">Expose</code> and <code class="function">MapNotify</code> to the
+client window. Both the
+requests and non-device events that result from user actions are known
+as consequences, which can be used as a synchronization, or control point,
+during playback. That is, the playback mechanism does not generate a specific
+synthesized event until its matching synchronization condition occurs
+(for example, the window is mapped or unmapped, the cursor changes, a text
+string displays, and so on)
+</p><p>
+Because it cannot be predicted what synchronization information is required
+during playback, the Record extension makes no assumptions about the intended
+use of the recorded data. Facilities exist to record any core X protocol or
+X extension protocol. Therefore, Record does not enforce a specific
+synchronization methodology.
+</p></div><div class="sect1" title="Design Approach"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="design_approach"></a>Design Approach</h2></div></div></div><p>
+The design approach of the extension is to record core X protocol and
+arbitrary X extension protocol entirely within the X server itself. When
+the extension has been requested to record specific protocol by one or more
+recording clients, the protocol data is formatted and returned to the
+recording clients. The extension provides a mechanism for capturing all
+events, including input device events that do not go to any clients.
+</p></div><div class="sect1" title="Record Clients"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="record_clients"></a>Record Clients</h2></div></div></div><p>
+The recommended communication model for a Record application is to open two
+connections to the server—one connection for recording control and one
+connection for reading recorded protocol data.
+</p><p>
+Information about recording (for example, what clients to record, what
+protocol to record for each client, and so on) is stored in resources
+called record contexts (type <code class="function">XRecordContext</code>). Most
+Record extension functions take a record context as an argument. Although
+in theory it is possible to share record contexts between applications,
+it is expected that applications will use their own context when performing
+recording operations.
+</p><p>
+A client that wishes to record X protocol does so through the library
+functions defined in
+<a class="link" href="#library_extension_requests" title="Chapter 3. Library Extension Requests">
+<a class="xref" href="#library_extension_requests" title="Chapter 3. Library Extension Requests">Chapter 3, <em>Library Extension Requests</em></a></a>
+A typical sequence of requests that a client would make is as follows:
+</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+<code class="function">XRecordQueryVersion</code>
+    </p><p>
+query the extension protocol version.
+    </p></li><li class="listitem"><p>
+<code class="function">XRecordCreateContext</code>
+    </p><p>
+request that the server create a record context for access by this client,
+and express interest in clients and protocol to be recorded. This request
+returns an <code class="function">XRecord-Context</code>, which is an XID that is
+used by most other extension requests to identify the specified context.
+    </p></li><li class="listitem"><p>
+<code class="function">XRecordEnableContext</code>
+    </p><p>
+begin the recording and reporting of protocol data.
+    </p></li><li class="listitem"><p>
+<code class="function">XRecordDisableContext</code>
+    </p><p>
+end the recording and reporting of protocol data.
+    </p></li><li class="listitem"><p>
+<code class="function">XRecordFreeContext</code>
+    </p><p>
+free the record context.
+    </p></li></ul></div><p>
+The header for this library is
+&lt;<code class="function">X11/extensions/record.h</code>&gt;. All identifiers defined
+in the interface are supplied by this header and are prefixed with "XRecord".
+The <code class="function">Xtst</code> library contains the
+<code class="function">XRecord</code> functions.
+</p></div></div><div class="chapter" title="Chapter 2. Common Arguments"><div class="titlepage"><div><div><h2 class="title"><a id="common_arguments"></a>Chapter 2. Common Arguments</h2></div></div></div><div class="toc"><p><strong>Table of Contents</strong></p><dl><dt><span class="sect1"><a href="#datum_flags">Datum Flags</a></span></dt><dt><span class="sect1"><a href="#selecting_clients">Selecting Clients</a></span></dt><dt><span class="sect1"><a href="#protocol_ranges">Protocol Ranges</a></span></dt></dl></div><p>
+The Record extension functions <code class="function">XRecordCreateContext</code>
+ and <code class="function">XRecordRegisterClients</code> allow applications to
+specify the following:
+</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>
+Individual clients or sets of clients to record
+    </p></li><li class="listitem"><p>
+Ranges of core X protocol and X extension protocol to record for each client
+    </p></li></ul></div><p>
+Protocol in the ranges specified by the recording client will be recorded
+by the server. The device_events protocol type can be specified by a
+recording client although it may not be sent to a recorded client. The
+device_events type differs from delivered_events, which also can be
+specified by a recording client; delivered_events are actually delivered to
+one or more clients. These event types are discussed in
+<a class="link" href="#protocol_ranges" title="Protocol Ranges">
+<a class="xref" href="#protocol_ranges" title="Protocol Ranges">the section called “Protocol Ranges”</a></a>
+</p><p>
+The Record extension functions <code class="function">XRecordCreateContext</code>
+ and <code class="function">XRecordRegisterClients</code> have the common arguments
+datum_ﬂags, clients, and ranges, which specify whether server time
+and/or client sequence number should precede protocol elements, the
+clients or client set to record, and the protocol ranges to record,
+respectively. These are discussed in the following sections.
+</p><div class="sect1" title="Datum Flags"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="datum_flags"></a>Datum Flags</h2></div></div></div><p>
+The datum_ﬂags argument is a set of ﬂags OR’ed together to specify options
+for the record context.  Specify zero to disable all the options.
+</p><p>
+The <code class="function">XRecordFromServerTime</code> ﬂag specifies that
+<code class="function">XRecordInterceptData</code> structures with a category of
+<code class="function">XRecordFromServer</code> will have a server_time field specific to each
+protocol element.
+</p><p>
+The <code class="function">XRecordFromClientTime</code> ﬂag specifies that
+<code class="function">XRecordInterceptData</code> structures with a category of
+<code class="function">XRecordFromClient</code> will have a server_time field specific
+to each protocol element.
+</p><p>
+The <code class="function">XRecordFromClientSequence</code> ﬂag specifies that
+<code class="function">XRecordInterceptData</code> structures with a category of
+<code class="function">XRecordFromClient</code> or
+<code class="function">XRecordClientDied</code> will have a valid client_seq field.
+</p></div><div class="sect1" title="Selecting Clients"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="selecting_clients"></a>Selecting Clients</h2></div></div></div><p>
+The clients argument is a pointer to an array of
+<code class="function">XRecordClientSpec</code>.
+<code class="function">XRecordClientSpec</code> is an integral type that holds a
+resource ID, a client resource ID base, or one of the client set constants
+defined below.
+</p><p>
+Duplicate elements in the array are ignored by the functions, and if any
+element in the array is not valid, a
+<code class="function">BadMatch</code>
+error results. A resource ID references the client that created that
+resource. The client set may be one of the following constants:
+<code class="function">XRecordCurrentClients</code>,
+<code class="function">XRecordFutureClients</code>, or
+<code class="function">XRecordAllClients</code>.
+</p><p>
+If the element in the array identifies a particular client, protocol
+specified by the ranges argument will be recorded by the server. The
+recorded protocol data will not be returned to the recording client until
+the record context has been enabled. This is described in
+<a class="link" href="#data_transfer" title="Data Transfer">
+<a class="xref" href="#data_transfer" title="Data Transfer">the section called “Data Transfer”</a></a>
+</p><p>
+If the element is <code class="function">XRecordCurrentClients</code>, the protocol
+ranges specified by the ranges argument, except for device_events, are
+associated with each current client connection. If the element is
+<code class="function">XRecordFutureClients</code>, the
+protocol ranges specified by the ranges argument are associated with each new
+client connection. If the element is
+<code class="function">XRecordAllClients</code>,
+the protocol ranges specified by the ranges argument are associated with
+each current client connection and with each new client connection.
+When the context is enabled, the data connection is unregistered if it
+was registered. If the context is enabled,
+<code class="function">XRecordCurrentClients</code> and
+<code class="function">XRecordAllClients</code>
+silently exclude the recording data connection. It is an error to explicitly
+register the data connection.
+</p></div><div class="sect1" title="Protocol Ranges"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="protocol_ranges"></a>Protocol Ranges</h2></div></div></div><p>
+The functions <code class="function">XRecordCreateContext</code> and
+<code class="function">XRecordRegisterClients</code> have another common argument,
+ranges, which is an array of pointers to <code class="function">XRecordRange</code>
+structures. Each structure contains ranges of numeric values for each of
+the protocol types that can be specified and recorded individually by the
+Record extension. An <code class="function">XRecordRange</code> structure must be
+allocated by the Record library using the
+<code class="function">XRecordAllocRange</code> function.
+</p><p>
+The <code class="function">XRecordRange</code> typedef is a structure with the
+following members:
+</p><div class="literallayout"><p><br />
+XRecordRange:<br />
+     XRecordRange8 core_requests     /* core X requests */<br />
+     XRecordRange8 core_replies      /* core X replies */<br />
+     XRecordExtRange ext_requests    /* extension requests */<br />
+     XRecordExtRange ext_replies     /* extension replies */<br />
+     XRecordRange8 delivered_events  /* delivered core and ext events */<br />
+     XRecordRange8 device_events     /* all core and ext device events */<br />
+     XRecordRange8 errors            /* core X and X ext errors */<br />
+     Bool client_started             /* connection setup reply from server */<br />
+     Bool client_died                /* notification of client disconnect */<br />
+</p></div><p>
+The types used in
+<code class="function">XRecordRange</code>
+members are defined as follows.  The
+<code class="function">XRecordRange8</code>
+typedef is a structure with the following members:
+</p><div class="literallayout"><p><br />
+XRecordRange8:<br />
+     unsigned char first<br />
+     unsigned char last<br />
+</p></div><p>
+The
+<code class="function">XRecordRange16</code>
+typedef is a structure with the following members:
+</p><div class="literallayout"><p><br />
+XRecordRange16:<br />
+     unsigned short first<br />
+     unsigned short last<br />
+</p></div><p>
+The
+<code class="function">XRecordExtRange</code>
+typedef is a structure with the following members:
+</p><div class="literallayout"><p><br />
+XRecordExtRange:<br />
+     XRecordRange8  ext_major<br />
+     XRecordRange16 ext_minor<br />
+</p></div><p>
+If any of the values specified in
+<code class="function">XRecordRange</code>
+is invalid, a
+<code class="function">BadValue</code>
+error results.
+</p><p>
+The core_requests member specifies the range of core X protocol
+requests to record.  Core X protocol requests with a major opcode
+that is between first and last, inclusive, will be
+recorded.  A
+<code class="function">BadValue</code>
+error results if the value of first is greater than the value of last.
+If the values of both first and last are zero, no core
+X protocol requests will be recorded.
+</p><p>
+The core_replies member specifies the range of replies resulting
+from core X protocol requests to record.  Replies that result from
+core X protocol requests with a major opcode between first
+and last, inclusive, will be recorded.  A
+<code class="function">BadValue</code>
+error results if the value of first is greater than the value of last.
+If the values of both first and last are zero, no core X protocol
+replies will be recorded.
+</p><p>
+The ext_requests member specifies the range of X extension
+requests to record.  X extension requests with a major opcode
+between ext_major.first and ext_major.last, and with a
+minor opcode
+between ext_minor.first and ext_minor.last, inclusive, will be
+recorded.  A
+<code class="function">BadValue</code>
+error results
+if the value of ext_major.first is greater than the value of
+ext_major.last or if the value of ext_minor.first is
+greater than the value of ext_minor.last.  If the values of both
+ext_major.first
+and ext_major.last are zero,
+no X extension requests will be recorded.
+</p><p>
+The ext_replies member specifies the range of replies resulting
+from X extension requests to record.  Replies that result from an X
+extension request with a major opcode between
+ext_major.first and
+ext_major.last, and a minor opcode that is between
+ext_minor.first and ext_minor.last will be recorded.  A
+<code class="function">BadValue</code>
+error results
+if the value of ext_major.first is greater than the value of
+ext_major.last or if the value of ext_minor.first is greater than
+the value of ext_minor.last.  If the values of both
+ext_major.first and ext_major.last are zero, no X extension
+replies will be recorded.
+</p><p>
+The delivered_events member specifies the range of both core
+X events and X extension events to record.  These events are
+delivered to at least one client.  Core X events and X extension events
+with a code value between first and last inclusive will be recorded.  A
+<code class="function">BadValue</code>
+error results if the value of first is greater than the value of last.
+If the values of first and last are zero, no events will be recorded.
+</p><p>
+The device_events member specifies the range of both core X device
+events and X extension device events to record.  These events may or
+may not be delivered to a client.  Core X device events and X extension
+device events with a code value between first and last inclusive that
+are not delivered to any clients will be recorded.  A
+<code class="function">BadValue</code>
+error results if the value of first is greater than the value of last.  A
+<code class="function">BadValue</code>
+error results if first is less than two or last is less than two, except
+that if first and last are zero, no events will be recorded.
+</p><p>
+The errors member specifies the range of both core X errors and X
+extension errors to record.  Core X errors and X extension errors with
+a code value between first and last inclusive will be
+recorded.  A
+<code class="function">BadValue</code>
+error results if the value of first is greater than the value of last.
+If the values of first and last are zero, no errors will be recorded.
+</p><p>
+A value of
+<code class="function">True</code>
+for the client_started member specifies the
+connection setup reply from the server to new clients.  If
+<code class="function">False</code>
+the connection setup reply is not specified by this
+<code class="function">XRecordRange</code>
+</p><p>
+A value of
+<code class="function">True</code>
+for the client_died member specifies
+notification when a client disconnects.  If
+<code class="function">False</code>
+notification when a client disconnects is not specified by this
+<code class="function">XRecordRange</code>
+</p></div></div><div class="chapter" title="Chapter 3. Library Extension Requests"><div class="titlepage"><div><div><h2 class="title"><a id="library_extension_requests"></a>Chapter 3. Library Extension Requests</h2></div></div></div><div class="toc"><p><strong>Table of Contents</strong></p><dl><dt><span class="sect1"><a href="#query_extension_version">Query Extension Version</a></span></dt><dt><span class="sect1"><a href="#create_and_modify_context">Create and Modify Context</a></span></dt><dd><dl><dt><span class="sect2"><a href="#additions">Additions</a></span></dt><dt><span class="sect2"><a href="#deletions">Deletions</a></span></dt></dl></dd><dt><span class="sect1"><a href="#query_context_state">Query Context State</a></span></dt><dt><span class="sect1"><a href="#data_transfer">Data Transfer</a></span></dt><dd><dl><dt><span class="sect2"><a href="#enable_context">Enable Context</a></span></dt><dt><span class="sect2"><a href="#enable_context_asynchronously">Enable Context Asynchronously</a></span></dt><dt><span class="sect2"><a href="#disable_context">Disable Context</a></span></dt></dl></dd><dt><span class="sect1"><a href="#id_base_mask">ID Base Mask</a></span></dt><dt><span class="sect1"><a href="#free_context">Free Context</a></span></dt></dl></div><p>
+Recording operations are accessed by programs through the use of
+new protocol requests.  The following functions are provided as extensions
+to Xlib.  An Xlib error results if
+an extension request is made to an X server that does not support the
+Record extension.  Note that any of the extension protocol requests may generate
+<code class="function">BadAlloc</code>
+or
+<code class="function">BadLength</code>
+errors.
+</p><div class="sect1" title="Query Extension Version"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="query_extension_version"></a>Query Extension Version</h2></div></div></div><p>
+An application uses the
+<code class="function">XRecordQueryVersion</code>
+function to determine
+the version of the Record extension protocol supported by an X server.
+</p><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">Status <strong>fsfuncXRecordQueryVersion</strong>(</code></td><td><var class="pdparam"> *display</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> cmajor_return</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> cminor_return</var><code>)</code>;</td><td> </td></tr></table><div class="paramdef-list"><code>Display <var class="pdparam"> *display</var></code>;<br /><code>int <var class="pdparam"> cmajor_return</var></code>;<br /><code>int <var class="pdparam"> cminor_return</var></code>;</div><div class="funcprototype-spacer"> </div></div><div class="variablelist"><dl><dt><span class="term"><span class="emphasis"><em>display</em></span></span></dt><dd><p>Returns the connection to the X server.</p></dd><dt><span class="term"><span class="emphasis"><em>cmajor_return</em></span></span></dt><dd><p>Returns the extension protocol major version in use.</p></dd><dt><span class="term"><span class="emphasis"><em>cminor_return</em></span></span></dt><dd><p>Returns the extension protocol minor version in use.</p></dd></dl></div><p>
+The
+<code class="function">XRecordQueryVersion</code>
+function returns the major and minor protocol version numbers supported by
+the server.
+<code class="function">XRecordQueryVersion</code>
+returns nonzero (success) only if the returned version numbers are
+common to both the library and the server; otherwise, it returns zero.
+</p></div><div class="sect1" title="Create and Modify Context"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="create_and_modify_context"></a>Create and Modify Context</h2></div></div></div><p>
+An application uses the
+<code class="function">XRecordCreateContext</code>
+function to create a record context.  At the time the record context is
+created by the recording client, the clients to be recorded and the
+protocol to record for each client may be specified.
+</p><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">XRecordContext <strong>fsfuncXRecordCreateContext</strong>(</code></td><td><var class="pdparam"> *display</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> datum_flags</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> *clients</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> nclients</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> *ranges</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> nranges</var><code>)</code>;</td><td> </td></tr></table><div class="paramdef-list"><code>Display <var class="pdparam"> *display</var></code>;<br /><code>int <var class="pdparam"> datum_flags</var></code>;<br /><code>XRecordClientSpec <var class="pdparam"> *clients</var></code>;<br /><code>int <var class="pdparam"> nclients</var></code>;<br /><code>XRecordRange <var class="pdparam"> *ranges</var></code>;<br /><code>int <var class="pdparam"> nranges</var></code>;</div><div class="funcprototype-spacer"> </div></div><div class="variablelist"><dl><dt><span class="term"><span class="emphasis"><em>display</em></span></span></dt><dd><p>Returns the connection to the X server.</p></dd><dt><span class="term"><span class="emphasis"><em>datum_flags</em></span></span></dt><dd><p>Specifies whether detailed time or sequence info should be sent.</p></dd><dt><span class="term"><span class="emphasis"><em>clients</em></span></span></dt><dd><p>Specifies the clients to record.</p></dd><dt><span class="term"><span class="emphasis"><em>nclients</em></span></span></dt><dd><p>Specifies the number of clients.</p></dd><dt><span class="term"><span class="emphasis"><em>ranges</em></span></span></dt><dd><p>Specifies the protocol ranges to record.</p></dd><dt><span class="term"><span class="emphasis"><em>nranges</em></span></span></dt><dd><p>Specifies the number of protocol ranges.</p></dd></dl></div><p>
+The
+<code class="function">XRecordCreateContext</code>
+function creates a record context and returns an
+<code class="function">XRecordContext</code>
+which is then used in the other Record library calls.  This request is
+typically executed by the recording client over its control connection to
+the X server.  The datum_flags specifies whether server time and/or client
+sequence number should precede protocol elements recorded by context (
+<a class="link" href="#datum_flags" title="Datum Flags">
+<a class="xref" href="#datum_flags" title="Datum Flags">the section called “Datum Flags”</a></a>
+).  When a clients element identifies a particular client, the client is added
+to the context and the protocol to record for that client is set to the
+union of all ranges.  When a clients element is
+<code class="function">XRecordCurrentClients</code>
+<code class="function">XRecordFutureClients</code>
+or
+<code class="function">XRecordAllClients</code>
+the actions described in
+<a class="link" href="#selecting_clients" title="Selecting Clients">
+<a class="xref" href="#selecting_clients" title="Selecting Clients">the section called “Selecting Clients”</a></a>
+are performed.
+</p><p>
+<code class="function">XRecordCreateContext</code>
+returns zero if the request failed.
+<code class="function">XRecordCreateContext</code>
+can generate
+<code class="function">BadIDChoice</code>
+<code class="function">BadMatch</code>
+and
+<code class="function">BadValue</code>
+errors.
+</p><p>The ranges argument is an
+<code class="function">XRecordRange</code>
+array, that is, an array
+of pointers.  The structures the elements point to shall be allocated
+by calling
+<code class="function">XRecordAllocRange</code></p><div class="literallayout"><p><br />
+XRecordRange *<br />
+XRecordAllocRange(void)<br />
+</p></div><p>
+The
+<code class="function">XRecordAllocRange</code>
+function
+allocates and returns an
+<code class="function">XRecordRange</code>
+structure.
+The structure is initialized to specify no protocol.
+The function returns NULL if the structure allocation fails.
+The application can free the structure by calling
+<code class="function">XFree</code>
+</p><div class="sect2" title="Additions"><div class="titlepage"><div><div><h3 class="title"><a id="additions"></a>Additions</h3></div></div></div><p>
+An application uses the
+<code class="function">XRecordRegisterClients</code>
+function to modify a previously created
+record context, by adding clients or modifying the recorded protocol,
+typically over its control connection to the X server.
+</p><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">Status <strong>fsfuncXRecordRegisterClients</strong>(</code></td><td><var class="pdparam"> *display</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> context</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> datum_flags</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> *clients</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> nclients</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> *ranges</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> nranges</var><code>)</code>;</td><td> </td></tr></table><div class="paramdef-list"><code>Display <var class="pdparam"> *display</var></code>;<br /><code>XRecordContext <var class="pdparam"> context</var></code>;<br /><code>int <var class="pdparam"> datum_flags</var></code>;<br /><code>XRecordClientSpec <var class="pdparam"> *clients</var></code>;<br /><code>int <var class="pdparam"> nclients</var></code>;<br /><code>XRecordRange <var class="pdparam"> *ranges</var></code>;<br /><code>int <var class="pdparam"> nranges</var></code>;</div><div class="funcprototype-spacer"> </div></div><div class="variablelist"><dl><dt><span class="term"><span class="emphasis"><em>display</em></span></span></dt><dd><p>Returns the connection to the X server.</p></dd><dt><span class="term"><span class="emphasis"><em>context</em></span></span></dt><dd><p>Specifies the record context to modify.</p></dd><dt><span class="term"><span class="emphasis"><em>datum_flags</em></span></span></dt><dd><p>Specifies whether detailed time or sequence info should be sent.</p></dd><dt><span class="term"><span class="emphasis"><em>clients</em></span></span></dt><dd><p>Specifies the clients to record.</p></dd><dt><span class="term"><span class="emphasis"><em>nclients</em></span></span></dt><dd><p>Specifies the number of clients.</p></dd><dt><span class="term"><span class="emphasis"><em>ranges</em></span></span></dt><dd><p>Specifies the protocol ranges to record.</p></dd><dt><span class="term"><span class="emphasis"><em>nranges</em></span></span></dt><dd><p>Specifies the number of protocol ranges.</p></dd></dl></div><p>
+The datum_flags specifies whether server time and/or client sequence number
+should precede protocol elements for all clients recorded by context (See
+<a class="link" href="#datum_flags" title="Datum Flags">
+<a class="xref" href="#datum_flags" title="Datum Flags">the section called “Datum Flags”</a></a>
+).  When a clients element identifies a particular client and the client is
+not yet targeted for recording in the given context, the client is added
+to the set of clients to record, and the protocol to record for that client
+is set to the union of all ranges.  When the client is
+already targeted for recording, the protocol to record for that client
+is set to the union of all ranges.  When the element is
+<code class="function">XRecordCurrentClients</code>
+<code class="function">XRecordFutureClients</code>
+or
+<code class="function">XRecordAllClients</code>
+the actions described in
+<a class="link" href="#selecting_clients" title="Selecting Clients">
+<a class="xref" href="#selecting_clients" title="Selecting Clients">the section called “Selecting Clients”</a></a>
+are performed.
+</p><p>
+<code class="function">XRecordRegisterClients</code>
+returns zero if the request failed; otherwise, it
+returns nonzero.
+</p><p>
+<code class="function">XRecordRegisterClients</code>
+can generate
+<code class="function">XRecordBadContext</code>
+<code class="function">BadMatch</code>
+and
+<code class="function">BadValue</code>
+errors.
+</p></div><div class="sect2" title="Deletions"><div class="titlepage"><div><div><h3 class="title"><a id="deletions"></a>Deletions</h3></div></div></div><p>
+An application uses the
+<code class="function">XRecordUnregisterClients</code>
+function to delete clients from a previously created
+record context, typically over its control connection to the X server.
+</p><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">Status <strong>fsfuncXRecordUnRegisterClients</strong>(</code></td><td><var class="pdparam"> *display</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> context</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> *clients</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> nclients</var><code>)</code>;</td><td> </td></tr></table><div class="paramdef-list"><code>Display <var class="pdparam"> *display</var></code>;<br /><code>XRecordContext <var class="pdparam"> context</var></code>;<br /><code>XRecordClientSpec <var class="pdparam"> *clients</var></code>;<br /><code>int <var class="pdparam"> nclients</var></code>;</div><div class="funcprototype-spacer"> </div></div><div class="variablelist"><dl><dt><span class="term"><span class="emphasis"><em>display</em></span></span></dt><dd><p>Returns the connection to the X server.</p></dd><dt><span class="term"><span class="emphasis"><em>context</em></span></span></dt><dd><p>Specifies the record context to modify.</p></dd><dt><span class="term"><span class="emphasis"><em>clients</em></span></span></dt><dd><p>Specifies the clients to stop recording.</p></dd><dt><span class="term"><span class="emphasis"><em>nclients</em></span></span></dt><dd><p>Specifies the number of clients.</p></dd></dl></div><p>
+When an element in clients identifies a particular client, and the
+specified client is already targeted for recording in the given
+context, the client and the set of protocol to record for that
+client are deleted from the context.  If the specified client is not
+targeted for recording, then no action is performed.
+</p><p>
+When the element is
+<code class="function">XRecordCurrentClients</code>
+all clients currently targeted for recording in context and their
+corresponding sets of protocol to record are deleted from context.
+</p><p>
+When the item is
+<code class="function">XRecordFutureClients</code>
+any future client connections will not automatically be targeted for
+recording in context.
+</p><p>
+When the element is
+<code class="function">XRecordAllClients</code>
+all clients currently targeted for recording in context and their
+corresponding sets of protocol to record are deleted from context.
+Any future client connections will not automatically be targeted
+for recording in context.
+</p><p>
+<code class="function">XRecordUnregisterClients</code>
+returns zero if the request failed; otherwise, it returns nonzero.
+</p><p>
+<code class="function">XRecordUnregisterClients</code>
+can generate
+<code class="function">XRecordBadContext</code>
+<code class="function">BadMatch</code>
+and
+<code class="function">BadValue</code>
+errors.</p></div></div><div class="sect1" title="Query Context State"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="query_context_state"></a>Query Context State</h2></div></div></div><p>
+An application uses the
+<code class="function">XRecordGetContext</code>
+function to query the current state of a record context, typically over
+its control connection to the X server.
+</p><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">Status <strong>fsfuncXRecordGetContext</strong>(</code></td><td><var class="pdparam"> *display</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> context</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> **state_return</var><code>)</code>;</td><td> </td></tr></table><div class="paramdef-list"><code>Display <var class="pdparam"> *display</var></code>;<br /><code>XRecordContext <var class="pdparam"> context</var></code>;<br /><code>XRecordState <var class="pdparam"> **state_return</var></code>;</div><div class="funcprototype-spacer"> </div></div><div class="variablelist"><dl><dt><span class="term"><span class="emphasis"><em>display</em></span></span></dt><dd><p>Specifies the connection to the X server.</p></dd><dt><span class="term"><span class="emphasis"><em>context</em></span></span></dt><dd><p>Specifies the record context to query.</p></dd><dt><span class="term"><span class="emphasis"><em>state_return</em></span></span></dt><dd><p>Specifies the address of a variable into which
+the function stores a pointer to the current state of the record context.
+    </p></dd></dl></div><p>
+The
+<code class="function">XRecordState</code>
+typedef returned by
+<code class="function">XRecordGetContext</code>
+is a structure with the following members:
+</p><div class="literallayout"><p><br />
+XRecordState:<br />
+     Bool              enabled<br />
+     int               datum_flags<br />
+     unsigned long     nclients<br />
+     XRecordClientInfo **client_info<br />
+</p></div><p>
+The enabled member is set to the state of data transfer and is
+<code class="function">True</code>
+when the recording client has asked that recorded data be sent;
+otherwise it is
+<code class="function">False</code>
+The datum_flags member is set to the value of these flags for this context.
+The nclients member is set to the number of
+<code class="function">XRecordClientInfo</code>
+structures returned.  The client_info member is an array of pointers to
+<code class="function">XRecordClientInfo</code>
+structures that contain the protocol to record for each targeted client.  The
+<code class="function">XRecordClientInfo</code>
+typedef is a structure with the following members:
+</p><div class="literallayout"><p><br />
+XRecordClientInfo:<br />
+     XRecordClientSpec client<br />
+     unsigned long nranges<br />
+     XRecordRange **ranges<br />
+</p></div><p>
+The client member either identifies a client targeted for recording
+or is set to
+<code class="function">XRecordFutureClients</code>
+to describe how future clients will be automatically targeted for recording.
+The nranges member is set to the number of protocol
+ranges to be recorded for the specified client.  The ranges member
+is an array of pointers to
+<code class="function">XRecordRange</code>
+structures, which specify the protocol ranges to record.
+</p><p>
+<code class="function">XRecordGetContext</code>
+returns zero if the request failed; otherwise, it returns nonzero.
+The context argument must specify a valid
+<code class="function">XRecordContext</code>
+or a
+<code class="function">XRecordBadContext</code>
+error results.
+</p><p>
+Recording clients should use the
+<code class="function">XRecordFreeState</code>
+function to free the state data returned by
+<code class="function">XRecordGetContext</code>
+</p><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <strong>fsfuncXRecordFreeState</strong>(</code></td><td><var class="pdparam"> *state</var><code>)</code>;</td><td> </td></tr></table><div class="paramdef-list"><code>XRecordState <var class="pdparam"> *state</var></code>;</div><div class="funcprototype-spacer"> </div></div><div class="variablelist"><dl><dt><span class="term"><span class="emphasis"><em>state</em></span></span></dt><dd><p>Specifies the structure that is to be freed.</p></dd></dl></div><p>
+<code class="function">XRecordFreeState</code>
+frees the data pointed to by state.  If the argument does not match an
+<code class="function">XRecordState</code>
+pointer returned from a successful call to
+<code class="function">XRecordGetContext</code>
+or if
+<code class="function">XRecordFreeState</code>
+has already been called with it, the behavior is undefined.
+</p></div><div class="sect1" title="Data Transfer"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="data_transfer"></a>Data Transfer</h2></div></div></div><p>
+An application uses the
+<code class="function">XRecordEnableContext</code>
+and
+<code class="function">XRecordDisableContext</code>
+functions to change the state of data transfer
+between the X server and the recording client.  These functions allow
+the application to start recording and reporting of protocol data
+and to stop recording and reporting of protocol data, respectively.
+</p><div class="sect2" title="Enable Context"><div class="titlepage"><div><div><h3 class="title"><a id="enable_context"></a>Enable Context</h3></div></div></div><p>
+To direct the X server to record and report protocol, a program uses
+<code class="function">XRecordEnableContext</code>
+typically over its data connection to the X
+server.  The reporting of recorded protocol back to the recording client
+is handled by the following data structures and procedure definitions.
+Each recorded protocol element is reported to the recording client through an
+<code class="function">XRecordInterceptData</code>
+typedef, a structure with the following members:
+</p><div class="literallayout"><p><br />
+XRecordInterceptData:<br />
+     XID              id_base<br />
+     Time             server_time<br />
+     unsigned long    client_seq<br />
+     int              category<br />
+     Bool             client_swapped<br />
+     unsigned char    *data<br />
+     unsigned long    data_len<br />
+</p></div><p>
+The id_base member is set to the resource identifier base sent to the
+client in the connection setup reply and therefore identifies the client
+being recorded, except when the recorded protocol data is a device
+event that may have not been delivered to a client.  In this case,
+id_base is set to zero.  The server_time member
+is set to the time of the server when the protocol was recorded.
+It is the time that was attached to this protocol element in the reply,
+if so specified by datum_flags,
+or else the time from the header of the reply that contained
+this protocol element.
+The client_seq member is the sequence number of the recorded
+client's most recent request processed by the server at the time this
+protocol element was recorded, if this information were included in the
+recorded data; otherwise client_seq is 0.
+The category member is set to one of the following values:
+<code class="function">XRecordStartOfData</code>
+<code class="function">XRecordFromServer</code>
+<code class="function">XRecordFromClient</code>
+<code class="function">XRecordClientStarted</code>
+<code class="function">XRecordClientDied</code>
+or
+<code class="function">XRecordEndOfData</code>
+<code class="function">XRecordStartOfData</code>
+is immediately sent as the first reply to confirm that the context is enabled.
+<code class="function">XRecordFromClient</code>
+indicates the protocol
+data is from the recorded client to the server (requests).
+<code class="function">XRecordFromServer</code>
+indicates the protocol data is from the server to the recorded client
+(replies, errors, events, or device events).
+<code class="function">XRecordClientStarted</code>
+indicates that the protocol data is the connection setup reply from the server.
+<code class="function">XRecordClientDied</code>
+indicates that the recorded client has closed its connection
+to the X server; there is no protocol data.
+<code class="function">XRecordEndOfData</code>
+indicates that the context has been disabled and that
+this is the last datum.  It does not correspond to any protocol or
+state change in a recorded client.  There is no protocol data.
+</p><p>
+The client_swapped member is set to
+<code class="function">True</code>
+if the byte order of the client being recorded is swapped relative to
+the recording client; otherwise, it is set to
+<code class="function">False</code>
+All recorded protocol data is returned in the byte order of the recorded
+client.  Therefore, recording clients are responsible for all byte swapping,
+if required.  Device events are in the byte order of the recording client.
+For replies of category
+<code class="function">XRecordStartOfData</code>
+and
+<code class="function">XRecordEndOfData</code>
+client_swapped is set according
+to the byte order of the server relative to the recording client.
+</p><p>
+The data member contains the actual recorded protocol data.
+When category is set to
+<code class="function">XRecordStartOfData</code>
+<code class="function">XRecordClientDied</code>
+or
+<code class="function">XRecordEndOfData</code>
+no protocol data are contained in data.
+</p><p>
+For the core X events
+<code class="function">KeyPress</code>
+<code class="function">KeyRelease</code>
+<code class="function">ButtonPress</code>
+and
+<code class="function">ButtonRelease</code>,
+the fields of a device event that contain
+valid information are time and detail.  For the core X event
+<code class="function">MotionNotify</code>
+the fields of a device event that contain valid information are time, root,
+root-x and root-y.
+The time field refers to the time the event was generated by the device.
+</p><p>For the extension input device events
+<code class="function">DeviceKeyPress</code>
+<code class="function">DeviceKeyRelease</code>
+<code class="function">DeviceButtonPress</code>
+and
+<code class="function">DeviceButtonRelease</code>
+the fields of a device event that contain valid information are
+device, time, and detail.  For
+<code class="function">DeviceMotionNotify</code>
+the valid device event fields are device and time.
+For the extension input device events
+<code class="function">ProximityIn</code>
+and
+<code class="function">ProximityOut</code>
+the fields of a device event that contain valid
+information are device and time.  For the extension input device event
+<code class="function">DeviceValuator</code>
+the fields of a device event that contain valid information are
+device, num_valuators, first_valuator, and valuators.
+The time field refers to the time the event was generated by the device.
+</p><p>
+The data_len member is set to the length of the actual recorded protocol
+data in 4-byte units.
+</p><p>
+When the context has been enabled, protocol data the recording client has
+previously expressed interest in is recorded and returned to the
+recording client via multiple replies.  Because the X server batches
+the recorded data, more than one protocol element may be contained
+in the same reply packet.  When a reply is received, a procedure of type
+<code class="function">XRecordInterceptProc</code>
+is called for each protocol element in the reply.
+</p><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">typedef void <strong>fsfunc(*XRecordInterceptProc)</strong>(</code></td><td><var class="pdparam"> closure</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> *recorded_data</var><code>)</code>;</td><td> </td></tr></table><div class="paramdef-list"><code>XPointer<var class="pdparam"> closure</var></code>;<br /><code>XRecordInterceptData<var class="pdparam"> *recorded_data</var></code>;</div><div class="funcprototype-spacer"> </div></div><div class="variablelist"><dl><dt><span class="term"><span class="emphasis"><em>closure</em></span></span></dt><dd><p>Pointer that was passed in when the context was enabled.</p></dd><dt><span class="term"><span class="emphasis"><em>recorded_data</em></span></span></dt><dd><p>A protocol element recorded by the server extension.</p></dd></dl></div><p>
+This callback may use the control display connection (or any display
+connection other than the data connection).
+</p><p>
+Recording clients should use the
+<code class="function">XRecordFreeData</code>
+function to free the
+<code class="function">XRecordInterceptData</code>
+structure.
+</p><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">Status <strong>fsfuncXRecordEnableContext</strong>(</code></td><td><var class="pdparam"> *display</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> context</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> callback</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> closure</var><code>)</code>;</td><td> </td></tr></table><div class="paramdef-list"><code>Display<var class="pdparam"> *display</var></code>;<br /><code>XRecordContext<var class="pdparam"> context</var></code>;<br /><code>XRecordInterceptProc<var class="pdparam"> callback</var></code>;<br /><code>XPointer<var class="pdparam"> closure</var></code>;</div><div class="funcprototype-spacer"> </div></div><div class="variablelist"><dl><dt><span class="term"><span class="emphasis"><em>display</em></span></span></dt><dd><p>Specifies the connection to the X server.</p></dd><dt><span class="term"><span class="emphasis"><em>context</em></span></span></dt><dd><p>Specifies the record context to enable.</p></dd><dt><span class="term"><span class="emphasis"><em>callback</em></span></span></dt><dd><p>Specifies the function to be called for each protocol element received.</p></dd><dt><span class="term"><span class="emphasis"><em>closure</em></span></span></dt><dd><p>Specifies data passed to callback.</p></dd></dl></div><p>
+<code class="function">XRecordEnableContext</code>
+enables data transfer between the recording client and
+the X server.  All core and extension protocol received from or sent to
+targeted clients that the recording client has expressed
+interest in will be recorded and reported to the recording client.
+</p><p>
+<code class="function">XRecordEnableContext</code>
+returns zero if the request failed; otherwise, it
+returns nonzero.  The context argument must specify a valid
+<code class="function">XRecordContext</code>
+or a
+<code class="function">XRecordBadContext</code>
+error results.  The error
+<code class="function">BadMatch</code>
+results when data transfer is already enabled on the given context.
+</p></div><div class="sect2" title="Enable Context Asynchronously"><div class="titlepage"><div><div><h3 class="title"><a id="enable_context_asynchronously"></a>Enable Context Asynchronously</h3></div></div></div><p>Because
+<code class="function">XRecordEnableContext</code>
+does not return until
+<code class="function">XRecordDisableContext</code>
+is executed on the control connection, a nonblocking interface in
+addition to
+<code class="function">XRecordEnableContext</code>
+is provided.  This interface also
+enables data transfer; however, it does not block.
+</p><p>
+This interface is defined as follows:
+</p><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">Status <strong>fsfuncXRecordEnableContextAsync</strong>(</code></td><td><var class="pdparam"> *display</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> context</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> callback</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> closure</var><code>)</code>;</td><td> </td></tr></table><div class="paramdef-list"><code>Display<var class="pdparam"> *display</var></code>;<br /><code>XRecordContext<var class="pdparam"> context</var></code>;<br /><code>XRecordInterceptProc<var class="pdparam"> callback</var></code>;<br /><code>XPointer<var class="pdparam"> closure</var></code>;</div><div class="funcprototype-spacer"> </div></div><div class="variablelist"><dl><dt><span class="term"><span class="emphasis"><em>display</em></span></span></dt><dd><p>Specifies the connection to the X server.</p></dd><dt><span class="term"><span class="emphasis"><em>context</em></span></span></dt><dd><p>Specifies the record context to enable.</p></dd><dt><span class="term"><span class="emphasis"><em>callback</em></span></span></dt><dd><p>Specifies the function to be called for each protocol element received.</p></dd><dt><span class="term"><span class="emphasis"><em>closure</em></span></span></dt><dd><p>Specifies data passed to callback.</p></dd></dl></div><p>
+<code class="function">XRecordEnableContextAsync</code>
+enables data transfer between the recording
+client and the X server just as
+<code class="function">XRecordEnableContext</code>
+does.  Unlike
+<code class="function">XRecordEnableContext</code>
+it does not wait for the context to be disabled
+before returning;
+<code class="function">XRecordEnableContextAsync</code>
+returns as soon as the
+<code class="function">XRecordStartOfData</code>
+reply has been received and processed.
+</p><p>
+<code class="function">XRecordEnableContextAsync</code>
+returns zero if it could not allocate the
+necessary memory and nonzero if it sent the request successfully to
+the server.  The context argument must specify a valid
+<code class="function">XRecordContext</code>
+or a
+<code class="function">XRecordBadContext</code>
+error results.  The error
+<code class="function">BadMatch</code>
+results when data transfer is already enabled.
+</p><p>
+Each time it reads data from the server connection, Xlib will check
+for incoming replies and call <span class="emphasis"><em>callback</em></span>
+as necessary.  The application may direct Xlib explicitly to check
+for Record data with the
+<code class="function">XRecordProcessReplies</code>
+function.
+</p><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <strong>fsfuncXRecordProcessReplies</strong>(</code></td><td><var class="pdparam"> *display</var><code>)</code>;</td><td> </td></tr></table><div class="paramdef-list"><code>Display<var class="pdparam"> *display</var></code>;</div><div class="funcprototype-spacer"> </div></div><div class="variablelist"><dl><dt><span class="term"><span class="emphasis"><em>display</em></span></span></dt><dd><p>Specifies the connection to the X server.</p></dd></dl></div><p>
+<code class="function">XRecordProcessReplies</code>
+will check for any replies that have not yet
+been processed by the application.  The asynchronous callback will be called
+as appropriate.
+<code class="function">XRecordProcessReplies</code>
+returns when all immediately
+available replies have been processed.  It does not block.
+</p><p>To free the data passed to the
+<code class="function">XRecordInterceptProc</code>
+callback, use
+<code class="function">XRecordFreeData</code></p><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">void <strong>fsfuncXRecordFreeData</strong>(</code></td><td><var class="pdparam"> *data</var><code>)</code>;</td><td> </td></tr></table><div class="paramdef-list"><code>XRecordInterceptData<var class="pdparam"> *data</var></code>;</div><div class="funcprototype-spacer"> </div></div><div class="variablelist"><dl><dt><span class="term"><span class="emphasis"><em>data</em></span></span></dt><dd><p>Specifies the structure that is to be freed.</p></dd></dl></div><p>
+<code class="function">XRecordFreeData</code>
+frees the data pointed to by data.  If the argument does not match an
+<code class="function">XRecordInterceptData</code>
+pointer earlier passed to an
+<code class="function">XRecordInterceptProc</code>
+callback or if
+<code class="function">XRecordFreeData</code>
+has already been called with it, the behavior is undefined.
+</p></div><div class="sect2" title="Disable Context"><div class="titlepage"><div><div><h3 class="title"><a id="disable_context"></a>Disable Context</h3></div></div></div><p>
+To direct the X server to halt the reporting of recorded protocol, the
+program executes
+<code class="function">XRecordDisableContext</code>
+typically over its control connection to the X server.
+</p><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">Status <strong>fsfuncXRecordDisableContext</strong>(</code></td><td><var class="pdparam"> *display</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> context</var><code>)</code>;</td><td> </td></tr></table><div class="paramdef-list"><code>Display<var class="pdparam"> *display</var></code>;<br /><code>XRecordContext<var class="pdparam"> context</var></code>;</div><div class="funcprototype-spacer"> </div></div><div class="variablelist"><dl><dt><span class="term"><span class="emphasis"><em>display</em></span></span></dt><dd><p>Specifies the connection to the X server.</p></dd><dt><span class="term"><span class="emphasis"><em>context</em></span></span></dt><dd><p>Specifies the record context to disable.</p></dd></dl></div><p>
+The
+<code class="function">XRecordDisableContext</code>
+function disables context, stopping all recording over its data connection.
+Any complete protocol elements for context that were buffered in the
+server will be sent to the recording client rather than being discarded.
+If a program attempts to disable an
+<code class="function">XRecordContext</code>
+that has not been enabled, no action will take place.
+</p><p>
+<code class="function">XRecordDisableContext</code>
+returns zero if the request failed; otherwise, it
+returns nonzero.  The context argument must specify a valid
+<code class="function">XRecordContext</code>
+or an
+<code class="function">XRecordBadContext</code>
+error results.
+</p></div></div><div class="sect1" title="ID Base Mask"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="id_base_mask"></a>ID Base Mask</h2></div></div></div><p>
+To determine the mask the server uses for the client ID base, use
+<code class="function">XRecordIdBaseMask</code></p><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">XID <strong>fsfuncXRecordIdBaseMask</strong>(</code></td><td><var class="pdparam"> *display</var><code>)</code>;</td><td> </td></tr></table><div class="paramdef-list"><code>Display<var class="pdparam"> *display</var></code>;</div><div class="funcprototype-spacer"> </div></div><div class="variablelist"><dl><dt><span class="term"><span class="emphasis"><em>display</em></span></span></dt><dd><p>Specifies the connection to the X server.</p></dd></dl></div><p>
+The
+<code class="function">XRecordIdBaseMask</code>
+function returns the resource ID mask passed to the client by the
+server at connection setup.
+</p></div><div class="sect1" title="Free Context"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a id="free_context"></a>Free Context</h2></div></div></div><p>
+Before terminating, the program should request that the server
+free the record context.  This is done with the
+<code class="function">XRecordFreeContext</code>
+function, typically over the record client's control connection
+to the X server.
+</p><div class="funcsynopsis"><table border="0" summary="Function synopsis" cellspacing="0" cellpadding="0" class="funcprototype-table"><tr><td><code class="funcdef">Status <strong>fsfuncXRecordFreeContext</strong>(</code></td><td><var class="pdparam"> *display</var>, </td><td> </td></tr><tr><td> </td><td><var class="pdparam"> context</var><code>)</code>;</td><td> </td></tr></table><div class="paramdef-list"><code>Display<var class="pdparam"> *display</var></code>;<br /><code>XRecordContext<var class="pdparam"> context</var></code>;</div><div class="funcprototype-spacer"> </div></div><div class="variablelist"><dl><dt><span class="term"><span class="emphasis"><em>display</em></span></span></dt><dd><p>Specifies the connection to the X server.</p></dd><dt><span class="term"><span class="emphasis"><em>context</em></span></span></dt><dd><p>Specifies the record context to free.</p></dd></dl></div><p>
+The
+<code class="function">XRecordFreeContext</code>
+function frees the given context for the
+requesting client.  Freeing a record context releases the clients
+targeted for recording and their respective protocol ranges to
+record.  If protocol data is being reported to the recording client,
+generally over the data connection to the X server, the reporting
+ceases as if
+<code class="function">XRecordDisableContext</code>
+had been called on the given context.  When a program terminates
+without freeing its record context, the X server will automatically
+free that context on behalf of the client.
+</p><p>
+<code class="function">XRecordFreeContext</code>
+returns zero if the request failed; otherwise,it
+returns nonzero.  The context argument must specify a valid
+<code class="function">XRecordContext</code>
+or a
+<code class="function">XRecordBadContext</code>
+error results.
+</p></div></div></div></body></html>

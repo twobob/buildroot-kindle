@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Other
+Comment=Other applications and tools
+Icon=mbfolder.png
+Type=Directory
+Match=fallback

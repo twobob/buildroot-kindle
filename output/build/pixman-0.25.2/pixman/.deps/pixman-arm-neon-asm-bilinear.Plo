@@ -1,0 +1,4 @@
+pixman-arm-neon-asm-bilinear.lo pixman-arm-neon-asm-bilinear.o:  \
+ pixman-arm-neon-asm-bilinear.S pixman-arm-neon-asm.h
+
+pixman-arm-neon-asm.h:

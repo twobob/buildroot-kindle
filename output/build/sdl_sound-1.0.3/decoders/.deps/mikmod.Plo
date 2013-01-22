@@ -1,0 +1,3 @@
+mikmod.lo mikmod.o: mikmod.c ../config.h
+
+../config.h:

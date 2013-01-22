@@ -1,0 +1,142 @@
+# translation of fi_FI.po for Matchbox
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Eero Tamminen <EMAIL@ADDRESS>, 2003
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-02-02 10:37+0000\n"
+"PO-Revision-Date: 2003-09-23 22:47+0300\n"
+"Last-Translator: Eero Tamminen <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.0.1\n"
+
+#: ../src/panel_menu.c:68
+msgid "Remove"
+msgstr "Poista"
+
+#: ../src/panel_menu.c:172
+msgid "Add"
+msgstr "Lisää"
+
+#: ../src/panel_menu.c:259
+msgid "Hide"
+msgstr "Piiloon"
+
+#: ../applets/mb-applet-system-monitor.c:253
+#, c-format
+msgid "CPU: %i %%, MEMORY: %i %%\n"
+msgstr "CPU: %i %%, RAM: %i %%\n"
+
+#: ../applets/mb-applet-system-monitor.c:324
+msgid "CPU/Mem Monitor"
+msgstr "CPU/RAM tiedot"
+
+#: ../applets/mb-applet-wireless.c:438
+#, fuzzy, c-format
+msgid ""
+"%s:\n"
+" Link %.1f\n"
+" Level %.1f\n"
+" Noise %.1f\n"
+msgstr "%s: Linkki %.1f, Taso %.1f, Kohina %.1f\n"
+
+#: ../applets/mb-applet-wireless.c:443
+#, c-format
+msgid "No wireless cards detected\n"
+msgstr "Ei havaittuja WLAN-kortteja\n"
+
+#: ../applets/mb-applet-wireless.c:483
+msgid "Wireless Monitor"
+msgstr "WLAN-yhteyden tiedot"
+
+#: ../applets/mb-applet-clock.c:146
+#, c-format
+msgid "%.2d:%.2d"
+msgstr "%.2d:%.2d"
+
+#: ../applets/mb-applet-clock.c:234
+msgid "%a %b %e %k:%M:%S %Y"
+msgstr "%a %b %e %k:%M:%S %Y"
+
+#: ../applets/mb-applet-clock.c:333
+msgid "Clock"
+msgstr "Kello"
+
+#: ../applets/mb-applet-clock.c:360
+msgid "Set Time"
+msgstr ""
+
+#: ../applets/mb-applet-battery.c:283
+#, c-format
+msgid ""
+"Battery power very low !\n"
+"\n"
+"Time Left: %.2i minutes"
+msgstr ""
+"Akkuteho alhaalla!\n"
+"\n"
+"Käyttöaikaa jäljellä: %.2i min."
+
+#: ../applets/mb-applet-battery.c:380
+#, c-format
+msgid ""
+"AC Connected\n"
+"Charging: %.2i %%\n"
+msgstr ""
+"Ulkoinen virtalähde kiinni\n"
+"Akun lataus: %.2i %%\n"
+
+#: ../applets/mb-applet-battery.c:383
+#, c-format
+msgid ""
+"AC Connected\n"
+"Fully charged.\n"
+msgstr ""
+"Ulkoinen virtalähde kiinni\n"
+"Akku ladattu täyteen.\n"
+
+#: ../applets/mb-applet-battery.c:390
+#, c-format
+msgid ""
+"Battery Power\n"
+"Juice %.2i %%\n"
+"Time left: %.2i h. %.2i min.\n"
+msgstr ""
+"Akkuteho\n"
+"Virtaa %.2i %%\n"
+"Käyttöaikaa jäljellä: %.2i h. %.2i min.\n"
+
+#: ../applets/mb-applet-battery.c:392
+#, c-format
+msgid ""
+"Battery Power\n"
+" Device read error.\n"
+msgstr ""
+"Akkuteho\n"
+" Laitetiedoston lukuvirhe.\n"
+
+#: ../applets/mb-applet-battery.c:442
+msgid "Battery Monitor"
+msgstr "Akun tiedot"
+
+#: ../applets/mb-applet-battery.c:466
+msgid "More info"
+msgstr ""
+
+#~ msgid "Cant open mixer device"
+#~ msgstr "Mixer-laitetiedoston avaus epäonnistui"
+
+#~ msgid "Cant open mixer device for reading"
+#~ msgstr "Mixer-laitetiedoston avaus lukua varten epäonnistui"
+
+#~ msgid "Cant open mixer device for writing"
+#~ msgstr "Mixer-laitetiedoston avaus kirjoitusta varten epäonnistui"
+
+#~ msgid "Volume Control"
+#~ msgstr "Äänenvoimakkuuden säätö"

@@ -1,0 +1,3 @@
+modplug.lo modplug.o: modplug.c ../config.h
+
+../config.h:

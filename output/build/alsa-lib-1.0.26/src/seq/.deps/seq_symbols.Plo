@@ -1,0 +1,1 @@
+seq_symbols.lo .libs/seq_symbols.o: seq_symbols.c

@@ -1,0 +1,7 @@
+  *		apl		=	+extras/apl%(v[4]):4
+  *		rs(combiningkeys)	=	+extras/rs(combiningkeys):4
+  *		ru(chu)	=	+extras/ru(chu):4
+  *		ir(ave)	=	+extras/ir(ave):4
+  *		us(alt-intl-unicode)	=	+extras/us(alt-intl-unicode):4
+  *		us(crd)	=	+extras/us(crd):4
+  *		us(intl-unicode)	=	+extras/us(intl-unicode):4

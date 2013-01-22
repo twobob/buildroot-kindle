@@ -1,0 +1,1 @@
+pixman-arm-simd-asm.lo pixman-arm-simd-asm.o: pixman-arm-simd-asm.S

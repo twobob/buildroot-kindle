@@ -1,0 +1,11 @@
+prefix=/usr
+exec_prefix=/usr
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: XCB Record
+Description: XCB Record Extension
+Version: 1.7
+Requires: xcb
+Libs: -L${libdir} -lxcb-record
+Cflags: -I${includedir}

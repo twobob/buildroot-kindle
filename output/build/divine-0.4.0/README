@@ -1,0 +1,12 @@
+DiVine - DirectFB Virtual Input extension
+-----------------------------------------
+
+DiVine consists of
+- an input driver that reads raw input events from a pipe
+  and dispatches them via a virtual input device.
+- a library that handles the connection to the input driver
+  including helper functions for generating events.
+
+More information is to be added, DiVine is in an early stage,
+once there might be support for sockets and builtin functions
+for running an input script (like a macro).

@@ -1,0 +1,1 @@
+cmd_util-linux/volume_id/lib.a := rm -f util-linux/volume_id/lib.a; /home/simon/GIT/buildroot-k3-current/output/host/usr/bin/arm-none-linux-gnueabi-ar  rcs util-linux/volume_id/lib.a util-linux/volume_id/get_devname.o util-linux/volume_id/util.o util-linux/volume_id/volume_id.o

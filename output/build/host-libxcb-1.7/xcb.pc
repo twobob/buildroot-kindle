@@ -1,0 +1,13 @@
+prefix=/home/simon/GIT/buildroot-k3-current/output/host/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+xcbproto_version=1.6
+
+Name: XCB
+Description: X-protocol C Binding
+Version: 1.7
+Requires.private: pthread-stubs xau >= 0.99.2 xdmcp
+Libs: -L${libdir} -lxcb
+Libs.private: 
+Cflags: -I${includedir}

@@ -1,0 +1,275 @@
+lcUTF8.lo: lcUTF8.c ../../src/config.h /usr/include/stdio.h \
+ /usr/include/features.h /usr/include/i386-linux-gnu/bits/predefs.h \
+ /usr/include/i386-linux-gnu/sys/cdefs.h \
+ /usr/include/i386-linux-gnu/bits/wordsize.h \
+ /usr/include/i386-linux-gnu/gnu/stubs.h \
+ /usr/include/i386-linux-gnu/gnu/stubs-32.h \
+ /usr/lib/gcc/i686-linux-gnu/4.6/include/stddef.h \
+ /usr/include/i386-linux-gnu/bits/types.h \
+ /usr/include/i386-linux-gnu/bits/typesizes.h /usr/include/libio.h \
+ /usr/include/_G_config.h /usr/include/wchar.h \
+ /usr/lib/gcc/i686-linux-gnu/4.6/include/stdarg.h \
+ /usr/include/i386-linux-gnu/bits/stdio_lim.h \
+ /usr/include/i386-linux-gnu/bits/sys_errlist.h \
+ /usr/include/i386-linux-gnu/bits/stdio.h \
+ /usr/include/i386-linux-gnu/bits/stdio2.h ../../include/X11/Xlibint.h \
+ ../../include/X11/Xlib.h /usr/include/i386-linux-gnu/sys/types.h \
+ /usr/include/time.h /usr/include/endian.h \
+ /usr/include/i386-linux-gnu/bits/endian.h \
+ /usr/include/i386-linux-gnu/bits/byteswap.h \
+ /usr/include/i386-linux-gnu/sys/select.h \
+ /usr/include/i386-linux-gnu/bits/select.h \
+ /usr/include/i386-linux-gnu/bits/sigset.h \
+ /usr/include/i386-linux-gnu/bits/time.h \
+ /usr/include/i386-linux-gnu/bits/select2.h \
+ /usr/include/i386-linux-gnu/sys/sysmacros.h \
+ /usr/include/i386-linux-gnu/bits/pthreadtypes.h \
+ /home/simon/GIT/buildroot-k3-current/output/host/usr/include/X11/X.h \
+ /home/simon/GIT/buildroot-k3-current/output/host/usr/include/X11/Xfuncproto.h \
+ /home/simon/GIT/buildroot-k3-current/output/host/usr/include/X11/Xosdefs.h \
+ /home/simon/GIT/buildroot-k3-current/output/host/usr/include/X11/Xproto.h \
+ /home/simon/GIT/buildroot-k3-current/output/host/usr/include/X11/Xmd.h \
+ /home/simon/GIT/buildroot-k3-current/output/host/usr/include/X11/Xprotostr.h \
+ ../../include/X11/XlibConf.h /usr/include/errno.h \
+ /usr/include/i386-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
+ /usr/include/i386-linux-gnu/asm/errno.h /usr/include/asm-generic/errno.h \
+ /usr/include/asm-generic/errno-base.h \
+ /home/simon/GIT/buildroot-k3-current/output/host/usr/include/X11/Xfuncs.h \
+ /usr/include/string.h /usr/include/xlocale.h \
+ /usr/include/i386-linux-gnu/bits/string.h \
+ /usr/include/i386-linux-gnu/bits/string2.h /usr/include/stdlib.h \
+ /usr/include/i386-linux-gnu/bits/string3.h \
+ /usr/include/i386-linux-gnu/bits/waitflags.h \
+ /usr/include/i386-linux-gnu/bits/waitstatus.h /usr/include/alloca.h \
+ /usr/include/i386-linux-gnu/bits/stdlib.h XlcPubI.h XlcPublic.h Xlcint.h \
+ ../../include/X11/Xresource.h ../../include/X11/Xutil.h \
+ /home/simon/GIT/buildroot-k3-current/output/host/usr/include/X11/keysym.h \
+ /home/simon/GIT/buildroot-k3-current/output/host/usr/include/X11/keysymdef.h \
+ XlcGeneric.h lcUniConv/utf8.h lcUniConv/ucs2be.h lcUniConv/iso8859_1.h \
+ lcUniConv/iso8859_2.h lcUniConv/iso8859_3.h lcUniConv/iso8859_4.h \
+ lcUniConv/iso8859_5.h lcUniConv/iso8859_6.h lcUniConv/iso8859_7.h \
+ lcUniConv/iso8859_8.h lcUniConv/iso8859_9.h lcUniConv/iso8859_10.h \
+ lcUniConv/iso8859_11.h lcUniConv/iso8859_13.h lcUniConv/iso8859_14.h \
+ lcUniConv/iso8859_15.h lcUniConv/iso8859_16.h lcUniConv/iso8859_9e.h \
+ lcUniConv/jisx0201.h lcUniConv/tis620.h lcUniConv/koi8_r.h \
+ lcUniConv/koi8_u.h lcUniConv/koi8_c.h lcUniConv/armscii_8.h \
+ lcUniConv/cp1133.h lcUniConv/mulelao.h lcUniConv/viscii.h \
+ lcUniConv/tcvn.h lcUniConv/georgian_academy.h lcUniConv/georgian_ps.h \
+ lcUniConv/cp1251.h lcUniConv/cp1255.h lcUniConv/cp1256.h \
+ lcUniConv/tatar_cyr.h lcUniConv/gb2312.h lcUniConv/jisx0208.h \
+ lcUniConv/jisx0212.h lcUniConv/ksc5601.h lcUniConv/big5.h \
+ lcUniConv/big5_emacs.h lcUniConv/big5hkscs.h lcUniConv/gbk.h
+
+../../src/config.h:
+
+/usr/include/stdio.h:
+
+/usr/include/features.h:
+
+/usr/include/i386-linux-gnu/bits/predefs.h:
+
+/usr/include/i386-linux-gnu/sys/cdefs.h:
+
+/usr/include/i386-linux-gnu/bits/wordsize.h:
+
+/usr/include/i386-linux-gnu/gnu/stubs.h:
+
+/usr/include/i386-linux-gnu/gnu/stubs-32.h:
+
+/usr/lib/gcc/i686-linux-gnu/4.6/include/stddef.h:
+
+/usr/include/i386-linux-gnu/bits/types.h:
+
+/usr/include/i386-linux-gnu/bits/typesizes.h:
+
+/usr/include/libio.h:
+
+/usr/include/_G_config.h:
+
+/usr/include/wchar.h:
+
+/usr/lib/gcc/i686-linux-gnu/4.6/include/stdarg.h:
+
+/usr/include/i386-linux-gnu/bits/stdio_lim.h:
+
+/usr/include/i386-linux-gnu/bits/sys_errlist.h:
+
+/usr/include/i386-linux-gnu/bits/stdio.h:
+
+/usr/include/i386-linux-gnu/bits/stdio2.h:
+
+../../include/X11/Xlibint.h:
+
+../../include/X11/Xlib.h:
+
+/usr/include/i386-linux-gnu/sys/types.h:
+
+/usr/include/time.h:
+
+/usr/include/endian.h:
+
+/usr/include/i386-linux-gnu/bits/endian.h:
+
+/usr/include/i386-linux-gnu/bits/byteswap.h:
+
+/usr/include/i386-linux-gnu/sys/select.h:
+
+/usr/include/i386-linux-gnu/bits/select.h:
+
+/usr/include/i386-linux-gnu/bits/sigset.h:
+
+/usr/include/i386-linux-gnu/bits/time.h:
+
+/usr/include/i386-linux-gnu/bits/select2.h:
+
+/usr/include/i386-linux-gnu/sys/sysmacros.h:
+
+/usr/include/i386-linux-gnu/bits/pthreadtypes.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/include/X11/X.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/include/X11/Xfuncproto.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/include/X11/Xosdefs.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/include/X11/Xproto.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/include/X11/Xmd.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/include/X11/Xprotostr.h:
+
+../../include/X11/XlibConf.h:
+
+/usr/include/errno.h:
+
+/usr/include/i386-linux-gnu/bits/errno.h:
+
+/usr/include/linux/errno.h:
+
+/usr/include/i386-linux-gnu/asm/errno.h:
+
+/usr/include/asm-generic/errno.h:
+
+/usr/include/asm-generic/errno-base.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/include/X11/Xfuncs.h:
+
+/usr/include/string.h:
+
+/usr/include/xlocale.h:
+
+/usr/include/i386-linux-gnu/bits/string.h:
+
+/usr/include/i386-linux-gnu/bits/string2.h:
+
+/usr/include/stdlib.h:
+
+/usr/include/i386-linux-gnu/bits/string3.h:
+
+/usr/include/i386-linux-gnu/bits/waitflags.h:
+
+/usr/include/i386-linux-gnu/bits/waitstatus.h:
+
+/usr/include/alloca.h:
+
+/usr/include/i386-linux-gnu/bits/stdlib.h:
+
+XlcPubI.h:
+
+XlcPublic.h:
+
+Xlcint.h:
+
+../../include/X11/Xresource.h:
+
+../../include/X11/Xutil.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/include/X11/keysym.h:
+
+/home/simon/GIT/buildroot-k3-current/output/host/usr/include/X11/keysymdef.h:
+
+XlcGeneric.h:
+
+lcUniConv/utf8.h:
+
+lcUniConv/ucs2be.h:
+
+lcUniConv/iso8859_1.h:
+
+lcUniConv/iso8859_2.h:
+
+lcUniConv/iso8859_3.h:
+
+lcUniConv/iso8859_4.h:
+
+lcUniConv/iso8859_5.h:
+
+lcUniConv/iso8859_6.h:
+
+lcUniConv/iso8859_7.h:
+
+lcUniConv/iso8859_8.h:
+
+lcUniConv/iso8859_9.h:
+
+lcUniConv/iso8859_10.h:
+
+lcUniConv/iso8859_11.h:
+
+lcUniConv/iso8859_13.h:
+
+lcUniConv/iso8859_14.h:
+
+lcUniConv/iso8859_15.h:
+
+lcUniConv/iso8859_16.h:
+
+lcUniConv/iso8859_9e.h:
+
+lcUniConv/jisx0201.h:
+
+lcUniConv/tis620.h:
+
+lcUniConv/koi8_r.h:
+
+lcUniConv/koi8_u.h:
+
+lcUniConv/koi8_c.h:
+
+lcUniConv/armscii_8.h:
+
+lcUniConv/cp1133.h:
+
+lcUniConv/mulelao.h:
+
+lcUniConv/viscii.h:
+
+lcUniConv/tcvn.h:
+
+lcUniConv/georgian_academy.h:
+
+lcUniConv/georgian_ps.h:
+
+lcUniConv/cp1251.h:
+
+lcUniConv/cp1255.h:
+
+lcUniConv/cp1256.h:
+
+lcUniConv/tatar_cyr.h:
+
+lcUniConv/gb2312.h:
+
+lcUniConv/jisx0208.h:
+
+lcUniConv/jisx0212.h:
+
+lcUniConv/ksc5601.h:
+
+lcUniConv/big5.h:
+
+lcUniConv/big5_emacs.h:
+
+lcUniConv/big5hkscs.h:
+
+lcUniConv/gbk.h:

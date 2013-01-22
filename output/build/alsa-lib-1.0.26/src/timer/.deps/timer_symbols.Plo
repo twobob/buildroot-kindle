@@ -1,0 +1,1 @@
+timer_symbols.lo .libs/timer_symbols.o: timer_symbols.c

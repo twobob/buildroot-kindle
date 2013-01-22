@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuremap [
+<!ELEMENT configuremap (configure)+>
+<!ELEMENT configure (#PCDATA)>
+<!ATTLIST configure name CDATA #REQUIRED>
+<!ATTLIST configure value CDATA #REQUIRED>
+]>
+<configuremap>
+  <configure name="NAME" value="ImageMagick"/>
+  <configure name="VERSION" value="6.7.8"/>
+  <configure name="LIB_VERSION" value="0x678"/>
+  <configure name="LIB_VERSION_NUMBER" value="6,7,8,8"/>
+  <configure name="SVN_REVISION" value="8845" />
+  <configure name="RELEASE_DATE" value="2012-12-21"/>
+  <configure name="CONFIGURE" value="./configure  '--target=arm-buildroot-linux-gnueabi' '--host=arm-buildroot-linux-gnueabi' '--build=i686-pc-linux-gnu' '--prefix=/usr' '--exec-prefix=/usr' '--sysconfdir=/etc' '--program-prefix=' '--disable-gtk-doc' '--enable-ipv6' '--enable-static' '--enable-shared' '--program-transform-name=s,,,' '--without-perl' '--without-wmf' '--without-openexr' '--without-jp2' '--without-jbig' '--without-gvc' '--without-djvu' '--without-dps' '--without-gslib' '--without-fpx' '--without-x' '--without-fontconfig' '--with-freetype' '--with-jpeg' '--with-png' '--without-rsvg' '--with-xml' '--without-tiff' '--without-fftw' '--with-zlib' '--with-bzlib' 'build_alias=i686-pc-linux-gnu' 'host_alias=arm-buildroot-linux-gnueabi' 'target_alias=arm-buildroot-linux-gnueabi' 'CC=/home/simon/GIT/buildroot-k3-current/output/host/usr/bin/arm-none-linux-gnueabi-gcc' 'CFLAGS=-D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64  -pipe -U_FORTIFY_SOURCE -fno-stack-protector -fomit-frame-pointer -fPIC -O2 ' 'LDFLAGS=' 'CPPFLAGS=-D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64' 'CPP=/home/simon/GIT/buildroot-k3-current/output/host/usr/bin/arm-none-linux-gnueabi-cpp' 'CXX=/home/simon/GIT/buildroot-k3-current/output/host/usr/bin/arm-none-linux-gnueabi-g++' 'CXXFLAGS=-D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64  -pipe -U_FORTIFY_SOURCE -fno-stack-protector -fomit-frame-pointer -fPIC -O2 ' 'PKG_CONFIG=/home/simon/GIT/buildroot-k3-current/output/host/usr/bin/pkg-config'"/>
+  <configure name="PREFIX" value="/usr"/>
+  <configure name="EXEC-PREFIX" value="/usr"/>
+  <configure name="INCLUDE_PATH" value="/usr/include/ImageMagick"/>
+  <configure name="CONFIGURE_PATH" value="/etc/ImageMagick/"/>
+  <configure name="SHARE_PATH" value="/usr/share/ImageMagick-6.7.8"/>
+  <configure name="DOCUMENTATION_PATH" value="/usr/share/doc/ImageMagick-6.7.8"/>
+  <configure name="EXECUTABLE_PATH" value="/usr/bin"/>
+  <configure name="LIBRARY_PATH" value="/usr/lib/ImageMagick-6.7.8"/>
+  <configure name="CODER_PATH" value="/usr/lib/ImageMagick-6.7.8/modules-Q16/coders"/>
+  <configure name="FILTER_PATH" value="/usr/lib/ImageMagick-6.7.8/modules-Q16/filters"/>
+  <configure name="CC" value="/home/simon/GIT/buildroot-k3-current/output/host/usr/bin/arm-none-linux-gnueabi-gcc -std=gnu99 -std=gnu99"/>
+  <configure name="CFLAGS" value="-D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -pipe -U_FORTIFY_SOURCE -fno-stack-protector -fomit-frame-pointer -fPIC -O2 -Wall -pthread"/>
+  <configure name="CPPFLAGS" value="-I/usr/include/ImageMagick"/>
+  <configure name="PCFLAGS" value=""/>
+  <configure name="DEFS" value="-DHAVE_CONFIG_H"/>
+  <configure name="LDFLAGS" value="-L/usr/lib -L/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/lib -L/home/simon/GIT/buildroot-k3-current/output/host/usr/arm-buildroot-linux-gnueabi/sysroot/usr/lib"/>
+  <configure name="LIBS" value="-lMagickCore -lfreetype -ljpeg -lpng14 -lbz2 -lxml2 -lz -lm -lpthread "/>
+  <configure name="CXX" value="/home/simon/GIT/buildroot-k3-current/output/host/usr/bin/arm-none-linux-gnueabi-g++"/>
+  <configure name="CXXFLAGS" value="-D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -pipe -U_FORTIFY_SOURCE -fno-stack-protector -fomit-frame-pointer -fPIC -O2 -pthread"/>
+  <configure name="DISTCHECK_CONFIG_FLAGS" value="'CC=/home/simon/GIT/buildroot-k3-current/output/host/usr/bin/arm-none-linux-gnueabi-gcc' 'CFLAGS=-D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -pipe -U_FORTIFY_SOURCE -fno-stack-protector -fomit-frame-pointer -fPIC -O2 ' 'CPPFLAGS=-D_LARGEFILE_SOURCE -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64' 'CXX=/home/simon/GIT/buildroot-k3-current/output/host/usr/bin/arm-none-linux-gnueabi-g++' 'LDFLAGS=' --disable-deprecated --with-quantum-depth=16 --with-umem=no --with-autotrace=no --with-dps=no --with-djvu=no --with-fftw=no --with-fpx=no --with-fontconfig=no --with-gslib=no --with-fontpath= --with-gvc=no --with-jp2=no --with-openexr=no --with-rsvg=no --with-tiff=no --with-wmf=no --with-perl=no"/>
+  <configure name="TARGET_CPU" value="arm"/>
+  <configure name="TARGET_VENDOR" value="buildroot"/>
+  <configure name="TARGET_OS" value="linux-gnueabi"/>
+  <configure name="HOST" value="arm-buildroot-linux-gnueabi"/>
+  <configure name="FEATURES" value=""/>
+  <configure name="DELEGATES" value="bzlib freetype jpeg jng mpeg png xml zlib"/>
+  <configure name="COPYRIGHT" value="Copyright (C) 1999-2012 ImageMagick Studio LLC"/>
+  <configure name="WEBSITE" value="http://www.imagemagick.org"/>
+  <configure name="QuantumDepth" value="16"/>
+</configuremap>

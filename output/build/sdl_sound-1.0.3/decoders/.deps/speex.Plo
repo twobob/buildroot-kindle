@@ -1,0 +1,3 @@
+speex.lo speex.o: speex.c ../config.h
+
+../config.h:

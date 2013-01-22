@@ -1,0 +1,1 @@
+hwdep_symbols.lo .libs/hwdep_symbols.o: hwdep_symbols.c

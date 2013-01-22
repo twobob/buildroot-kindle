@@ -1,0 +1,12 @@
+prefix=/usr
+exec_prefix=/usr
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: Xp
+Description: X Print Library
+Version: 1.0.1
+Requires: printproto
+Requires.private: x11 xext xau
+Cflags: -I${includedir}
+Libs: -L${libdir} -lXp

@@ -1,0 +1,4 @@
+pixman-arm-neon-asm.lo pixman-arm-neon-asm.o: pixman-arm-neon-asm.S \
+  pixman-arm-neon-asm.h
+
+pixman-arm-neon-asm.h:

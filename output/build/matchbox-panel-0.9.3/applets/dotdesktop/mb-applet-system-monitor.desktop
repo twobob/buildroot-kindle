@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=CPU/Mem Monitor
+Comment=Panel based CPU/Mem Monitor
+Exec=mb-applet-system-monitor
+Type=PanelApp
+Icon=minisys.png
+Categories=Panel;Utility;MB

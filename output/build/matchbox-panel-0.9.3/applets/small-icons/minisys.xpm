@@ -1,0 +1,27 @@
+/* XPM */
+static char *minisys[] = {
+/* columns rows colors chars-per-pixel */
+"16 16 5 1",
+"  c black",
+". c green",
+"X c red",
+"o c yellow",
+"O c None",
+/* pixels */
+"OOOOOOOOOOOOOOOO",
+"O      OO      O",
+"O      OO      O",
+"O  oo  OO  oo  O",
+"O  oo  OO  oo  O",
+"O  oo  OO  oo  O",
+"O  oo  OO  XX  O",
+"O  oo  OO  XX  O",
+"O  ..  OO  XX  O",
+"O  ..  OO  XX  O",
+"O  ..  OO  XX  O",
+"O  ..  OO  XX  O",
+"O  ..  OO  XX  O",
+"O      OO      O",
+"O      OO      O",
+"OOOOOOOOOOOOOOOO"
+};

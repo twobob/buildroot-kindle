@@ -1,0 +1,9 @@
+prefix=/home/simon/GIT/buildroot-k3-current/output/host/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+ 
+Name: FontsProto
+Description: Fonts extension headers
+Version: 2.1.1
+Cflags: -I${includedir}

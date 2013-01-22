@@ -1,0 +1,11 @@
+prefix=/home/simon/GIT/buildroot-k3-current/output/host/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: XCB Damage
+Description: XCB Damage Extension
+Version: 1.7
+Requires: xcb xcb-xfixes
+Libs: -L${libdir} -lxcb-damage
+Cflags: -I${includedir}

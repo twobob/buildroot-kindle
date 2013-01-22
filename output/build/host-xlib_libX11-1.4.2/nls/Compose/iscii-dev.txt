@@ -1,0 +1,9 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Xlib Compose Keys for iscii-dev
+
+Applications using Xlib input handling should recognize these compose key
+sequences in locales using the iscii-dev compose table.
+
+This compose table defines no sequences of its own.
+

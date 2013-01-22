@@ -1,0 +1,1 @@
+pcm_symbols.lo .libs/pcm_symbols.o: pcm_symbols.c

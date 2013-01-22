@@ -1,0 +1,3 @@
+libglib2-make-codegen-python2-python3-compliant.patch
+libglib2-optional-ipv6.patch
+buildroot-libtool-v2.4.patch

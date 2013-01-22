@@ -1,0 +1,558 @@
+2006-08-04  1.9 Released.
+
+2006-08-04  Matthew Allum  <mallum@openedhand.com>
+
+	* NEWS:
+	* configure.ac:
+	* libmb/Makefile.am:
+	Bump up to 1.9
+
+2006-07-27  Matthew Allum  <mallum@openedhand.com>
+
+	* libmb/mbutil.c:
+	Fix mb_want_warning(s) typo
+
+2006-07-26  Matthew Allum  <mallum@openedhand.com>
+
+	* libmb/mbdotdesktop.c:
+	* libmb/mbexp.c:
+	* libmb/mbmenu.c:
+	* libmb/mbpixbuf.c:
+	* libmb/mbtray.c:
+	* libmb/mbutil.c:
+	* libmb/mbutil.h:
+	Remove various non-critical stderr warnings.
+	Make old behaviour reproduce-able via setting MB_WARNINGS
+	env var.
+
+2006-06-09  Matthew Allum  <mallum@openedhand.com>
+
+	* libmb/mbtray.c: (_init_docking):
+	Set PID hint correctly.
+
+2006-03-07  Matthew Allum  <mallum@openedhand.com>
+
+	* configure.ac:
+	* libmb/Makefile.am:
+	Bump up version to 1.8
+
+2006-02-07  Matthew Allum  <mallum@openedhand.com>
+
+	* configure.ac:
+	pkg-config file generation tweaks.
+	* libmb/mbtray.c:
+	fix a warning.
+
+2006-01-26  Matthew Allum  <mallum@openedhand.com>
+
+	* libmb/Makefile.am:
+	* libmb/mb.h:
+	* libmb/mbmenu.c: (mb_menu_check_scroll_button):
+	* libmb/mbtray.c:
+	Fix xsettings never actually getting used :(
+	A Little reformatting.
+
+2006-01-24  Matthew Allum  <mallum@openedhand.com>
+
+	* configure.ac:
+	* libmb.pc.in:
+	Rework pc file to use requires
+
+2006-01-24  Matthew Allum  <mallum@openedhand.com>
+
+	* libmb/hash.c:
+	* libmb/mbdotdesktop.c:
+	* libmb/mbexp.c:
+	* libmb/mbexp.h:
+	* libmb/mbmenu.c:	
+	* libmb/mbpixbuf.c:
+	* libmb/mbtray.c:
+	* libmb/mbutil.c:
+	Fix various GCC 4 warnings
+
+2006-01-23  Matthew Allum  <mallum@openedhand.com>
+
+	* libmb/mbexp.c: (mb_font_new_from_string):
+	Return NULL when font can not be set. fixes bug #64 
+	* libmb/mbtray.c: (mb_tray_app_set_poll_timeout):
+	* libmb/mbtray.h:
+	Allow for timeout to be cleared.
+
+2006-01-19  Matthew Allum  <mallum@openedhand.com>
+
+	* libmb/mbdotdesktop.c: (_parse_desktop_entry):
+	Backout 2005-10-12 change, needs proper fix 
+
+2006-01-10  Matthew Allum  <mallum@openedhand.com>
+
+	* libmb/mbpixbuf.c: (mb_pixbuf_new_extended):
+	Detach SHM test correctly via patch from Tapani
+
+2005-10-12  Matthew Allum  <mallum@openedhand.com>
+
+	* libmb/mbdotdesktop.c: (_parse_desktop_entry):
+	Hack to allow parsing of [icon theme] .desktop files
+
+2005-09-26  mallum  <mallum@openedhand.com>
+
+	* libmb/mbexp.c: (mb_font_new), (mb_font_set_from_string),
+	(mb_font_new_from_string):
+	Safely handle a misconfigured Pango.
+
+2005-08-26  mallum,,,  <mallum@openedhand.com>
+
+	* configure.ac:
+	Tweak for people that try to compile without-x
+	* libmb/mbexp.c: (_clip_some_text), (mb_font_render_simple):
+	Dont put ellipses right after a space
+
+2005-04-28  mallum,,,  <mallum@openedhand.com>
+
+	reviewed by: <delete if not using a buddy>
+
+	* ChangeLog:
+	* configure.ac:
+
+2005-04-16  mallum,,,  <mallum@openedhand.com>
+
+	* configure.ac:
+	Check for AC_PATH_XTRA fail.
+
+2005-04-08 Release 1.7
+
+2005-04-08  mallum,,,  <mallum@openedhand.com>
+
+	* configure.ac:
+	* libmb/Makefile.am:
+	Bump up version to 1.7
+
+2005-03-30  mallum,,,  <mallum@openedhand.com>
+
+	* libmb/mbpixbuf.c: (_load_xpm_file):
+	Fix potential overflow in xmp loader. via Andreas Gunnarsson.
+
+2005-03-29  mallum,,,  <mallum@openedhand.com>
+
+	* libmb/mbdotdesktop.c: (_parse_desktop_entry):
+	Fix pontential overflow by 1 in scanf call.
+	* libmb/mbutil.c:
+	Ditch alloca.h include.
+	Fixes via ML post from Andreas Gunnarsson
+
+2005-03-16  mallum,,,  <mallum@openedhand.com>
+
+	* Makefile.am:
+	* configure.ac:
+	* tests/Makefile.am:
+	* tests/menu/Makefile.am:
+	Add tests/menu to dist and make sure make dist includes it.
+
+2005-03-16  mallum,,,  <mallum@openedhand.com>
+
+	* libmb/hash.c:
+	* libmb/mbdotdesktop.c:
+	* libmb/mbexp.c:
+	* libmb/mbmenu.c:
+	* libmb/mbpixbuf.c:
+	* libmb/mbtray.c:
+	* libmb/mbutil.c:
+	Add _GNU_SOURCE define to fix -DXOPEN_SOURCE issues.
+
+2005-03-07  Ross Burton  <ross@burtonini.com>
+
+	* tests/Makefile.am:
+	Add oh.h to pixbuf_SOURCES.
+
+2005-02-22  mallum,,,  <mallum@openedhand.com>
+
+	* configure.ac:
+        move AC_CONFIG_AUX_DIR above AM_INIT_AUTOMAKE
+
+2005-02-22  mallum,,,  <mallum@openedhand.com>
+
+	* libmb/mbtray.c: (get_xevent_timed):
+	Make timeouts work more correctly. Fixes bug with large timeouts
+	never getting called like with the clock applet.
+
+2005-01-24  1.6 Released
+
+2005-01-24  mallum,,,  <mallum@openedhand.com>
+
+	* libmb/Makefile.am:
+	* libmb/mbexp.c:
+	Bump up soname. add a comment to mbexp.c
+
+2005-01-11  mallum,,,  <mallum@openedhand.com>
+
+	* configure.ac:
+	Bump up version
+	* libmb/mbmenu.c: (mb_menu_new):
+	Change default font, avoiding fixed
+	* libmb/mbpixbuf.c: (_paletteAlloc), (mb_pixbuf_get_pixel):
+	* libmb/mbpixbuf.h:
+	Add new x_pixel call
+
+2005-01-10  Ross Burton  <ross@burtonini.com>
+
+	* libmb/mbdotdesktop.c:
+	Fix an infinite loop in mb_dotdesktop_folders_free.
+
+2005-01-07  Ross Burton  <ross@burtonini.com>
+
+	* libmb/mbpixbuf.c:
+	Revert the _composite change, there are semantic differences.
+
+2005-01-07  Ross Burton  <ross@burtonini.com>
+
+	* libmb/mbexp.c:
+	Fix a compile error.
+
+2005-01-07  mallum,,,  <mallum@openedhand.com>
+
+	* configure.ac:
+	* libmb/mbpixbuf.c:
+	Endianess handling for 16bpp internal.
+
+2005-01-07  Ross Burton  <ross@burtonini.com>
+
+	* tests/Makefile.am:
+	Put all CFLAGS definitions in here.
+
+	* tests/dot-desktop.c:
+	Remove suite_free call, recent check's do that for us.
+
+	* tests/pixbuf.c:
+	Add more tests, and run twice for 16bpp and 32bpp.
+
+	* tests/gcov.sh:
+	Script to run the tests and prepare a gcov coverage report.
+
+2005-01-07  Ross Burton  <ross@burtonini.com>
+
+	* libmb/mbpixbuf.c:
+	Use _img_copy_composite() in _img_composite() instead of doing the
+	same code twice.
+
+2005-01-04  mallum,,,  <mallum@openedhand.com>
+
+	* libmb/mbpixbuf.c: (mb_pixbuf_img_get_pixel):
+	* libmb/mbtray.c: (_set_icon_hint):
+	Fix odditiy in set icons being yellow.
+
+2005-01-04 1.5 Released 
+
+2005-01-04  mallum  <mallum@openedhand.com>
+
+	* libmb/mbexp.h:
+	* libmb/mbpixbuf.h:
+	* libmb/mbtray.h:
+	Fix Doxygen doc warnings
+	* libmb/mbtray.c: (_set_icon_hint):
+	Remove minor compiler warning
+
+2004-12-23  mallum,,,  <mallum@openedhand.com>
+
+	* configure.ac:
+	Make check an --enable option ( eases x-compiling )
+
+	* libmb/mbpixbuf.c: (mb_pixbuf_img_scale_down),
+	(mb_pixbuf_img_render_to_drawable_with_gc):
+	Fix alignment errors
+
+	* libmb/mbtray.c: (mb_tray_app_new_with_display):
+	Honour MB_SYNC env var.
+
+2004-12-22  Ross Burton  <ross@openedhand.com>
+
+	* tests/menu/*:
+	Add test .directory files
+
+	* tests/dot-desktop.c:
+	Add a test to exercise the .directory parser.
+
+2004-12-22  Ross Burton  <ross@openedhand.com>
+
+	* libmb/mbdotdesktop.h:
+	Document _get_exec and remove mb_dot_desktop_folders_get_entry, as
+	it's totally broken.
+
+2004-12-21  Ross Burton  <ross@burtonini.com>
+
+	* tests/pixbuf.c:
+	Change some numbers to be 16-bpp safe, and don't run the JPEG
+	loader test unless JPEG was enabled.
+
+2004-12-21  mallum  <mallum@openedhand.com>
+
+	* libmb/mbpixbuf.c: (mb_pixbuf_new):
+	* libmb/mbpixbuf.h:
+	Add mb_pixbuf_destroy()
+
+	* tests/oh.xpm, tests/oh.jpg
+	Added new test images to load
+
+	* tests/pixbuf.c: (compare_with_pixel), (START_TEST),
+	(pixbuf_suite):
+	Add xmp,jpg leader tests. Fix for 16bpp a little. 
+
+2004-12-20  mallum,,,  <mallum@openedhand.com>
+
+	* libmb/mbpixbuf.c: (mb_pixbuf_new_extended), (mb_pixbuf_img_new),
+	(mb_pixbuf_img_rgba_new), (mb_pixbuf_img_rgb_new),
+	(mb_pixbuf_img_new_from_int_data), (mb_pixbuf_img_new_from_data),
+	(mb_pixbuf_img_new_from_x_drawable), (mb_pixbuf_img_clone),
+	(mb_pixbuf_img_free), (_mb_convert_24bpp_to_16bpp),
+	(mb_pixbuf_img_new_from_file), (mb_pixbuf_img_fill),
+	(mb_pixbuf_img_composite),
+	(mb_pixbuf_img_copy_composite_with_alpha),
+	(mb_pixbuf_img_copy_composite), (mb_pixbuf_img_copy),
+	(mb_pixbuf_img_scale_down), (mb_pixbuf_img_scale_up),
+	(mb_pixbuf_img_scale), (mb_pixbuf_img_render_to_drawable),
+	(mb_pixbuf_img_render_to_drawable_with_gc),
+	(mb_pixbuf_img_render_to_mask), (mb_pixbuf_img_data),
+	(mb_pixbuf_img_get_pixel), (mb_pixbuf_img_plot_pixel),
+	(mb_pixbuf_img_plot_pixel_with_alpha), (mb_pixbuf_img_transform):
+	* libmb/mbpixbuf.h:
+	Initial implementation of pixbuf 16bpp internal code. 
+
+	* libmb/mbtray.c: (_set_icon_hint):
+	* libmb/mbmenu.c: (mb_menu_xmenu_paint_active_item),
+	(mb_menu_xmenu_paint):
+	Improvements to not access image rgba member directly.  
+
+	* tests/Makefile.am:
+	Remove spurious comment.
+
+2004-12-17  Ross Burton  <ross@openedhand.com>
+
+	* test/pixbuf.c:
+	* test/oh-scaled.png:
+	Test simple scaling.
+
+2004-12-13  mallum,,,  <mallum@openedhand.com>
+
+	* Makefile.am:
+	* configure.ac:
+	* tests/Makefile.am:
+	Only build tests if 'check' present.
+
+	* libmb/mbtray.c: (handle_configure), (_init_docking):
+	Add some more debugging statements + commenting	
+
+2004-12-10  Ross Burton  <ross@openedhand.com>
+
+	* configure.ac:
+	* Makefile.am:
+	* tests/*
+	Add some unit tests for MBDotDesktop and MBPixbuf.
+
+2004-12-01  mallum  <mallum@handhelds.org>
+
+	* configure.ac:
+	* libmb/Makefile.am:
+	Bump up version to 1.5
+
+2004-11-30  Ross Burton  <ross@burtonini.com>
+
+	* libmb/mbdotdesktop.h:
+	* libmb/mbdotdesktop.c:
+	Add mb_dotdesktop_get_exec(), which expands any %-encoded
+	variables.
+	
+2004-11-26  mallum  <mallum@handhelds.org>
+
+	* COPYING:
+	Add LGPL Version so auto* does not generate incorrect GPL one.
+
+2004-11-17  Ross Burton  <ross@burtonini.com>
+
+	* libmb/mbexp.c:
+	When freeing a MbColor free the XftColor, and when freeing a
+	MbFont unref the MbColor and the PangoContext.
+
+2004-11-16  mallum <mallum@handhelds.org>
+	    
+	* libmb/mbexp.c: (mb_font_unref):
+	Actually free up pango/core font resources properly.
+	Should fix bug #101
+
+2004-09-24 1.4 Released
+
+2004-09-24  mallum,,,  <mallum@handhelds.org>
+
+	* configure.ac:
+	Bump up version 
+	* libmb/Makefile.am:
+	Bump up lib version
+	* libmb/mbexp.c: (mb_font_set_size_to_pixels):
+	Optimise this. 
+	* libmb/mbdotdesktop.h:	
+	* libmb/mbmenu.h:
+	* libmb/mbutil.h:
+	Add missing C++ protection  
+
+2004-09-07  mallum <mallum@handhelds.org>
+
+	* libmb/mbpixbuf.c: (mb_pixbuf_img_transform):
+	Fix buggy broken rotation tranforms. 
+
+2004-08-23 1.3 released. 
+
+2004-08-23  mallum,,,  <mallum@handhelds.org>
+
+	* libmb/mbdotdesktop.h:
+	Add missing include of mbutiil.h
+	* libmb/mbpixbuf.c: (mb_pixbuf_img_render_to_drawable_with_gc),
+	(mb_pixbuf_img_render_to_mask):
+	Stop request shm paint event
+
+2004-08-09  mallum,,,  <mallum@handhelds.org>
+
+	* libmb/mbdotdesktop.c: (mb_dot_desktop_icon_get_full_path):
+	* libmb/mbutil.c: (mb_util_get_homedir),
+	(mb_util_get_theme_full_path):
+	* libmb/mbutil.h:
+       Added mb_util_get_homedir() call.
+
+2004-07-30  mallum,,,  <mallum@handhelds.org>
+
+	* libmb/mbexp.c: (mb_font_render_simple_get_width):
+	* libmb/mbexp.h:
+	Added mb_font_render_simple_get_width() call. 
+
+2004-07-22  mallum,,,  <mallum@handhelds.org>
+
+	* libmb/mbexp.c: (_mb_font_load):
+	Make sure pango font load returns correct success code.
+
+2004-05-28  Matthew Allum,,,  <mallum@handhelds.org>
+
+	* configure.ac:
+	bump up version
+	* libmb/mbexp.c: (mb_drawable_new):
+	* libmb/mbpixbuf.c: (mb_pixbuf_get_pixel), (mb_pixbuf_new),
+	(mb_pixbuf_new_extended), (mb_pixbuf_img_render_to_drawable),
+	(mb_pixbuf_img_render_to_drawable_with_gc):
+	* libmb/mbpixbuf.h:
+	Add new call for handling ARGB32 Visuals better
+
+2004-05-05  Matthew Allum,,,  <mallum@handhelds.org>
+
+	* libmb/mbexp.c: (mb_font_set_from_string):
+	Make mb_font_set_from_string() try and load the requested font
+	so it can feed a NULL back to the caller on failiure.
+	Avoids 'mystery' exit when no fonts installed.
+
+2004-04-13  Matthew Allum,,,  <mallum@handhelds.org>
+
+	* configure.ac:
+	* libmb/Makefile.am:
+	Add gcov and gprof magic
+
+2004-03-17  Matthew Allum,,,  <mallum@handhelds.org>
+
+	* configure.ac:
+	Eek remove stray space.
+
+2004-03-17  Matthew Allum,,,  <mallum@handhelds.org>
+
+	* README:
+	Add content.
+	* configure.ac:
+	* libmb/Makefile.am:
+	bump up minor version.
+
+2004-02-26  Matthew Allum,,,  <mallum@openedhand.com>
+
+	* Makefile.am:
+	Added snapshot target
+
+2004-02-26  Matthew Allum,,,  <mallum@openedhand.com>
+
+	* libmb/mbexp.c: (_clip_some_text), (mb_font_render_simple):
+	Fix odd segv for really long trail clipped text. 
+
+2004-02-25  Matthew Allum,,,  <mallum@openedhand.com>
+
+	* libmb/mbpixbuf.c: (mb_pixbuf_img_plot_pixel),
+	(mb_pixbuf_img_plot_pixel_with_alpha):
+	fix bounds checking.
+
+2004-02-25  Matthew Allum,,,  <mallum@openedhand.com>
+
+	* libmb/mbexp.c: (_clip_some_text), (mb_font_render_simple):
+	Harden font clipping
+
+2004-02-13  Matthew Allum,,,  <mallum@openedhand.com>
+
+	* libmb/mbtray.c: (mb_tray_app_set_session),
+	(mb_tray_app_get_session), (handle_configure), (_init_docking),
+	(mb_tray_app_hide), (mb_tray_handle_xevent):
+	* libmb/mbtray.h:
+	Add mb_tray_app_get|set_session
+	Fix unhide/hide fuctionality
+
+2004-02-13  Matthew Allum,,,  <mallum@openedhand.com>
+
+	* configure.ac:
+	Remove AM_MAINTAINER_MODE, add AC_CONFIG_AUX
+	This seems to fix random missing .so naming problem
+
+2004-02-10 libmatchbox-1.1 released
+
+2004-02-10  Matthew Allum,,,  <mallum@handhelds.org>
+
+	* libmb/mbexp.h:
+	Minor doc typo fixes
+
+2004-02-10  Matthew Allum,,,  <mallum@handhelds.org>
+
+	* libmb/mbexp.h:
+	* libmb/mbmenu.h:
+	* libmb/mbpixbuf.h:
+	* libmb/mbutil.c: (mb_exec), (mb_single_instance_get_window),
+	(mb_single_instance_is_starting), (mb_util_get_theme_full_path):
+	* libmb/mbutil.h:
+	removed trailing ','s from enums. Added const * to mbutil funcs
+	fixes bugs #66, #67
+
+2004-02-06  Matthew Allum,,,  <mallum@openedhand.com>
+
+	* libmb/mbexp.h:
+	* libmb/mbtray.h:
+	Doc updates
+
+2004-02-05  Matthew Allum, <mallum@openedhand.com>
+
+	* configure.ac:
+	* doc/Makefile.am:
+	Type fixes
+
+2004-02-04  Matthew Allum, mallum@handhelds.org
+
+	* configure.ac:
+	* libmb/mbmenu.c: (mb_menu_handle_xevent), (new_menu):
+        Made sure XRefreshKeyboardMapping() gets called when it should.
+	Fixed issue of key scrolling vars getting inited right. 
+
+2004-02-04  Matthew Allum, mallum@handhelds.org
+
+	* libmb/mbmenu.h:
+	Removed bogus xpm.h include.
+
+2004-02-03  Matthew Allum, mallum@handhelds.org
+
+	* configure.ac:
+	* libmb/Makefile.am:
+	Stopped GCC flags leaking into libmb.pc
+
+2004-02-03  Matthew Allum, mallum@handhelds.org
+
+	* libmb/mb.h:
+	* libmb/mbmenu.c:
+	Fixed xsetting defines getting set right
+
+2004-02-03  Matthew Allum, mallum@handhelds.org
+
+	* libmb.pc.in:
+	Fixed botched xsettings cflags entry

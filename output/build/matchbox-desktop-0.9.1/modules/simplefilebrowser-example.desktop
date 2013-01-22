@@ -1,0 +1,15 @@
+[Desktop Entry]
+#
+# Put a number of files like this for each dir you want to browse 
+# $PREFIX/share/matchbox/mbdesktop_filebrowser/
+#
+# Also make sure you have simplefilebrowser.so listed in your 
+# mbdesktop_modules file.
+#
+
+Path=/pictures
+Match=.*(png|jpg|gif)$
+ExecWith=qiv
+FileIcon=imageicon.png
+FolderName=Images
+FolderIcon=mbfolder.png

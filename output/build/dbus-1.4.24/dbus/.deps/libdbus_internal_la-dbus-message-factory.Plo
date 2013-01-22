@@ -1,0 +1,5 @@
+libdbus_internal_la-dbus-message-factory.lo \
+  .libs/libdbus_internal_la-dbus-message-factory.o:  \
+ dbus-message-factory.c ../config.h
+
+../config.h:

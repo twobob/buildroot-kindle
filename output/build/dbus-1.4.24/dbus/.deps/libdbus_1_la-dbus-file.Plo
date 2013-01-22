@@ -1,0 +1,29 @@
+libdbus_1_la-dbus-file.lo .libs/libdbus_1_la-dbus-file.o: dbus-file.c \
+  ../config.h dbus-file.h ../dbus/dbus-string.h ../dbus/dbus-macros.h \
+  ../dbus/dbus-types.h \
+  /opt/arm-2007q3/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.1/include/stddef.h \
+  ../dbus/dbus-arch-deps.h ../dbus/dbus-memory.h \
+  /opt/arm-2007q3/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.1/include/stdarg.h \
+  ../dbus/dbus-errors.h ../dbus/dbus-protocol.h
+
+../config.h:
+
+dbus-file.h:
+
+../dbus/dbus-string.h:
+
+../dbus/dbus-macros.h:
+
+../dbus/dbus-types.h:
+
+/opt/arm-2007q3/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.1/include/stddef.h:
+
+../dbus/dbus-arch-deps.h:
+
+../dbus/dbus-memory.h:
+
+/opt/arm-2007q3/bin/../lib/gcc/arm-none-linux-gnueabi/4.2.1/include/stdarg.h:
+
+../dbus/dbus-errors.h:
+
+../dbus/dbus-protocol.h:

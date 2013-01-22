@@ -1,0 +1,9 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Xlib Compose Keys for tatar-cyr
+
+Applications using Xlib input handling should recognize these compose key
+sequences in locales using the tatar-cyr compose table.
+
+This compose table defines no sequences of its own.
+

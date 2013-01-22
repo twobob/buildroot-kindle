@@ -1,0 +1,11 @@
+prefix=/home/simon/GIT/buildroot-k3-current/output/host/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: XCB GLX
+Description: XCB GLX Extension
+Version: 1.7
+Requires: xcb
+Libs: -L${libdir} -lxcb-glx
+Cflags: -I${includedir}

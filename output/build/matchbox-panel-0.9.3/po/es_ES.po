@@ -1,0 +1,142 @@
+# Spanish localization of MatchBox Dock on-line help
+# Copyright (C) 2003 
+# This file is distributed under the same license as the Matchbox package.
+# J.Manrique <jsmanrique@asturlinux.org>, 2003.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.6\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-02-02 10:37+0000\n"
+"PO-Revision-Date: 2003-07-29 09:00+0100\n"
+"Last-Translator: J.Manrique <jsmanrique@asturlinux.org>\n"
+"Language-Team: es@li.org <es@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../src/panel_menu.c:68
+msgid "Remove"
+msgstr "Quitar"
+
+#: ../src/panel_menu.c:172
+msgid "Add"
+msgstr "Añadir"
+
+#: ../src/panel_menu.c:259
+msgid "Hide"
+msgstr "Ocultar"
+
+#: ../applets/mb-applet-system-monitor.c:253
+#, c-format
+msgid "CPU: %i %%, MEMORY: %i %%\n"
+msgstr "CPU: %i %%, MEMORIA: %i %%\n"
+
+#: ../applets/mb-applet-system-monitor.c:324
+msgid "CPU/Mem Monitor"
+msgstr "Monitor de CPU/Mem"
+
+#: ../applets/mb-applet-wireless.c:438
+#, fuzzy, c-format
+msgid ""
+"%s:\n"
+" Link %.1f\n"
+" Level %.1f\n"
+" Noise %.1f\n"
+msgstr "%s: Enlace %.1f, Nivel %.1f, Ruido %.1f\n"
+
+#: ../applets/mb-applet-wireless.c:443
+#, c-format
+msgid "No wireless cards detected\n"
+msgstr "No se detectó tarjeta inalámbrica\n"
+
+#: ../applets/mb-applet-wireless.c:483
+msgid "Wireless Monitor"
+msgstr "Monitor de Inalámbrica"
+
+#: ../applets/mb-applet-clock.c:146
+#, c-format
+msgid "%.2d:%.2d"
+msgstr ""
+
+#: ../applets/mb-applet-clock.c:234
+msgid "%a %b %e %k:%M:%S %Y"
+msgstr ""
+
+#: ../applets/mb-applet-clock.c:333
+msgid "Clock"
+msgstr "Reloj"
+
+#: ../applets/mb-applet-clock.c:360
+msgid "Set Time"
+msgstr ""
+
+#: ../applets/mb-applet-battery.c:283
+#, fuzzy, c-format
+msgid ""
+"Battery power very low !\n"
+"\n"
+"Time Left: %.2i minutes"
+msgstr ""
+"Batería\n"
+"Jugo %.2i %%\n"
+"Tiempo restante: %.2i mins\n"
+
+#: ../applets/mb-applet-battery.c:380
+#, c-format
+msgid ""
+"AC Connected\n"
+"Charging: %.2i %%\n"
+msgstr ""
+"AC Conectado\n"
+"Cargando: %.2i %%\n"
+
+#: ../applets/mb-applet-battery.c:383
+#, c-format
+msgid ""
+"AC Connected\n"
+"Fully charged.\n"
+msgstr ""
+"AC Conectado\n"
+"Carga completada.\n"
+
+#: ../applets/mb-applet-battery.c:390
+#, c-format
+msgid ""
+"Battery Power\n"
+"Juice %.2i %%\n"
+"Time left: %.2i h. %.2i min.\n"
+msgstr ""
+"Batería\n"
+"Jugo %.2i %%\n"
+"Tiempo restante: %.2i h. %.2i min.\n"
+
+#: ../applets/mb-applet-battery.c:392
+#, c-format
+msgid ""
+"Battery Power\n"
+" Device read error.\n"
+msgstr ""
+"Batería\n"
+" Error leyendo dispositivo.\n"
+
+#: ../applets/mb-applet-battery.c:442
+msgid "Battery Monitor"
+msgstr "Monitor de Batería"
+
+#: ../applets/mb-applet-battery.c:466
+msgid "More info"
+msgstr ""
+
+#~ msgid "Cant open mixer device"
+#~ msgstr "No se pudo abrir dispositivo mezclador"
+
+#~ msgid "Cant open mixer device for reading"
+#~ msgstr "No se pudo abrir dispositivo mezclador para lectura"
+
+#~ msgid "Cant open mixer device for writing"
+#~ msgstr "No se pudo abrir dispositivo mezclador para escritura"
+
+#~ msgid "Volume Control"
+#~ msgstr "Control de Volumen"
